@@ -457,16 +457,8 @@
 							</nav>
 						</div>
 
-						<div class="col-lg-4">
+						<div class="col-lg-3">
 							<ul class="action_items ul_li_right clearfix">
-								<li>
-									<form action="#">
-										<div class="form_item mb-0">
-											<input type="search" name="search" placeholder="search">
-											<button type="submit"><i class="fal fa-search"></i></button>
-										</div>
-									</form>
-								</li>
 								<li>
 									<button type="button" class="cart_btn">CART <small class="btn_badge">0</small></button>
 								</li>
@@ -815,7 +807,7 @@
 							<div class="col-lg-6">
 								<div class="slider_content">
 									<h3 class="text-white" data-animation="fadeInUp" data-delay=".4s">
-										Agility <span>and</span> Performance
+										Agility <span>andd</span> Performance
 									</h3>
 									<p data-animation="fadeInUp" data-delay=".6s">
 										Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
@@ -1931,124 +1923,7 @@
 			================================================== -->
 
 
-			<!-- feature_section - start
-			================================================== -->
-			<section class="feature_section motorcycle_big_feature sec_ptb_100 has_overlay parallaxie clearfix" data-background="images/backgrounds/bg_16.jpg">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row align-items-center justify-content-lg-between">
-						<div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-							<ul class="tabs_menu nav ul_li_block clearfix" role="tablist">
-								<li>
-									<a class="active" data-toggle="tab" href="#tab_one">
-										<img src="images/feature/motorcycle/img_02.png" alt="image_not_found">
-									</a>
-								</li>
-								<li>
-									<a data-toggle="tab" href="#tab_two">
-										<img src="images/feature/motorcycle/img_03.png" alt="image_not_found">
-									</a>
-								</li>
-								<li>
-									<a data-toggle="tab" href="#tab_three">
-										<img src="images/feature/motorcycle/img_04.png" alt="image_not_found">
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="col-lg-10">
-							<div class="tab-content">
-								<div id="tab_one" class="tab-pane active">
-									<div class="row align-items-center">
-										<div class="col-lg-6">
-											<div class="item_image text-center">
-												<img src="images/feature/motorcycle/img_01.png" alt="image_not_found">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="item_content">
-												<h3 class="item_title mb_15">
-													Adjusts The Hydraulic Fork
-												</h3>
-												<p class="mb_15">
-													Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
-													varius laoreet srtrum aenean imperdiet. Etiam ultricies nisi vel augue.
-												</p>
-												<ul class="info_list ul_li_block mb_30 clearfix">
-													<li><i class="fal fa-check"></i> web & Mobile - Optimized</li>
-													<li><i class="fal fa-check"></i> Coustom domain server</li>
-													<li><i class="fal fa-check"></i> best hosting on the market</li>
-													<li><i class="fal fa-check"></i> outstanding support</li>
-												</ul>
-												<a class="custom_btn bg_carparts_red text-uppercase" href="#!">Shop Now</a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div id="tab_two" class="tab-pane fade">
-									<div class="row align-items-center">
-										<div class="col-lg-6">
-											<div class="item_image text-center">
-												<img src="images/feature/motorcycle/img_01.png" alt="image_not_found">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="item_content">
-												<h3 class="item_title mb_15">
-													Adjusts The Hydraulic Fork
-												</h3>
-												<p class="mb_15">
-													Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
-													varius laoreet srtrum aenean imperdiet. Etiam ultricies nisi vel augue.
-												</p>
-												<ul class="info_list ul_li_block mb_30 clearfix">
-													<li><i class="fal fa-check"></i> web & Mobile - Optimized</li>
-													<li><i class="fal fa-check"></i> Coustom domain server</li>
-													<li><i class="fal fa-check"></i> best hosting on the market</li>
-													<li><i class="fal fa-check"></i> outstanding support</li>
-												</ul>
-												<a class="custom_btn bg_carparts_red text-uppercase" href="#!">Shop Now</a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div id="tab_three" class="tab-pane fade">
-									<div class="row align-items-center">
-										<div class="col-lg-6">
-											<div class="item_image text-center">
-												<img src="images/feature/motorcycle/img_01.png" alt="image_not_found">
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="item_content">
-												<h3 class="item_title mb_15">
-													Adjusts The Hydraulic Fork
-												</h3>
-												<p class="mb_15">
-													Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
-													varius laoreet srtrum aenean imperdiet. Etiam ultricies nisi vel augue.
-												</p>
-												<ul class="info_list ul_li_block mb_30 clearfix">
-													<li><i class="fal fa-check"></i> web & Mobile - Optimized</li>
-													<li><i class="fal fa-check"></i> Coustom domain server</li>
-													<li><i class="fal fa-check"></i> best hosting on the market</li>
-													<li><i class="fal fa-check"></i> outstanding support</li>
-												</ul>
-												<a class="custom_btn bg_carparts_red text-uppercase" href="#!">Shop Now</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- feature_section - end
-			================================================== -->
+			
 
 
 			<!-- feature_section - start
