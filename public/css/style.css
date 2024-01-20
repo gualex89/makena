@@ -464,7 +464,7 @@ hr {
   padding: 0px;
   opacity: 0.3;
   border-radius: 100%;
-  background: #ed1d24;
+  background: #F831FE;
 }
 .slick-dots li:hover button, .slick-dots li.slick-active button {
   opacity: 1;
@@ -503,7 +503,7 @@ hr {
 }
 .slick-arrow:hover:before {
   color: #ffffff;
-  background: #ed1d24;
+  background: #F831FE;
 }
 
 .slick-prev:before {
@@ -1140,7 +1140,7 @@ button {
 }
 
 .bg_carparts_red {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 
 .bg_furniture_brown {
@@ -1358,7 +1358,7 @@ button {
   background: #2e2e2e;
 }
 .custom_btn.bg_carparts_red {
-  background-color: #e52929;
+  background-color: #F831FE;
 }
 .custom_btn.bg_carparts_red:before {
   background: #2e2e2e;
@@ -1391,7 +1391,7 @@ button {
   background: #ff3800;
 }
 .custom_btn.bg_motorcycle_red:before {
-  background: #ed1d24;
+  background: #F831FE;
 }
 .custom_btn.bg_shop_brown:before {
   background: #181818;
@@ -1518,7 +1518,7 @@ button {
   line-height: 44px;
 }
 .icon_btn.bg_carparts_red {
-  background-color: #e52929;
+  background-color: #F831FE;
 }
 .icon_btn.bg_carparts_red:before {
   background: #2e2e2e;
@@ -1657,7 +1657,7 @@ button {
   line-height: 1;
   font-size: 20px;
   font-weight: 700;
-  color: #ed1d24;
+  color: #F831FE;
   display: inline-block;
 }
 
@@ -1842,7 +1842,7 @@ button {
   font-size: 60px;
 }
 .motorcycle_section_title .title_text span {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_section_title p {
   font-size: 20px;
@@ -2645,7 +2645,7 @@ button {
   font-family: "Rubik", sans-serif;
 }
 .carparts_header .main_menu ul > li:hover > a, .carparts_header .main_menu ul > li.active > a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_header .menu_item_has_child .submenu > li > a {
   color: #040404;
@@ -2653,7 +2653,7 @@ button {
   font-family: "Rubik", sans-serif;
 }
 .carparts_header .menu_item_has_child .submenu > li:hover > a, .carparts_header .menu_item_has_child .submenu > li.active > a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_header .search_box {
   margin: 0px;
@@ -3598,7 +3598,7 @@ button {
   font-weight: 700;
 }
 .motorcycle_header .main_menu > ul > li:hover > a, .motorcycle_header .main_menu > ul > li.active > a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_header .main_menu > ul > .menu_item_has_child > a:after {
   display: none;
@@ -4031,7 +4031,7 @@ button {
   font-size: 20px;
   font-weight: 700;
   margin-top: 15px;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .footer_instagram .brand_name i {
   margin-right: 5px;
@@ -4187,7 +4187,7 @@ button {
   font-family: "Oswald", sans-serif;
 }
 .carparts_footer .footer_useful_links a:hover {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 .footer_carparts_hotline h4 {
@@ -4195,7 +4195,7 @@ button {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 10px;
-  color: #ed1d24;
+  color: #F831FE;
   font-family: "Oswald", sans-serif;
 }
 .footer_carparts_hotline span {
@@ -4319,7 +4319,7 @@ button {
   background-color: #da0a2c;
 }
 .modern_newsletter .custom_btn:before {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .modern_newsletter input {
   width: 380px;
@@ -4723,13 +4723,13 @@ button {
   color: #ffffff;
 }
 .motorcycle_footer .footer_useful_links a:hover {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_footer .twitter_feed .admin_name a {
   color: #ffffff;
 }
 .motorcycle_footer .twitter_feed .admin_name a:hover {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_footer .footer_contact_info li {
   font-size: 18px;
@@ -4746,7 +4746,7 @@ button {
 }
 .motorcycle_footer .circle_social_links a:hover {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_footer .copyright_text {
   font-weight: 700;
@@ -4966,7 +4966,7 @@ button {
   font-size: 18px;
 }
 .carparts_breadcrumb .breadcrumb_nav a:hover {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 /* carparts breadcrumb - end */
@@ -5254,7 +5254,7 @@ button {
   display: none;
 }
 .motorcycle_breadcrumb_nav a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 /* motorcycle breadcrumb - end */
@@ -5543,21 +5543,21 @@ button {
   font-size: 20px;
 }
 .carparts_sidebar .price-range-area .ui-slider-range {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .carparts_sidebar .price-range-area .ui-state-default {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .carparts_sidebar .sb_category_accordion .card-header a:not(.collapsed):before {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_sidebar .sb_category_accordion ul a:hover:before {
-  border-color: #ed1d24;
-  background-color: #ed1d24;
+  border-color: #F831FE;
+  background-color: #F831FE;
 }
 .carparts_sidebar .sb_color_checkbox input:checked {
-  border-color: #ed1d24;
-  background-color: #ed1d24;
+  border-color: #F831FE;
+  background-color: #F831FE;
 }
 .carparts_sidebar .sb_color_checkbox input:checked + label {
   color: #1c1f23;
@@ -5671,7 +5671,7 @@ button {
   content: "";
   font-weight: 700;
   position: absolute;
-  color: #ed1d24;
+  color: #F831FE;
   font-family: "Font Awesome 5 pro";
 }
 .motorcycle_sidebar .sb_tags a {
@@ -5680,8 +5680,8 @@ button {
 }
 .motorcycle_sidebar .sb_tags a:hover {
   color: #ffffff;
-  border-color: #ed1d24;
-  background-color: #ed1d24;
+  border-color: #F831FE;
+  background-color: #F831FE;
 }
 
 /* motorcycle sidebar - end */
@@ -6096,11 +6096,11 @@ button {
 }
 .home_carparts ::selection {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .home_carparts ::-moz-selection {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .home_carparts :-moz-placeholder {
   color: #4a4949;
@@ -6137,7 +6137,7 @@ button {
   font-family: "Rubik", sans-serif;
 }
 .home_carparts .rating_star > li {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .home_carparts .slick-arrow {
   border-radius: 100%;
@@ -6149,7 +6149,7 @@ button {
 }
 .home_carparts .carousel_nav button:hover {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 
 .carparts_block_tabs {
@@ -6175,7 +6175,7 @@ button {
   background-color: #f5f5f5;
 }
 .carparts_block_tabs a:hover, .carparts_block_tabs a.active {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 .carparts_inline_tabs li:not(:last-child) {
@@ -6201,11 +6201,11 @@ button {
   height: 2px;
   content: "";
   position: absolute;
-  background: #ed1d24;
+  background: #F831FE;
   transition: width 0.3s linear;
 }
 .carparts_inline_tabs a:hover, .carparts_inline_tabs a.active {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_inline_tabs a:hover:before, .carparts_inline_tabs a.active:before {
   left: 0px;
@@ -6258,8 +6258,8 @@ button {
 }
 .carparts_layout_btns a:hover, .carparts_layout_btns a.active {
   color: #ffffff;
-  border-color: #ed1d24;
-  background-color: #ed1d24;
+  border-color: #F831FE;
+  background-color: #F831FE;
 }
 
 .carparts_pagination_nav a {
@@ -6278,7 +6278,7 @@ button {
   margin-right: 5px;
 }
 .carparts_pagination_nav li:hover > a, .carparts_pagination_nav li.active > a {
-  color: #ed1d24;
+  color: #F831FE;
   background-color: #f0eeee;
 }
 
@@ -6306,7 +6306,7 @@ button {
   content: "";
   height: 110px;
   position: absolute;
-  background-color: #ed1d24;
+  background-color: #F831FE;
   -webkit-clip-path: polygon(100% 0, 60px 100%, 100% 100%);
           clip-path: polygon(100% 0, 60px 100%, 100% 100%);
 }
@@ -6314,7 +6314,7 @@ button {
   line-height: 1;
   font-size: 22px;
   font-weight: 700;
-  color: #ed1d24;
+  color: #F831FE;
   margin-bottom: 20px;
   font-family: "Rajdhani";
 }
@@ -6495,7 +6495,7 @@ button {
   height: 40px;
   position: absolute;
   transform: translateX(-50%);
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .primary_carparts_category .item_title {
   line-height: 1;
@@ -6507,7 +6507,7 @@ button {
 .primary_carparts_category .item_instock {
   font-size: 16px;
   font-weight: 600;
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 .carparts_category_carousel .item {
@@ -6540,7 +6540,7 @@ button {
   line-height: 1;
   font-size: 28px;
   letter-spacing: -1px;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_store_info ul {
   margin-bottom: 25px;
@@ -6552,7 +6552,7 @@ button {
   font-weight: 700;
 }
 .carparts_store_info ul a:hover {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 .carparts_deals_listlayout {
@@ -6652,7 +6652,7 @@ button {
   transform: translateY(40px);
 }
 .carparts_product_grid .product_action_btns a:hover {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .carparts_product_grid:hover .product_action_btns li {
   opacity: 1;
@@ -6682,7 +6682,7 @@ button {
   text-transform: uppercase;
 }
 .carparts_product_grid:hover .item_title > a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_product_grid .price_text {
   line-height: 1;
@@ -6741,7 +6741,7 @@ button {
   font-weight: 700;
 }
 .carparts_product_listlayout:hover .item_title a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_product_listlayout p {
   color: #7b7d7f;
@@ -6763,7 +6763,7 @@ button {
 .carparts_product_listlayout .product_action_btns a {
   color: #ffffff;
   box-shadow: none;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .carparts_product_listlayout .product_action_btns a:hover {
   transform: unset;
@@ -6808,7 +6808,7 @@ button {
   line-height: 1;
   font-size: 17px;
   font-weight: 600;
-  color: #ed1d24;
+  color: #F831FE;
   margin-bottom: 7px;
 }
 .Interior_carparts .item_title {
@@ -6835,7 +6835,7 @@ button {
   font-weight: 700;
 }
 .Interior_carparts .parts_category_list a:hover {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 /* Interior carparts - end */
@@ -6910,7 +6910,7 @@ button {
   color: #2e2e2e;
 }
 .carparts_deals_grid:hover .item_title > a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_deals_grid .price_text {
   display: block;
@@ -6921,7 +6921,7 @@ button {
   font-size: 24px;
   font-weight: 700;
   margin-right: 5px;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_deals_grid .price_text del {
   font-size: 18px;
@@ -11709,11 +11709,11 @@ button {
 }
 .home_motorcycle ::selection {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .home_motorcycle ::-moz-selection {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .home_motorcycle .custom_btn {
   font-size: 18px;
@@ -11734,7 +11734,7 @@ button {
 }
 .home_motorcycle .carousel_nav button:hover {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 
 /* home motorcycle reset - end */
@@ -11765,7 +11765,7 @@ button {
   margin-bottom: 15px;
 }
 .motorcycle_slider h3 span {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_slider p {
   margin-bottom: 40px;
@@ -11785,7 +11785,7 @@ button {
 }
 .motorcycle_slider .carousel_nav button {
   color: #ffffff;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_slider .carousel_nav button:hover {
   color: #ffffff;
@@ -11810,7 +11810,7 @@ button {
   line-height: 1;
   position: absolute;
   transform: translateY(-50%);
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 
 /* motorcycle slider - end */
@@ -11849,7 +11849,7 @@ button {
 .motorcycle_category_item .item_type {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_category_item .item_title {
   color: #161616;
@@ -11886,7 +11886,7 @@ button {
   font-size: 100px;
 }
 .motorcycle_deals_carousel .item_title span {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_deals_carousel p {
   margin-bottom: 30px;
@@ -11908,7 +11908,7 @@ button {
   width: 85px;
   position: absolute;
   transform: translateY(-50%);
-  background-color: #ed1d24;
+  background-color: #F831FE;
   box-shadow: 0px 2px 7px 0px rgba(237, 29, 36, 0.51);
 }
 .motorcycle_deals_carousel .countdown_wrap {
@@ -11930,7 +11930,7 @@ button {
   padding: 0px 10px;
   margin-bottom: 10px;
   border-radius: 100%;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_deals_carousel .countdown_timer.timein_box span {
   color: #888888;
@@ -11980,7 +11980,7 @@ button {
   align-items: center;
   justify-content: center;
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  background-color: #ed1d24;
+  background-color: #F831FE;
   transform: translate(-50%, -50%);
 }
 .motorcycle_deals_carousel2 .item_image {
@@ -12001,7 +12001,7 @@ button {
 }
 .motorcycle_deals_carousel2 .countdown_timer li {
   padding: 15px 25px;
-  border: 1px solid #ed1d24;
+  border: 1px solid #F831FE;
 }
 .motorcycle_deals_carousel2 .countdown_timer li:not(:last-child) {
   margin-right: 10px;
@@ -12034,7 +12034,7 @@ button {
   width: 18px;
   height: 1px;
   right: -9px;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_tabs_nav li:after {
   right: -5px;
@@ -12117,7 +12117,7 @@ button {
   transform: unset;
 }
 .motorcycle_product_grid .product_action_btns a:hover span:nth-child(2) {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_product_grid .product_action_btns span {
   float: left;
@@ -12129,7 +12129,7 @@ button {
 .motorcycle_product_grid .product_action_btns span:first-child {
   width: 45px;
   text-align: center;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_product_grid .product_action_btns span:last-child {
   min-width: 115px;
@@ -12178,14 +12178,14 @@ button {
   font-size: 45px;
 }
 .motorcycle_product_grid:hover .item_title a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_product_grid .item_type {
   line-height: 1;
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_product_grid .rating_star {
   top: 15px;
@@ -12193,7 +12193,7 @@ button {
   position: absolute;
 }
 .motorcycle_product_grid .rating_star li {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 .motorcycle_image_1 {
@@ -12241,7 +12241,7 @@ button {
   background-color: #eaeaeb;
 }
 .motorcycle_product_list .wishlist_btn:hover {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_product_list .item_content {
   padding: 20px 40px;
@@ -12265,7 +12265,7 @@ button {
   font-size: 45px;
 }
 .motorcycle_product_list:hover .item_title a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_product_list .item_type {
   display: block;
@@ -12294,7 +12294,7 @@ button {
   transform: unset;
 }
 .motorcycle_product_list .product_action_btns a:hover span:nth-child(2) {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_product_list .product_action_btns span {
   float: left;
@@ -12306,7 +12306,7 @@ button {
 .motorcycle_product_list .product_action_btns span:first-child {
   width: 45px;
   text-align: center;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_product_list .product_action_btns span:last-child {
   min-width: 115px;
@@ -12344,7 +12344,7 @@ button {
 }
 .motorcycle_big_feature .info_list i {
   margin-right: 10px;
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 .feature_fullimage {
@@ -12360,7 +12360,7 @@ button {
   content: "";
   opacity: 0.8;
   position: absolute;
-  background-color: #ed1d24;
+  background-color: #F831FE;
   transform: translateX(-50%);
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -12465,7 +12465,7 @@ button {
   height: 1px;
   width: 109px;
   position: absolute;
-  background-color: #ed1d24;
+  background-color: #F831FE;
   box-shadow: 0px 2px 7px 0px rgba(237, 29, 36, 0.51);
 }
 .motorcycle_testimonial_item .sub_title {
@@ -12480,7 +12480,7 @@ button {
 }
 .motorcycle_testimonial_item .title_text span {
   display: block;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_testimonial_item .quote_icon {
   line-height: 1;
@@ -12501,7 +12501,7 @@ button {
   line-height: 1;
   font-size: 24px;
   margin-bottom: 15px;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_testimonial_item p {
   color: #262626;
@@ -14543,7 +14543,7 @@ button {
 }
 .carparts_blog_listlayout .post_date strong {
   font-weight: 700;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .carparts_blog_listlayout .item_title {
   color: #1e1e1e;
@@ -14601,7 +14601,7 @@ button {
   font-weight: 700;
 }
 .carparts_small_blog:hover .item_title a {
-  color: #ed1d24;
+  color: #F831FE;
 }
 
 .furniture_blog_listlayout.bg_black {
@@ -18424,7 +18424,7 @@ blockquote .blockquote_title {
 }
 .motorcycle_details .rating_star > li {
   font-size: 14px;
-  color: #ed1d24;
+  color: #F831FE;
 }
 .motorcycle_details .title_text {
   line-height: 1;
@@ -18457,7 +18457,7 @@ blockquote .blockquote_title {
   background-color: #4b4b4b;
 }
 .motorcycle_details .quantity_input span:hover {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_details .btns_group li {
   display: flex;
@@ -18480,7 +18480,7 @@ blockquote .blockquote_title {
   transform: unset;
 }
 .motorcycle_details .btns_group a:hover span:nth-child(2) {
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_details .btns_group span {
   float: left;
@@ -18492,7 +18492,7 @@ blockquote .blockquote_title {
 .motorcycle_details .btns_group span:first-child {
   width: 45px;
   text-align: center;
-  background-color: #ed1d24;
+  background-color: #F831FE;
 }
 .motorcycle_details .btns_group span:last-child {
   min-width: 115px;

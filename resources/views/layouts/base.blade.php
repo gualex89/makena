@@ -64,7 +64,7 @@
 						<div class="col-lg-2">
 							<div class="brand_logo">
 								<a class="brand_link" href="index.html">
-									<img src="images/logo/logo_22_1x.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
+									<img src="images/logo/logoMakena.png" srcset="images/logo/logoMakena.png 2x" alt="logo_not_found">
 								</a>
 
 								<ul class="mh_action_btns ul_li clearfix">
@@ -564,7 +564,7 @@
 
 					<div class="msb_widget brand_logo text-center">
 						<a href="index.html">
-							<img src="images/logo/logo_25_1x.png" srcset="images/logo/logo_25_2x.png 2x" alt="logo_not_found">
+							<img src="images/logo/logo_black.png" srcset="images/logo/logo_black.png" alt="logo_not_found">
 						</a>
 					</div>
 
@@ -728,7 +728,7 @@
 										<ul class="dropdown-menu ul_li_block">
 											<li><a href="#!"><del>Shop Page</del></a></li>
 											<li><a href="shop_details.html">Shop Details</a></li>
-										</ul>
+										</ul
 									</li>
 								</ul>
 							</li>
@@ -801,7 +801,7 @@
 			================================================== -->
 			<section class="slider_section motorcycle_slider position-relative clearfix">
 				<div class="main_slider clearfix" data-slick='{"dots": false}'>
-					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.jpg">
+					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.webp">
 						<span class="overlay" data-bg-color="#191919"></span>
 						<div class="container maxw_1430">
 							<div class="col-lg-6">
@@ -821,11 +821,11 @@
 						</div>
 
 						<div class="slider_image" data-animation="fadeInRight" data-delay=".2s">
-							<img src="images/slider/motorcycle/img_01.png" alt="image_not_found">
+							<img src="images/slider/motorcycle/img_01.webp" alt="image_not_found">
 						</div>
 					</div>
 
-					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.jpg">
+					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.webp">
 						<span class="overlay" data-bg-color="#191919"></span>
 						<div class="container maxw_1430">
 							<div class="col-lg-6">
@@ -845,11 +845,11 @@
 						</div>
 
 						<div class="slider_image" data-animation="fadeInRight" data-delay=".2s">
-							<img src="images/slider/motorcycle/img_01.png" alt="image_not_found">
+							<img src="images/slider/motorcycle/img_01.webp" alt="image_not_found">
 						</div>
 					</div>
 
-					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.jpg">
+					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.webp">
 						<span class="overlay" data-bg-color="#191919"></span>
 						<div class="container maxw_1430">
 							<div class="col-lg-6">
@@ -869,7 +869,7 @@
 						</div>
 
 						<div class="slider_image" data-animation="fadeInRight" data-delay=".2s">
-							<img src="images/slider/motorcycle/img_01.png" alt="image_not_found">
+							<img src="images/slider/motorcycle/img_01.webp" alt="image_not_found">
 						</div>
 					</div>
 				</div>
