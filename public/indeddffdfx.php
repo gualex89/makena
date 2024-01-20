@@ -807,7 +807,31 @@
 							<div class="col-lg-6">
 								<div class="slider_content">
 									<h3 class="text-white" data-animation="fadeInUp" data-delay=".4s">
-										Agilitys <span>and</span> Performance
+										Agility <span>andd</span> Performance
+									</h3>
+									<p data-animation="fadeInUp" data-delay=".6s">
+										Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
+										varius laoreet srtrum aenean imperdiet. Etiam ultricies nisi vel augue.------
+									</p>
+									<div class="abtn_wrap" data-animation="fadeInUp" data-delay=".8s">
+										<a class="custom_btn bg_carparts_red text-uppercase" href="#!">Search Now</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="slider_image" data-animation="fadeInRight" data-delay=".2s">
+							<img src="images/slider/motorcycle/img_01.webp" alt="image_not_found">
+						</div>
+					</div>
+
+					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.webp">
+						<span class="overlay" data-bg-color="#191919"></span>
+						<div class="container maxw_1430">
+							<div class="col-lg-6">
+								<div class="slider_content">
+									<h3 class="text-white" data-animation="fadeInUp" data-delay=".4s">
+										Agility <span>and</span> Performance
 									</h3>
 									<p data-animation="fadeInUp" data-delay=".6s">
 										Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
@@ -835,31 +859,7 @@
 									</h3>
 									<p data-animation="fadeInUp" data-delay=".6s">
 										Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
-										varius laoreet srtrum aenean imperdiet. Etiam ultricies nisi vel augue. 
-									</p>
-									<div class="abtn_wrap" data-animation="fadeInUp" data-delay=".8s">
-										<a class="custom_btn bg_carparts_red text-uppercase" href="#!">Search Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="slider_image" data-animation="fadeInRight" data-delay=".2s">
-							<img src="images/slider/motorcycle/img_01.webp" alt="image_not_found">
-						</div>
-					</div>
-
-					<div class="item d-flex align-items-center text-white" data-background="images/slider/motorcycle/bg_01.webp">
-						<span class="overlay" data-bg-color="#191919"></span>
-						<div class="container maxw_1430">
-							<div class="col-lg-6">
-								<div class="slider_content">
-									<h3 class="text-white" data-animation="fadeInUp" data-delay=".4s">
-										Agility <span>and</span> Performances
-									</h3>
-									<p data-animation="fadeInUp" data-delay=".6s">
-										Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus 
-										varius laoreet srtrum aenean imperdiet. Etiam ultricies nisi vel augue. dgdfgdfg---------
+										varius laoreet srtrum aenean imperdiet. Etiam ultricies nisi vel augue.
 									</p>
 									<div class="abtn_wrap" data-animation="fadeInUp" data-delay=".8s">
 										<a class="custom_btn bg_carparts_red text-uppercase" href="#!">Search Now</a>
