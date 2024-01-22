@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http;
+use App\Http\Controllers\HomeImagesController;
 
 
-
-Route::get('/', function () {
-    return view('layouts.base');
-});
+Route::get('/', [HomeImagesController::class, 'index'])->name('welcome');
 
 
 
