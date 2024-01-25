@@ -12,6 +12,8 @@
   <button onclick="cambiarOrden()">Ajustar a la Funda</button>
   <button id="btn">Generar imagen</button>
   <button onclick="enviarAlFondo()">Modificar imagen</button>
+  <button onclick="window.location.href='/'">Ir a la página principal</button>
+
 
   
   <script src="{{ asset('js/app.js') }}" defer></script>

@@ -155,7 +155,9 @@ hr {
 ::-webkit-input-placeholder {
   text-transform: capitalize;
 }
-
+.fondo-ventajas{
+  background-color: #F7F7F7;
+}
 .checkbox_item input {
   float: left;
   width: 25px;
@@ -27626,7 +27628,7 @@ blockquote .blockquote_title {
     margin-right: 0px;
     margin-bottom: 20px;
   }
-
+  
   .watch_slider .child_item {
     margin: auto;
     max-width: 200px;

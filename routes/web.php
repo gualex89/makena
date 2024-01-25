@@ -7,6 +7,9 @@ use App\Http\Controllers\HomeImagesController;
 
 Route::get('/', [HomeImagesController::class, 'index'])->name('welcome');
 
+Route::get('/tufunda', [HomeImagesController::class, 'tuFunda'])->name('diseña');
+
+Route::get('/catalogo', [HomeImagesController::class, 'catalogo'])->name('catalogo');
 
 
 
