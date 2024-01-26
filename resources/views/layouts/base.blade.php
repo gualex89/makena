@@ -229,13 +229,13 @@
 								<div class="col-lg-6">
 									<div class="slider_content">
 										<h3 class="text-white" data-animation="fadeInUp" data-delay=".4s">
-											Agility <span>and</span> Performances
+											{{$image->texto1}} <span>{{$image->texto_resaltado}} </span> {{$image->texto2}} 
 										</h3>
 										<p data-animation="fadeInUp" data-delay=".6s">
-											{{ $image->description }}
+											
 										</p>
 										<div class="abtn_wrap" data-animation="fadeInUp" data-delay=".8s">
-											<a class="custom_btn bg_carparts_red text-uppercase" href="#!">Search Now</a>
+											<a class="custom_btn bg_carparts_red text-uppercase" href="{{ $image->href }}">{{ $image->nombre_boton}} </a>
 										</div>
 									</div>
 								</div>
@@ -246,11 +246,9 @@
 							</div>
 						</div>
 					@endforeach
-					
-
 				</div>
 				<div class="carousel_nav">
-					<button type="button" class="main_left_arrow"><i class="fal fa-arrow-left"></i></button>
+					<button type="button" class="main_left_arrow"> <i class="fal fa-arrow-left"></i></button>
 					<button type="button" class="main_right_arrow"><i class="fal fa-arrow-right"></i></button>
 				</div>
 				<div class="slide_count_wrap">
@@ -269,23 +267,10 @@
 			================================================== -->
 			<section class="product_section sec_ptb_100 deco_wrap clearfix">
 				<div class="container maxw_1430">
-					<div class="motorcycle_section_title mb_30 text-center">
+					<div class="motorcyclenuevas_section_title mb_30 text-center">
 						<h2 class="title_text">Nuestros <span>Productos</span></h2>
 						<p class="mb-0">Aliquam lorem ante, dapibus in, viverra</p>
 					</div>
-
-					<ul class="motorcycle_tabs_nav ul_li_center nav text-uppercase" role="tablist">
-						<li>
-							<a class="active" data-toggle="tab" href="#latest_tab">Latest Product</a>
-						</li>
-						<li>
-							<a data-toggle="tab" href="#best_tab">Best Product</a>
-						</li>
-						<li>
-							<a data-toggle="tab" href="#featured_tab">Featured Product</a>
-						</li>
-					</ul>
-
 					<div class="tab-content mb_50">
 						<div class="row justify-content-center">
 							@foreach ($misProductos as $key => $producto)
@@ -341,7 +326,7 @@
 
 			<!-- feature_section - start
 			================================================== -->
-			<section class="feature_section clearfix">
+			<section class="feature_section clearfix" id="cortinas">
 				<div class="container-fluid p-0">
 					<div class="row no-gutters">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -366,7 +351,7 @@
 
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 							<div class="feature_fullimage text-center">
-								<img src="images/ventajastpu.png" alt="image_not_found">
+								<img src="images/ventajastpu3.png" alt="image_not_found">
 								<div class="item_content">
 									<h3 class="item_title text-white mb_30">CUBIERTA</h3>
 									<h3 class="item_title text-white mb_30">TPU</h3>
@@ -376,7 +361,7 @@
 
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 							<div class="feature_fullimage text-center">
-								<img src="images/ventajastpu2.png" alt="image_not_found">
+								<img src="images/ventajastpu4.png" alt="image_not_found">
 								<div class="item_content">
 									<h3 class="item_title text-white mb_30">BORDES</h3>
 									<h3 class="item_title text-white mb_30">ANTI-GOLPES</h3>
