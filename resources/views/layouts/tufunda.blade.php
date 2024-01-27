@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fabric.js con fondo transparente</title>
+  <title>Makena</title>
+	<link rel="shortcut icon" href="images/logo/makenaMiniIcon.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.js"></script>
 </head>
 <body>
