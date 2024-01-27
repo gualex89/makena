@@ -259,7 +259,7 @@
 								<div id="grid_layout" class="tab-pane active">
 									<div class="row mb_50 justify-content-center">
 										@foreach($imagesCatalogo as $image)
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item" data-category="{{ substr($image->file_name, 0, 2) }}">
 											<div class="motorcycle_product_grid">
 												<div class="item_image">
 													<img src="{{ Voyager::image($image->image) }}" alt="{{ $image->file_name }}">
@@ -295,11 +295,11 @@
 								<div class="sb_widget sb_category">
 									<h3 class="sb_widget_title">Categories</h3>
 									<ul class="ul_li_block clearfix">
-										<li><a href="#!">Accessories <span>(68)</span></a></li>
-										<li><a href="#!">Clothing <span>(36)</span></a></li>
-										<li><a href="#!">Things <span>(29)</span></a></li>
-										<li><a href="#!">Polygraphy <span>(20)</span></a></li>
-										<li><a href="#!">Other <span>(7)</span></a></li>
+										<li><a href="#" data-category="all">Todas</a></li>
+										<li><a href="#" data-category="DB">Dragon Ball</a></li>
+										<li><a href="#" data-category="OP">One Piece</a></li>
+										<li><a href="#!" data-category="FT">Fútbol</a></li>
+										<li><a href="#!" data-category="MU">Música</a></li>
 									</ul>
 								</div>
 
@@ -620,6 +620,31 @@
 
 		<!-- custom - jquery include -->
 		<script src="js/custom.js"></script>
+		<script>
+			$(document).ready(function() {
+				// Mostrar todas las imágenes al cargar la página
+				showImages('all');
+
+				// Manejar el clic en los enlaces de filtrado
+				$('a[data-category]').on('click', function(e) {
+					e.preventDefault();
+					var category = $(this).data('category');
+					showImages(category);
+				});
+
+				// Función para mostrar/ocultar imágenes según la categoría
+				function showImages(category) {
+					$('.image-item').hide(); // Ocultar todas las imágenes
+
+					if (category === 'all') {
+						$('.image-item').show(); // Mostrar todas las imágenes si la categoría es 'all'
+					} else {
+						$('.image-item[data-category="' + category + '"]').show(); // Mostrar imágenes de la categoría seleccionada
+					}
+				}
+			});
+
+		</script>
 
 		
 	</body>
