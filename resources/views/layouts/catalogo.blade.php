@@ -255,15 +255,14 @@
 				<div class="container maxw_1430">
 					<div class="row justify-content-lg-between">
 						<div class="col-lg-9 order-last">
-							
-
 							<div class="tab-content">
 								<div id="grid_layout" class="tab-pane active">
 									<div class="row mb_50 justify-content-center">
+										@foreach($imagesCatalogo as $image)
 										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 											<div class="motorcycle_product_grid">
 												<div class="item_image">
-													<img src="images/shop/motorcycle/img_01.png" alt="image_not_found">
+													<img src="{{ Voyager::image($image->image) }}" alt="{{ $image->file_name }}">
 													<ul class="product_action_btns ul_li_block text-uppercase text-center clearfix">
 														<li><a href="#!"><span><i class="fas fa-shopping-cart"></i></span> <span>Add To Cart</span></a></li>
 														<li><a href="#!"><span><i class="fas fa-eye"></i></span> <span>Quick View</span></a></li>
@@ -271,11 +270,10 @@
 													</ul>
 												</div>
 												<div class="item_content">
-													<span class="item_price">$250.00</span>
+													<span class="item_price">$9900</span>
 													<h3 class="item_title">
-														<a href="#!">BRAKES</a>
+														<a href="#!">{{$image->file_name}}</a>
 													</h3>
-													<span class="item_type text-uppercase">helmets - quality</span>
 													<ul class="rating_star ul_li clearfix">
 														<li><i class="fas fa-star"></i></li>
 														<li><i class="fas fa-star"></i></li>
@@ -286,11 +284,12 @@
 												</div>
 											</div>
 										</div>
+										@endforeach
 									</div>
 								</div>
 							</div>
 						</div>
-
+						
 						<div class="col-lg-3">
 							<aside class="motorcycle_sidebar sidebar_section" data-bg-color="#f9f9f9">
 								<div class="sb_widget sb_category">

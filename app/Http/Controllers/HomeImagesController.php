@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 
 
+
 class HomeImagesController extends Controller
 {
     public function index(){
@@ -29,4 +30,5 @@ class HomeImagesController extends Controller
         return view('layouts.catalogo' );
     }
 }
+
 
