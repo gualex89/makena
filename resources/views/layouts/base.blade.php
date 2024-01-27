@@ -7,8 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Motorcycle Parts - Neoncart HTML5 Template</title>
-		<link rel="shortcut icon" href="images/logo/favourite_icon_01.png">
+		<title>Makena</title>
+		<link rel="shortcut icon" href="images/logo/makenaMiniIcon.png">
 
 		<!-- fraimwork - css include -->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
