@@ -269,11 +269,11 @@
 							<div class="tab-content">
 								<div id="grid_layout" class="tab-pane active">
 									<div class="row mb_50 justify-content-center">
-										@foreach($imagesCatalogo as $image)
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item" data-category="{{ substr($image->file_name, 0, 2) }}">
+										
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item" >
 											<div class="motorcycle_product_grid">
 												<div class="item_image">
-													<img src="{{ Voyager::image($image->image) }}" alt="{{ $image->file_name }}">
+													<img src="images/masVendido">
 													<ul class="product_action_btns ul_li_block text-uppercase text-center clearfix">
 														<li><a href="#!"><span><i class="fas fa-shopping-cart"></i></span> <span>Agregar al Carrito</span></a></li>
 														
@@ -282,7 +282,7 @@
 												<div class="item_content">
 													<span class="item_price">$9900</span>
 													<h3  class="item_title" id="codigo_producto">
-														<a href="#!">{{$image->file_name}}</a>
+														<a href="#!">Nombre</a>
 													</h3>
 													<ul class="rating_star ul_li clearfix">
 														<li><i class="fas fa-star"></i></li>
@@ -294,7 +294,6 @@
 												</div>
 											</div>
 										</div>
-										@endforeach
 									</div>
 								</div>
 							</div>

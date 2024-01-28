@@ -29,6 +29,11 @@ class HomeImagesController extends Controller
 
         return view('layouts.catalogo' );
     }
+
+    public function generica(){
+
+        return view('layouts.generica' );
+    }
 }
 
 

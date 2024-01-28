@@ -12,6 +12,8 @@ Route::get('/tufunda', [HomeImagesController::class, 'tuFunda'])->name('diseña'
 
 Route::get('/catalogo', [HomeImagesController::class, 'catalogo'])->name('catalogo');
 
+Route::get('/generica', [HomeImagesController::class, 'generica'])->name('generica');
+
 // RUTAS DEL CATALOGO
 Route::get('/catalogo', [CatalogueController::class, 'catalogo'])->name('catalogo');
 

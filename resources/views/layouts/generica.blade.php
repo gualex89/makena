@@ -44,6 +44,9 @@
 			.sb_category ul li.active > ul {
 				display: block;
 			}
+			.col-lg-3 {
+     			 display: flex;
+    		}
 		</style>
 
 	</head>
@@ -269,11 +272,11 @@
 							<div class="tab-content">
 								<div id="grid_layout" class="tab-pane active">
 									<div class="row mb_50 justify-content-center">
-										@foreach($imagesCatalogo as $image)
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item" data-category="{{ substr($image->file_name, 0, 2) }}">
+										
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item" >
 											<div class="motorcycle_product_grid">
 												<div class="item_image">
-													<img src="{{ Voyager::image($image->image) }}" alt="{{ $image->file_name }}">
+													<img src="images/masVendido.png">
 													<ul class="product_action_btns ul_li_block text-uppercase text-center clearfix">
 														<li><a href="#!"><span><i class="fas fa-shopping-cart"></i></span> <span>Agregar al Carrito</span></a></li>
 														
@@ -282,7 +285,7 @@
 												<div class="item_content">
 													<span class="item_price">$9900</span>
 													<h3  class="item_title" id="codigo_producto">
-														<a href="#!">{{$image->file_name}}</a>
+														<a href="#!">Nombre</a>
 													</h3>
 													<ul class="rating_star ul_li clearfix">
 														<li><i class="fas fa-star"></i></li>
@@ -294,7 +297,6 @@
 												</div>
 											</div>
 										</div>
-										@endforeach
 									</div>
 								</div>
 							</div>
@@ -302,75 +304,24 @@
 						
 						<div class="col-lg-3">
 							<aside class="motorcycle_sidebar sidebar_section" data-bg-color="#f9f9f9">
-								<div class="sb_widget sb_category">
-									<h3 class="sb_widget_title">Categories</h3>
-									<ul class="ul_li_block clearfix">
-										<li class="parent"><a href="#" data-category="all">Todas</a></li>
-										<li class="parent"><a href="#" >Anime</a>
-											<ul>
-												<li><a href="#" data-category="DB">Dragon Ball</a></li>
-												<li><a href="#" data-category="OP">One Piece</a></li>
-											</ul>
-										</li>
-										<li class="parent"><a href="#!" data-category="FT">Fútbol</a>
-											<ul>
-												<li><a href="#">Messi</a></li>
-												<li><a href="#">Equipos</a></li>
-											</ul>
-										</li>
-										<li class="parent"><a href="#!" data-category="MU">Música</a>
-											<ul>
-												<li><a href="#">Géneros</a></li>
-												<li><a href="#">Artistas</a></li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-
 								
-
+								
 								<div class="sb_widget sb_recent_post">
-									<h3 class="sb_widget_title">Más Vendidos</h3>
-									<div class="carparts_small_blog">
-										<a  href="blog_details.html">
-											<img src="images/masVendido.png" alt="image_not_found">
-										</a>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-											</ul>
-											<h3 class="item_title text-uppercase">
-												<a href="blog_details.html">
-													DB-11
-												</a>
-											</h3>
-											<div class="item_price"><strong data-text-color="#39b54a">$9.900</strong> <del>$11.000</del></div>
+									<div class="sb_widget sb_category">
+										<h3 class="sb_widget_title">Categories</h3>
+										<div class="col1">
+											<select name="cmb1" id="cmb1" onchange="javascript:llenar_cmb2();">
+												<option value="">Seleccione</option>
+												<option value="motorola">Motorola</option>
+												<option value="apple">Apple</option>
+												<option value="samsung">Samsung</option>
+											</select>
 										</div>
-									</div>
-
-									<div class="carparts_small_blog">
-										<a  href="blog_details.html">
-											<img src="images/masVendido2.png" alt="image_not_found">
-										</a>
-										<div class="item_content">
-											<ul class="rating_star ul_li clearfix">
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-												<li><i class="fas fa-star"></i></li>
-											</ul>
-											<h3 class="item_title text-uppercase">
-												<a href="blog_details.html">
-													DB-33
-												</a>
-											</h3>
-											<div class="item_price"><strong data-text-color="#39b54a">$9.900</strong> <del>$11.000</del></div>
-										</div>
+										<div class="col2">
+											<select name="cmb2" id="cmb2" style="display: inline-block;">
+												<option value="">Seleccione</option>
+											</select>
+										</div>		
 									</div>
 								</div>
 							</aside>
@@ -561,6 +512,7 @@
 		
 		<!-- fraimwork - jquery include -->
 		<script src="js/jquery-3.5.1.min.js"></script>
+		
 		<script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 
@@ -591,12 +543,14 @@
         <script src="js/isotope.pkgd.min.js"></script>
         <script src="js/masonry.pkgd.min.js"></script>
         <script src="js/imagesloaded.pkgd.min.js"></script>
-
+			 
 		<!-- jquery ui - jquery include -->
         <script src="js/jquery-ui.js"></script>
 
+		
 		<!-- custom - jquery include -->
-		<script src="js/custom.js"></script>
+		
+		<script src="js/custom.js"></script> 
 		<script>
 			$(document).ready(function() {
 				// Mostrar todas las imágenes al cargar la página
@@ -639,11 +593,52 @@
 					});
 				});
 			});
-
 		</script>
 		<script>
+			function llenar_cmb2() {
+				console.log("llenar_cmb2 se está llamando");
+				var cmb1 = document.getElementById("cmb1");
+				var cmb2 = document.getElementById("cmb2");
+				console.log(cmb2);
+				var valor = cmb1.value;
+				var opciones_cmb2 = cmb2.options;
+				// Limpiar las opciones actuales en cmb2
+				opciones_cmb2.length = 1; // Deja el primer elemento "Seleccione"
+				
+				// Llenar cmb2 según la selección de cmb1
+				if (valor === "motorola") {
+					console.log("entro a motorola");
+					agregarOpcion(cmb2, "moto1", "Moto 1");
+					agregarOpcion(cmb2, "moto2", "Moto 2");
+					agregarOpcion(cmb2, "moto3", "Moto 3");
+					$('#cmb2').niceSelect('update');
+				} else if (valor === "apple") {
+					// Agregar opciones para la marca Apple
+					agregarOpcion(cmb2, "iphone1", "iPhone 1");
+					agregarOpcion(cmb2, "iphone2", "iPhone 2");
+					$('#cmb2').niceSelect('update');
+					// Puedes seguir añadiendo más opciones según sea necesario
+				} else if (valor === "samsung") {
+					// Agregar opciones para la marca Samsung
+					agregarOpcion(cmb2, "galaxy1", "Galaxy 1");
+					agregarOpcion(cmb2, "galaxy2", "Galaxy 2");
+					$('#cmb2').niceSelect('update');
+					// Puedes seguir añadiendo más opciones según sea necesario
+				}
+				// Puedes agregar más condiciones según las marcas que tengas
 			
+			}
+
+   			 // Función auxiliar para agregar opciones al select
+			function agregarOpcion(select, valor, texto) {
+				var opcion = document.createElement("option");
+				opcion.value = valor;
+				opcion.text = texto;
+				select.add(opcion);
+			}
 		</script>
+		
+		
 
 		
 	</body>

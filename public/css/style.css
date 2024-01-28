@@ -816,6 +816,7 @@ hr {
   background-color: #fafafa;
 }
 
+
 /* social links - end
 ================================================== */
 /* count down timer - start
@@ -5647,6 +5648,7 @@ button {
 .motorcycle_sidebar .sb_widget {
   margin: 0px;
   padding: 35px;
+  margin-top: 20px;
 }
 .motorcycle_sidebar .sb_widget:not(:last-child) {
   border-bottom: 1px solid #f0f0f0;
@@ -9032,6 +9034,10 @@ button {
 .gadget_big_offer:not(:last-child) {
   border-bottom: 1px solid #e5e5e5;
 }
+#codigo_producto{
+  font-size: 10px;
+}
+
 .gadget_big_offer .item_title {
   line-height: 1;
   color: #0e0e0e;
@@ -12163,7 +12169,7 @@ button {
   left: 30px;
   height: 35px;
   color: #ffffff;
-  font-size: 19px;
+  font-size: 25px;
   font-weight: 600;
   line-height: 37px;
   padding: 0px 16px;
@@ -12177,7 +12183,7 @@ button {
 }
 .motorcycle_product_grid .item_title a {
   color: #202020;
-  font-size: 45px;
+  font-size: 28px;
 }
 .motorcycle_product_grid:hover .item_title a {
   color: #F831FE;
