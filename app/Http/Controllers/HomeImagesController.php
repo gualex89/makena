@@ -21,10 +21,7 @@ class HomeImagesController extends Controller
         return view('layouts.base', compact('sliderPrincipal', 'totalImages', 'misProductos') );
     }
     
-    public function tuFunda(){
-
-        return view('layouts.tufunda' );
-    }
+    
     public function catalogo(){
 
         return view('layouts.catalogo' );
@@ -32,7 +29,7 @@ class HomeImagesController extends Controller
 
     public function generica(){
 
-        return view('layouts.generica' );
+        return view('layouts.editor' );
     }
 }
 
