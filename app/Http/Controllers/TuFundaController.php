@@ -10,8 +10,13 @@ class TuFundaController extends Controller
 {
     public function tufunda(){
 
-        $mascaras = Cover::all();
+        
 
         return view('layouts.tufunda', compact('mascaras') );
+    }
+    
+    public function obtenerMarcas(){
+        $marcas = Cover::distinct()->pluck('marca');
+        return response()->json($marcas);
     }
 }
