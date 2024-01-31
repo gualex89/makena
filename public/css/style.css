@@ -5648,11 +5648,18 @@ button {
 .motorcycle_sidebar .sb_widget {
   margin: 0px;
   padding: 35px;
-  margin-top: 20px;
+  margin-top: 0px;
 }
-.motorcycle_sidebar .sb_widget:not(:last-child) {
-  border-bottom: 1px solid #f0f0f0;
+.motorcycle_sidebar .seleccionadores{
+  padding: 15px;
 }
+
+#div_del_boton{
+  margin-bottom: 2rem;
+  
+}
+
+
 .motorcycle_sidebar .sb_category li {
   border-bottom: none;
 }

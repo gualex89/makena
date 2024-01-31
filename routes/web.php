@@ -17,6 +17,13 @@ Route::get('/catalogo', [CatalogueController::class, 'catalogo'])->name('catalog
 
 Route::get('/tufunda', [TuFundaController::class, 'tufunda'])->name('tufunda');
 
+Route::get('/obtener-marcas', [TuFundaController::class, 'obtenerMarcas']);
+
+
+Route::get('/obtener-modelos/{marca}', [TuFundaController::class, 'obtenerModelos']);
+
+Route::get('/obtener-imagen/{modelo}', [TuFundaController::class, 'obtenerImagen']);
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

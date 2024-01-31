@@ -266,69 +266,67 @@
 			<!-- product_section - start
 			================================================== -->
 			<section class="product_section sec_ptb_50 clearfix">
-				<div class="container maxw_1430">
-					<div class="row justify-content-lg-between">
-						<div class="col-lg-9 order-last">
-							<div class="tab-content">
-								<div id="grid_layout" class="tab-pane active">
-									<div class="row mb_50 justify-content-center">
-										
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item" >
-											<div class="motorcycle_product_grid">
-												<div class="item_image">
-													<img src="images/masVendido.png">
-													<ul class="product_action_btns ul_li_block text-uppercase text-center clearfix">
-														<li><a href="#!"><span><i class="fas fa-shopping-cart"></i></span> <span>Agregar al Carrito</span></a></li>
-														
-													</ul>
-												</div>
-												<div class="item_content">
-													<span class="item_price">$9900</span>
-													<h3  class="item_title" id="codigo_producto">
-														<a href="#!">Nombre</a>
-													</h3>
-													<ul class="rating_star ul_li clearfix">
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-														<li><i class="fas fa-star"></i></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-lg-3">
-							<aside class="motorcycle_sidebar sidebar_section" data-bg-color="#f9f9f9">
-								
-								
-								<div class="sb_widget sb_recent_post">
-									<div class="sb_widget sb_category">
-										<h3 class="sb_widget_title">Categories</h3>
-										<div class="col1">
-											<select name="cmb1" id="cmb1" onchange="javascript:llenar_cmb2();">
-												<option value="">Seleccione</option>
-												<option value="motorola">Motorola</option>
-												<option value="apple">Apple</option>
-												<option value="samsung">Samsung</option>
-											</select>
-										</div>
-										<div class="col2">
-											<select name="cmb2" id="cmb2" style="display: inline-block;">
-												<option value="">Seleccione</option>
-											</select>
-										</div>		
-									</div>
-								</div>
-							</aside>
-						</div>
-					</div>
-				</div>
-			</section>
+    <div class="container maxw_1430">
+        <div class="row justify-content-lg-between">
+            <div class="col-lg-9 order-last">
+                <div class="tab-content">
+                    <div id="grid_layout" class="tab-pane active">
+                        <div class="row mb-50 justify-content-center text-center"> <!-- Cambiado a text-center -->
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item">
+                                <div class="motorcycle_product_grid">
+                                    <div class="item_image">
+                                        <img id="imagenResultado" src="" alt="Imagen del modelo seleccionado">
+                                        <ul class="product_action_btns ul_li_block text-uppercase text-center clearfix">
+                                            <li><a href="#!"><span><i class="fas fa-shopping-cart"></i></span> <span>Agregar al Carrito</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="item_content">
+                                        <span class="item_price">$9900</span>
+                                        <h3 class="item_title" id="codigo_producto">
+                                            <a href="#!">Nombre</a>
+                                        </h3>
+                                        <ul class="rating_star ul_li clearfix">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mx-auto">
+                <aside class="motorcycle_sidebar sidebar_section" data-bg-color="#f9f9f9">
+                    <div class="sb_widget sb_recent_post seleccionadores">
+                        <div class="sb_widget sb_category">
+                            <h3 class="sb_widget_title">Selecciona tu modelo</h3>
+                            <div class="col1">
+                                <select name="marcas" id="marcasDropdown">
+                                    <option value="">Seleccione</option>
+                                </select>
+                            </div>
+                            <div class="col2">
+                                <select name="modelos" id="modelosDropdown">
+                                    <option value="">Seleccione</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="abtn_wrap col3 text-center mt-3" id="div_del_boton" data-animation="fadeInUp" data-delay=".8s">
+                        <a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Seleccionar Modelo</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+			
 			<!-- product_section - end
 			================================================== -->
 
@@ -636,6 +634,55 @@
 				opcion.text = texto;
 				select.add(opcion);
 			}
+		</script>
+		<script>
+			$(document).ready(function() {
+				// Cargar marcas al cargar la página
+				$.get('/obtener-marcas', function(data) {
+					console.log(data);
+					
+					data.forEach(function(marca) {
+						$('#marcasDropdown').append('<option value="' + marca + '">' + marca + '</option>');
+						$('#marcasDropdown').niceSelect('update');
+					});
+				});
+		
+				// Manejar cambio en el dropdown de marcas
+				$('#marcasDropdown').change(function() {
+					var marcaSeleccionada = $(this).val();
+		
+					// Hacer una solicitud AJAX para obtener modelos según la marca seleccionada
+					$.get('/obtener-modelos/' + marcaSeleccionada, function(data) {
+						// Limpiar modelos existentes
+						$('#modelosDropdown').empty();
+		
+						// Llenar modelos
+						data.forEach(function(modelo) {
+							$('#modelosDropdown').append('<option value="' + modelo + '">' + modelo + '</option>');
+							$('#modelosDropdown').niceSelect('update');
+						});
+					});
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function() {
+				// Manejar clic en el botón "Seleccionar Modelo"
+				$('#seleccionarModeloBtn').click(function() {
+					// Obtener el modelo seleccionado en el dropdown
+					var modeloSeleccionado = $('#modelosDropdown').val();
+					console.log(modeloSeleccionado)
+					// Hacer una solicitud AJAX para obtener la información de la base de datos
+					$.get('/obtener-imagen/' + modeloSeleccionado, function(data) {
+						// La respuesta 'data' debería contener la información de la imagen u otro dato que necesitas
+						console.log(data);
+						var rutaImagen = "storage\\" + data[0]
+						console.log(rutaImagen);
+						$('#imagenResultado').attr('src', rutaImagen);
+						
+					});
+				});
+			});
 		</script>
 		
 		
