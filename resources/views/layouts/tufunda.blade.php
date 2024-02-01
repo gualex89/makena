@@ -34,6 +34,8 @@
 
 		<!-- custom - css include -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
 		<style>
 			.sb_category ul ul {
 				display: none;
@@ -273,28 +275,19 @@
                     <div id="grid_layout" class="tab-pane active">
                         <div class="row mb-50 justify-content-center text-center"> <!-- Cambiado a text-center -->
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item">
-                                <div class="motorcycle_product_grid">
-                                    <div class="item_image">
-                                        <img id="imagenResultado" src="" alt="Imagen del modelo seleccionado">
-                                        <ul class="product_action_btns ul_li_block text-uppercase text-center clearfix">
-                                            <li><a href="#!"><span><i class="fas fa-shopping-cart"></i></span> <span>Agregar al Carrito</span></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="item_content">
-                                        <span class="item_price">$9900</span>
-                                        <h3 class="item_title" id="codigo_producto">
-                                            <a href="#!">Nombre</a>
-                                        </h3>
-                                        <ul class="rating_star ul_li clearfix">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="fas fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                                <canvas id="canvas" width="400" height="500"></canvas>
+								<input type="file" id="imageLoader" />
+								<button onclick="cambiarOrden()">Ajustar a la Funda</button>
+								<button id="btn">Generar imagen</button>
+								<button onclick="enviarAlFondo()">Modificar imagen</button>
+								<button onclick="agregarTexto()">Agregar Texto</button>
+								<label for="colorPicker">Color del Texto:</label>
+								<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
+								<button onclick="cambiarTipoDeLetra()">Cambiar Tipo de Letra</button>
+								<button onclick="aumentarTamano()">Aumentar Tamaño</button>
+								<button onclick="reducirTamano()">Reducir Tamaño</button>
+								<button onclick="window.location.href='/'">Ir a la página principal</button>
+							</div>
                         </div>
                     </div>
                 </div>
@@ -678,12 +671,145 @@
 						console.log(data);
 						var rutaImagen = "storage\\" + data[0]
 						console.log(rutaImagen);
-						$('#imagenResultado').attr('src', rutaImagen);
+						cargarImagenDeFondo(rutaImagen);
+						//$('#imagenResultado').attr('src', rutaImagen);
 						
 					});
 				});
 			});
 		</script>
+		<script>
+			var canvas = new fabric.Canvas('canvas');
+			var fondoImg, userImg, texto;
+			var tiposDeLetra = ['Arial', 'Times New Roman', 'Courier New', 'Verdana', 'Georgia'];
+			var indiceTipoLetra = 0;
+		
+			function cargarImagenDeFondo(url) {
+				fabric.Image.fromURL(url, function (bgImg) {
+					bgImg.set({
+						selectable: false,
+						crossOrigin: 'anonymous'  // Agrega esta línea
+					});
+					bgImg.scaleToWidth(canvas.width);
+					bgImg.scaleToHeight(canvas.height);
+					canvas.add(bgImg);
+					fondoImg = bgImg;
+				});
+			}
+			document.getElementById('imageLoader').addEventListener('change', function(e) {
+			var file = e.target.files[0];
+			var reader = new FileReader();
+		
+			reader.onload = function(e) {
+				fabric.Image.fromURL(e.target.result, function(img) {
+				if (img.width > 280) {
+					img.scaleToWidth(280);
+				}
+				img.set({
+					hasControls: true,
+					hasBorders: true,
+					selectable: true,
+					cornerColor: 'red'
+				});
+		
+				canvas.add(img);
+				userImg = img;
+				});
+			};
+		
+			reader.readAsDataURL(file);
+			});
+		
+			function cambiarOrden() {
+			if (userImg && fondoImg) {
+				canvas.remove(fondoImg);
+				canvas.remove(userImg);
+				canvas.add(fondoImg);
+				canvas.add(userImg);
+				canvas.sendToBack(userImg);
+				canvas.renderAll();
+			}
+			}
+		
+			function enviarAlFondo() {
+			  if (fondoImg) {
+				canvas.sendToBack(fondoImg);
+				canvas.renderAll();
+			}
+			}
+		
+			function descargarImagenSubida() {
+			if (userImg) {
+				const dataURL = userImg.toDataURL("image/png");
+				const a = document.createElement("a");
+				a.download = "imagen_subida";
+				a.href = dataURL;
+				a.click();
+			  }
+			}
+		
+			function agregarTexto() {
+			  texto = new fabric.Textbox('Texto aquí', {
+				left: 50,
+				top: 50,
+				width: 200,
+				fontSize: 20,
+				fontFamily: tiposDeLetra[indiceTipoLetra],
+				fill: 'black',
+				selectable: true,
+				hasControls: true,
+				editable: true
+			  });
+		
+			  canvas.add(texto);
+			  canvas.setActiveObject(texto);
+			  canvas.requestRenderAll();
+			}
+		
+			function cambiarTipoDeLetra() {
+			  if (canvas.getActiveObject() && canvas.getActiveObject().isType('textbox')) {
+				var obj = canvas.getActiveObject();
+				indiceTipoLetra = (indiceTipoLetra + 1) % tiposDeLetra.length;
+				obj.set("fontFamily", tiposDeLetra[indiceTipoLetra]);
+				canvas.requestRenderAll();
+			  }
+			}
+		
+			function cambiarColorTexto(color) {
+			  if (canvas.getActiveObject() && canvas.getActiveObject().isType('textbox')) {
+				var obj = canvas.getActiveObject();
+				obj.set("fill", color);
+				userImg && userImg.set("fill", color);
+				canvas.requestRenderAll();
+			  }
+			}
+		
+			function aumentarTamano() {
+			  cambiarTamanoTexto(2);
+			}
+		
+			function reducirTamano() {
+			  cambiarTamanoTexto(-2);
+			}
+		
+			function cambiarTamanoTexto(delta) {
+			  if (canvas.getActiveObject() && canvas.getActiveObject().isType('textbox')) {
+				var obj = canvas.getActiveObject();
+				var fontSize = obj.get("fontSize");
+				obj.set("fontSize", fontSize + delta);
+				canvas.requestRenderAll();
+			  }
+			}
+		
+			btn.onclick = () => {
+			  const dataURL = canvas.toDataURL("image/png");
+			  const a = document.createElement("a");
+			  a.download = "composicion";
+			  a.href = dataURL;
+			  a.click();
+			  descargarImagenSubida();
+			};
+		  </script>
 		
 		
 
