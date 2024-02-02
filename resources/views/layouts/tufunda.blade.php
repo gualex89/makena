@@ -268,56 +268,65 @@
 			<!-- product_section - start
 			================================================== -->
 			<section class="product_section sec_ptb_50 clearfix">
-    <div class="container maxw_1430">
-        <div class="row justify-content-lg-between">
-            <div class="col-lg-9 order-last">
-                <div class="tab-content">
-                    <div id="grid_layout" class="tab-pane active">
-                        <div class="row mb-50 justify-content-center text-center"> <!-- Cambiado a text-center -->
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item">
-                                <canvas id="canvas" width="400" height="500"></canvas>
-								<input type="file" id="imageLoader" />
-								<button onclick="cambiarOrden()">Ajustar a la Funda</button>
-								<button id="btn">Generar imagen</button>
-								<button onclick="enviarAlFondo()">Modificar imagen</button>
-								<button onclick="agregarTexto()">Agregar Texto</button>
-								<label for="colorPicker">Color del Texto:</label>
-								<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
-								<button onclick="cambiarTipoDeLetra()">Cambiar Tipo de Letra</button>
-								<button onclick="aumentarTamano()">Aumentar Tamaño</button>
-								<button onclick="reducirTamano()">Reducir Tamaño</button>
-								<button onclick="window.location.href='/'">Ir a la página principal</button>
+				<div class="container maxw_1430">
+					<div class="row justify-content-lg-between">
+						<div class="col-lg-9 order-last">
+							<div class="tab-content">
+								<div id="grid_layout" class="tab-pane active">
+									<div class="row mb-50 justify-content-center text-center">
+										<!-- Cambiado a text-center -->
+										
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item">
+											<canvas id="canvas" width="400" height="500"></canvas>
+											<button onclick="cambiarOrden()">Ajustar a la Funda</button>
+											<button onclick="enviarAlFondo()">Modificar imagen</button>-
+											<input type="file" id="imageLoader" />
+											<button id="btn">Generar imagen</button>
+											
+											
+											
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<button onclick="agregarTexto()">Agregar Texto</button>
+											<label for="colorPicker">Color del Texto:</label>
+											<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
+											<button onclick="cambiarTipoDeLetra()">Cambiar Tipo de Letra</button>
+											<button onclick="aumentarTamano()">Aumentar Tamaño</button>
+											<button onclick="reducirTamano()">Reducir Tamaño</button>
+											<button onclick="cambiarOrden()">Ajustar a la Funda</button>
+											<button onclick="enviarAlFondo()">Modificar imagen</button>
+										</div>
+									</div>
+								</div>
 							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+						</div>
 
-            <div class="col-lg-3 col-md-6 mx-auto">
-                <aside class="motorcycle_sidebar sidebar_section" data-bg-color="#f9f9f9">
-                    <div class="sb_widget sb_recent_post seleccionadores">
-                        <div class="sb_widget sb_category">
-                            <h3 class="sb_widget_title">Selecciona tu modelo</h3>
-                            <div class="col1">
-                                <select name="marcas" id="marcasDropdown">
-                                    <option value="">Seleccione</option>
-                                </select>
-                            </div>
-                            <div class="col2">
-                                <select name="modelos" id="modelosDropdown">
-                                    <option value="">Seleccione</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="abtn_wrap col3 text-center mt-3" id="div_del_boton" data-animation="fadeInUp" data-delay=".8s">
-                        <a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Seleccionar Modelo</a>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </div>
-</section>
+						<div class="col-lg-3 col-md-6 mx-auto">
+							<aside class="motorcycle_sidebar sidebar_section" data-bg-color="#f9f9f9">
+								<div class="sb_widget sb_recent_post seleccionadores">
+									<div class="sb_widget sb_category">
+										<h3 class="sb_widget_title">Selecciona tu modelo</h3>
+										<div class="col1">
+											<select name="marcas" id="marcasDropdown">
+												<option value="">Seleccione</option>
+											</select>
+										</div>
+										<div class="col2">
+											<select name="modelos" id="modelosDropdown">
+												<option value="">Seleccione</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="abtn_wrap col3 text-center mt-3" id="div_del_boton" data-animation="fadeInUp" data-delay=".8s">
+									<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Seleccionar Modelo</a>
+									<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Empezar de Nuevo</a>
+								</div>
+							</aside>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			
 			<!-- product_section - end
