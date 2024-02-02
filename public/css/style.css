@@ -5663,8 +5663,34 @@ button {
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.home_motorcycle .special_button:before{
-  background-color:;
+
+.sb_category ul ul {
+  display: none;
+  list-style: none;
+}
+
+
+.sb_category ul li.active > ul {
+  display: block;
+}
+.col-lg-3 {
+  display: flex;
+}
+.desplegable_tu_funda {
+border: 1px solid #ddd;
+margin: 10px;
+max-width: 85%;
+}
+
+.encabezado_tu_funda {
+background-color: #f9f9f9;
+padding: 10px;
+cursor: pointer;
+}
+
+.contenido_del_desplegable {
+display: none;
+padding: 10px;
 }
 
 

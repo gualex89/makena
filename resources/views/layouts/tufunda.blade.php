@@ -36,21 +36,6 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
-		<style>
-			.sb_category ul ul {
-				display: none;
-				list-style: none;
-			}
-	
-			
-			.sb_category ul li.active > ul {
-				display: block;
-			}
-			.col-lg-3 {
-     			 display: flex;
-    		}
-		</style>
-
 	</head>
 
 
@@ -274,27 +259,46 @@
 							<div class="tab-content">
 								<div id="grid_layout" class="tab-pane active">
 									<div class="row mb-50 justify-content-center text-center">
-										<!-- Cambiado a text-center -->
-										
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 image-item">
+
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 image-item">
 											<canvas id="canvas" width="400" height="500"></canvas>
 											<button onclick="cambiarOrden()">Ajustar a la Funda</button>
 											<button onclick="enviarAlFondo()">Modificar imagen</button>-
 											<input type="file" id="imageLoader" />
 											<button id="btn">Generar imagen</button>
-											
-											
-											
 										</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<button onclick="agregarTexto()">Agregar Texto</button>
-											<label for="colorPicker">Color del Texto:</label>
-											<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
-											<button onclick="cambiarTipoDeLetra()">Cambiar Tipo de Letra</button>
-											<button onclick="aumentarTamano()">Aumentar Tamaño</button>
-											<button onclick="reducirTamano()">Reducir Tamaño</button>
-											<button onclick="cambiarOrden()">Ajustar a la Funda</button>
-											<button onclick="enviarAlFondo()">Modificar imagen</button>
+									
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="desplegable_tu_funda" id="desplegable1">
+														<div class="encabezado_tu_funda" onclick="toggleDesplegable('desplegable1')">
+															<h2>Texto</h2>
+														</div>
+														<div class="contenido_del_desplegable">
+															<button>Botón 1</button> 
+															<button>Botón 2</button>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="desplegable_tu_funda" id="desplegable2">
+														<div class="encabezado_tu_funda" onclick="toggleDesplegable('desplegable2')">
+															<h2>Fondo</h2>
+														</div>
+														<div class="contenido_del_desplegable">
+															<button>Botón 3</button>
+															<button>Botón 4</button>
+														</div>
+													</div>
+													<button onclick="agregarTexto()">Agregar Texto</button>
+													<label for="colorPicker">Color del Texto:</label>
+													<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
+													<button onclick="cambiarTipoDeLetra()">Cambiar Tipo de Letra</button>
+													<button onclick="aumentarTamano()">Aumentar Tamaño</button>
+													<button onclick="reducirTamano()">Reducir Tamaño</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -818,7 +822,19 @@
 			  a.click();
 			  descargarImagenSubida();
 			};
-		  </script>
+		</script>
+		<script>
+			function toggleDesplegable(id) {
+				var desplegable = document.getElementById(id);
+				var contenido = desplegable.querySelector('.contenido_del_desplegable');
+		
+				if (contenido.style.display === 'none' || contenido.style.display === '') {
+					contenido.style.display = 'block';
+				} else {
+					contenido.style.display = 'none';
+				}
+			}
+		</script>
 		
 		
 
