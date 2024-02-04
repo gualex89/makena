@@ -234,13 +234,13 @@
 						<h3 class="title_text mb_15 text-uppercase"><i class="far fa-bars mr-2"></i> Menu</h3>
 						<ul class="ul_li_block clearfix">
 							<li>
-								<a href="/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+								<a href="/" aria-haspopup="true" aria-expanded="false">Home</a>
 							</li>
 							<li>
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catálogo</a>
+								<a href="/catalogo" aria-haspopup="true" aria-expanded="false">Catálogo</a>
 							</li>
 							<li>
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crea tu Funda</a>
+								<a href="/tufunda" aria-haspopup="true" aria-expanded="false">Crea tu Funda</a>
 							</li>
 						</ul>
 					</div>

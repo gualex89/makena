@@ -967,6 +967,31 @@ hr {
 .backtotop.bg_carparts_red {
   box-shadow: 0px 10px 30px 1px rgba(237, 29, 36, 0.15);
 }
+.boton_slider {
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  z-index: 1001;
+  bottom: 300px;
+  display: none;
+  font-size: 16px;
+  position: fixed;
+  border-radius: 100%;
+  box-shadow: 0px 10px 30px 1px rgba(0, 0, 0, 0.15);
+}
+.boton_slider .deslizador {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: #ffffff;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.boton_slider.bg_carparts_red {
+  box-shadow: 0px 10px 30px 1px rgba(237, 29, 36, 0.15);
+}
 
 /* back to top - end
 ================================================== */
@@ -4637,6 +4662,20 @@ button {
   position: relative;
 }
 .fashion_minimal_footer .backtotop {
+  top: 0px;
+  left: 50%;
+  height: 50px;
+  width: 225px;
+  line-height: 1;
+  box-shadow: none;
+  border-radius: 0px;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  background-size: auto;
+  transform: translateX(-50%);
+}
+.fashion_minimal_footer .boton_slider {
   top: 0px;
   left: 50%;
   height: 50px;
@@ -8509,10 +8548,56 @@ padding: 10px;
 .child_furniture_feature:hover .item_title > a {
   color: #bd896b;
 }
+#canvas  {
+  left: 40px !important;
+}
 
 .furniture_feature_content .child_furniture_feature {
   float: right;
   text-align: right;
+}
+#mostrarDesplegableBtn {
+  display: none;
+}
+
+/* Estilo para el botón de cerrar dentro del div desplegable */
+#boton_cerrar {
+  margin-top: 10px; /* Ajusta el margen según tus necesidades */
+  display: none;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .boton_slider {
+      display: block;
+  }
+
+  #desplegableContainer {
+      position: fixed;
+      top: 0;
+      right: -100%; /* Oculta el div fuera del borde derecho de la pantalla */
+      height: 100%;
+      width: 80%; /* Ajusta el ancho según tus necesidades */
+      background-color: rgba(255, 255, 255, 0.9); /* Cambia el color de fondo y la opacidad según tus necesidades */
+      transition: right 0.5s ease; /* Agrega una animación de transición */
+      margin-top: 100px;
+      z-index: 1000;
+  }
+
+  #desplegableContainer button {
+      display: block;
+      
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+  }
+  #canvas  {
+    left: 0px !important;
+  }
+
 }
 
 /* furniture feature section - end */
@@ -24569,6 +24654,11 @@ blockquote .blockquote_title {
   }
 
   .backtotop {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .boton_slider {
     width: 40px;
     height: 40px;
     font-size: 14px;

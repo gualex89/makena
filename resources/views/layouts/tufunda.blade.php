@@ -64,7 +64,7 @@
 					<div class="row align-items-center">
 						<div class="col-lg-2">
 							<div class="brand_logo">
-								<a class="brand_link" href="index.html">
+								<a class="brand_link" href="/">
 									<img src="images/logo/logoMakena.png" srcset="images/logo/logoMakena.png 2x" alt="logo_not_found">
 								</a>
 
@@ -224,13 +224,13 @@
 						<h3 class="title_text mb_15 text-uppercase"><i class="far fa-bars mr-2"></i> Menu</h3>
 						<ul class="ul_li_block clearfix">
 							<li>
-								<a href="/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+								<a href="/" aria-haspopup="true" aria-expanded="false">Home</a>
 							</li>
 							<li>
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catálogo</a>
+								<a href="/catalogo" aria-haspopup="true" aria-expanded="false">Catálogo</a>
 							</li>
 							<li>
-								<a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crea tu Funda</a>
+								<a href="/tufunda" aria-haspopup="true" aria-expanded="false">Crea tu Funda</a>
 							</li>
 						</ul>
 					</div>
@@ -259,9 +259,14 @@
 							<div class="tab-content">
 								<div id="grid_layout" class="tab-pane active">
 									<div class="row mb-50 justify-content-center text-center">
+										<div class="boton_slider bg_carparts_red" >
+											<a class="deslizador">
+												<i class="far fa-arrow-left" onclick="mostrarDesplegable()"></i>
+											</a>
+										</div>
 
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 image-item">
-											<div class="col-lg-12 text-center">
+											<div class="col-lg-12 ">
 												<canvas id="canvas" width="383" height="500" class="mx-auto d-block"></canvas>
 											</div>
 											<div class="col-lg-12 barra_de_texto">
@@ -277,54 +282,58 @@
 												<button id="btn">Generar imagen</button>
 											</div>
 										</div>
-									
-										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-											<div class="row">
-												<div class="col-md-12">
-													<div class="desplegable_tu_funda" id="desplegable1">
-														<div class="encabezado_tu_funda" onclick="toggleDesplegable('desplegable1')">
-															<h2>Texto</h2>
-														</div>
-														<div class="contenido_del_desplegable">
-															<div class="col-lg-12 barra_de_texto">
-																<button onclick="agregarTexto()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose"> + Nuevo texto</button>
-																<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
+										
+										
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="desplegableContainer">
+												<div class="row">
+													<div class="col-md-12">
+														<button id="boton_cerrar" onclick="ocultarDesplegable()"><strong>Cerrar (X)</strong></button>
+														<div class="desplegable_tu_funda" id="desplegable1">
+															<div class="encabezado_tu_funda" onclick="toggleDesplegable('desplegable1')">
+																<h2>Texto</h2>
 															</div>
-															<div class="col-lg 12 barra_de_texto">
-																<button onclick="cambiarTipoDeLetra()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose"> Cambiar Fuente</button>
-															</div>
-															<div class="col-lg-12 barra_de_texto">
-																<label for="tamañoLetra" class="d-block">Tamaño de letra</label>
-																<input type="range" id="textSizeSlider" min="10" max="70" value="20" oninput="cambiarTamanoTexto(this.value)">
-															</div>
-															<div class="col-lg12 barra_de_texto">
-																<label for="textRotationSlider" class="d-block">Rotación del Texto</label>
-																<input type="range" id="textRotationSlider" min="0" max="360" value="0" oninput="cambiarRotacionTexto(this.value)">
-															</div>
+															<div class="contenido_del_desplegable">
+																<div class="col-lg-12 barra_de_texto">
+																	<button onclick="agregarTexto()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose"> + Nuevo texto</button>
+																	<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
+																</div>
+																<div class="col-lg 12 barra_de_texto">
+																	<button onclick="cambiarTipoDeLetra()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose"> Cambiar Fuente</button>
+																</div>
+																<div class="col-lg-12 barra_de_texto">
+																	<label for="tamañoLetra" class="d-block">Tamaño de letra</label>
+																	<input type="range" id="textSizeSlider" min="10" max="70" value="20" oninput="cambiarTamanoTexto(this.value)">
+																</div>
+																<div class="col-lg12 barra_de_texto">
+																	<label for="textRotationSlider" class="d-block">Rotación del Texto</label>
+																	<input type="range" id="textRotationSlider" min="0" max="360" value="0" oninput="cambiarRotacionTexto(this.value)">
+																</div>
 
 
-														</div>
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="desplegable_tu_funda" id="desplegable2">
-														<div class="encabezado_tu_funda" onclick="toggleDesplegable('desplegable2')">
-															<h2>Fondo</h2>
-														</div>
-														<div class="contenido_del_desplegable">
-															<div class="col-lg-12 barra_de_texto">
-																<label for="canvasColorPicker">Color</label>
-																<input type="color" id="canvasColorPicker" oninput="cambiarColorCanvas(this.value)">
 															</div>
 														</div>
 													</div>
-													
-													
-													
+													<div class="col-md-12">
+														<div class="desplegable_tu_funda" id="desplegable2">
+															<div class="encabezado_tu_funda" onclick="toggleDesplegable('desplegable2')">
+																<h2>Fondo</h2>
+															</div>
+															<div class="contenido_del_desplegable">
+																<div class="col-lg-12 barra_de_texto">
+																	<label for="canvasColorPicker">Color</label>
+																	<input type="color" id="canvasColorPicker" oninput="cambiarColorCanvas(this.value)">
+																</div>
+															</div>
+														</div>
+														
+														
+														
+														
+													</div>
 													
 												</div>
 											</div>
-										</div>
+											
 									</div>
 								</div>
 							</div>
@@ -902,6 +911,15 @@
 			function restablecerCanvas() {
     			canvas.clear();
 				canvas.renderAll();
+			}
+			function mostrarDesplegable() {
+				var desplegableContainer = document.getElementById('desplegableContainer');
+				desplegableContainer.style.right = '0';
+			}
+
+			function ocultarDesplegable() {
+				var desplegableContainer = document.getElementById('desplegableContainer');
+				desplegableContainer.style.right = '-100%';
 			}	
 		</script>
 		<script>
