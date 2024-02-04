@@ -13002,6 +13002,71 @@ padding: 10px;
   text-align: center;
   position: absolute;
 }
+/* Botones del editor de texto*/
+.css-button-sliding-to-bottom--rose {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid #F831FE;
+  color: #F831FE;
+  
+  
+}
+.css-button-sliding-to-bottom--rose:hover {
+  color: #fff;
+}
+.css-button-sliding-to-bottom--rose:hover:after {
+  height: 100%;
+}
+.css-button-sliding-to-bottom--rose:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  background:#F831FE;
+}
+.barra_de_texto{
+  margin-top: 10px;;
+}
+/*Boton de subir imagen*/
+.css-button-rounded--rose {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #F831FE;
+  background: #F831FE
+}
+.css-button-rounded--rose:hover {
+  background: #fff;
+  color: #F831FE
+}
+/* Botones del diplay del editor*/
+.buttons-editor{
+  margin-top: 10px;
+}
 
 /* upcoming section - end */
 /* simple shop newsletter - start */

@@ -261,11 +261,21 @@
 									<div class="row mb-50 justify-content-center text-center">
 
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 image-item">
-											<canvas id="canvas" width="400" height="500"></canvas>
-											<button onclick="cambiarOrden()">Ajustar a la Funda</button>
-											<button onclick="enviarAlFondo()">Modificar imagen</button>-
-											<input type="file" id="imageLoader" />
-											<button id="btn">Generar imagen</button>
+											<div class="col-lg-12 text-center">
+												<canvas id="canvas" width="383" height="500" class="mx-auto d-block"></canvas>
+											</div>
+											<div class="col-lg-12 barra_de_texto">
+												<button onclick="enviarAlFondo()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose buttons-editor"> Mover Imagen</button>
+												<button onclick="cambiarOrden()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose buttons-editor"> Previsualizar</button>
+												<button onclick="eliminarElementoSeleccionado()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose buttons-editor"> Eliminar Elemento</button>
+											</div>
+											<div class="col-lg-12 barra_de_texto">
+												<input type="file" id="imageLoader" style="display: none;"/>
+												<button onclick="cargarImagen()" class="css-button css-button-rounded css-button-rounded--rose"> Subir imagen </button>
+											</div>
+											<div class="col-lg-12 barra_de_texto">
+												<button id="btn">Generar imagen</button>
+											</div>
 										</div>
 									
 										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -276,8 +286,23 @@
 															<h2>Texto</h2>
 														</div>
 														<div class="contenido_del_desplegable">
-															<button>Botón 1</button> 
-															<button>Botón 2</button>
+															<div class="col-lg-12 barra_de_texto">
+																<button onclick="agregarTexto()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose"> + Nuevo texto</button>
+																<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
+															</div>
+															<div class="col-lg 12 barra_de_texto">
+																<button onclick="cambiarTipoDeLetra()" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose"> Cambiar Fuente</button>
+															</div>
+															<div class="col-lg-12 barra_de_texto">
+																<label for="tamañoLetra" class="d-block">Tamaño de letra</label>
+																<input type="range" id="textSizeSlider" min="10" max="70" value="20" oninput="cambiarTamanoTexto(this.value)">
+															</div>
+															<div class="col-lg12 barra_de_texto">
+																<label for="textRotationSlider" class="d-block">Rotación del Texto</label>
+																<input type="range" id="textRotationSlider" min="0" max="360" value="0" oninput="cambiarRotacionTexto(this.value)">
+															</div>
+
+
 														</div>
 													</div>
 												</div>
@@ -287,16 +312,16 @@
 															<h2>Fondo</h2>
 														</div>
 														<div class="contenido_del_desplegable">
-															<button>Botón 3</button>
-															<button>Botón 4</button>
+															<div class="col-lg-12 barra_de_texto">
+																<label for="canvasColorPicker">Color</label>
+																<input type="color" id="canvasColorPicker" oninput="cambiarColorCanvas(this.value)">
+															</div>
 														</div>
 													</div>
-													<button onclick="agregarTexto()">Agregar Texto</button>
-													<label for="colorPicker">Color del Texto:</label>
-													<input type="color" id="colorPicker" oninput="cambiarColorTexto(this.value)">
-													<button onclick="cambiarTipoDeLetra()">Cambiar Tipo de Letra</button>
-													<button onclick="aumentarTamano()">Aumentar Tamaño</button>
-													<button onclick="reducirTamano()">Reducir Tamaño</button>
+													
+													
+													
+													
 												</div>
 											</div>
 										</div>
@@ -310,12 +335,12 @@
 								<div class="sb_widget sb_recent_post seleccionadores">
 									<div class="sb_widget sb_category">
 										<h3 class="sb_widget_title">Selecciona tu modelo</h3>
-										<div class="col1">
+										<div class="col-lg-12">
 											<select name="marcas" id="marcasDropdown">
 												<option value="">Seleccione</option>
 											</select>
 										</div>
-										<div class="col2">
+										<div class="col-lg-12">
 											<select name="modelos" id="modelosDropdown">
 												<option value="">Seleccione</option>
 											</select>
@@ -324,7 +349,8 @@
 								</div>
 								<div class="abtn_wrap col3 text-center mt-3" id="div_del_boton" data-animation="fadeInUp" data-delay=".8s">
 									<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Seleccionar Modelo</a>
-									<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Empezar de Nuevo</a>
+									<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button" style="max-width: 200px;" onclick="restablecerCanvas()">Empezar de Nuevo</a>
+
 								</div>
 							</aside>
 						</div>
@@ -694,8 +720,21 @@
 		<script>
 			var canvas = new fabric.Canvas('canvas');
 			var fondoImg, userImg, texto;
-			var tiposDeLetra = ['Arial', 'Times New Roman', 'Courier New', 'Verdana', 'Georgia'];
+			var tiposDeLetra = [
+				'Arial',
+				'Comic Sans MS',
+				'Impact',
+				'Franklin Gothic Medium',
+				'Arial Black',
+				'Tahoma',
+				'Lucida Sans Unicode',
+				'Oswald'
+			];
 			var indiceTipoLetra = 0;
+			function cargarImagen() {
+				document.getElementById('imageLoader').click();
+			}
+
 		
 			function cargarImagenDeFondo(url) {
 				fabric.Image.fromURL(url, function (bgImg) {
@@ -732,16 +771,43 @@
 		
 			reader.readAsDataURL(file);
 			});
+			function cambiarColorCanvas(colorOrImage) {
+				if (colorOrImage.startsWith("http") || colorOrImage.startsWith("data:")) {
+				// Si la entrada parece ser una URL de imagen o datos de imagen,
+				// la utilizamos como fondo de imagen.
+				fabric.Image.fromURL(colorOrImage, function(img) {
+					img.scaleToWidth(canvas.width);
+					img.scaleToHeight(canvas.height);
+					img.set({
+					selectable: false
+					});
+					canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+				});
+				} else {
+				// Si la entrada no parece ser una URL de imagen, la consideramos como un color.
+				canvas.setBackgroundColor(colorOrImage);
+				canvas.renderAll();
+				}
+			}
 		
 			function cambiarOrden() {
-			if (userImg && fondoImg) {
+				if (userImg && fondoImg) {
 				canvas.remove(fondoImg);
 				canvas.remove(userImg);
 				canvas.add(fondoImg);
 				canvas.add(userImg);
 				canvas.sendToBack(userImg);
 				canvas.renderAll();
+				}
 			}
+			function eliminarElementoSeleccionado() {
+				var activeObject = canvas.getActiveObject();
+
+				if (activeObject) {
+				canvas.remove(activeObject);
+				canvas.discardActiveObject();
+				canvas.renderAll();
+				}
 			}
 		
 			function enviarAlFondo() {
@@ -785,6 +851,7 @@
 				indiceTipoLetra = (indiceTipoLetra + 1) % tiposDeLetra.length;
 				obj.set("fontFamily", tiposDeLetra[indiceTipoLetra]);
 				canvas.requestRenderAll();
+				console.log(tiposDeLetra[indiceTipoLetra]);
 			  }
 			}
 		
@@ -806,12 +873,22 @@
 			}
 		
 			function cambiarTamanoTexto(delta) {
-			  if (canvas.getActiveObject() && canvas.getActiveObject().isType('textbox')) {
-				var obj = canvas.getActiveObject();
-				var fontSize = obj.get("fontSize");
-				obj.set("fontSize", fontSize + delta);
-				canvas.requestRenderAll();
-			  }
+				if (canvas.getActiveObject() && canvas.getActiveObject().isType('textbox')) {
+					var obj = canvas.getActiveObject();
+					obj.set("fontSize", parseInt(delta));
+					canvas.requestRenderAll();
+				 }
+			}
+			function cambiarRotacionTexto(angulo) {
+				if (canvas.getActiveObject() && canvas.getActiveObject().isType('textbox')) {
+					var obj = canvas.getActiveObject();
+					obj.set({
+					"angle": parseInt(angulo),
+					"originX": "center",
+					"originY": "center"
+					});
+					canvas.requestRenderAll();
+				}
 			}
 		
 			btn.onclick = () => {
@@ -822,6 +899,10 @@
 			  a.click();
 			  descargarImagenSubida();
 			};
+			function restablecerCanvas() {
+    			canvas.clear();
+				canvas.renderAll();
+			}	
 		</script>
 		<script>
 			function toggleDesplegable(id) {
