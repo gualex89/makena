@@ -357,8 +357,12 @@
 									</div>
 								</div>
 								<div class="abtn_wrap col3 text-center mt-3" id="div_del_boton" data-animation="fadeInUp" data-delay=".8s">
-									<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Seleccionar Modelo</a>
-									<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button" style="max-width: 200px;" onclick="restablecerCanvas()">Empezar de Nuevo</a>
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Seleccionar Modelo</a>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<a id="seleccionarModeloBtn" class="custom_btn bg_carparts_red text-uppercase special_button" style="max-width: 200px;" onclick="restablecerCanvas()">Empezar de Nuevo</a>
+									</div>
 
 								</div>
 							</aside>
