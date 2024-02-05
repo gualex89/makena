@@ -389,73 +389,73 @@
 					<div class="barnd_carousel clearfix">
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_37.png" alt="image_not_found">
+								<img src="images/logos/samsung.png" alt="logo_samsung">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_38.png" alt="image_not_found">
+								<img src="images/logos/iphone.png" alt="logo_iphone">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_39.png" alt="image_not_found">
+								<img src="images/logos/zte.png" alt="logo_zte">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_40.png" alt="image_not_found">
+								<img src="images/logos/xiaomi.png" alt="logo_xiaomi">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_41.png" alt="image_not_found">
+								<img src="images/logos/LG.png" alt="logo_LG">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_42.png" alt="image_not_found">
+								<img src="images/logos/motorola.png" alt="logo_motorola">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_37.png" alt="image_not_found">
+								<img src="images/logos/samsung.png" alt="logo_samsung">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_38.png" alt="image_not_found">
+								<img src="images/logos/iphone.png" alt="logo_iphone">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_39.png" alt="image_not_found">
+								<img src="images/logos/zte.png" alt="logo_zte">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_40.png" alt="image_not_found">
+								<img src="images/logos/xiaomi.png" alt="logo_xiaomi">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_41.png" alt="image_not_found">
+								<img src="images/logos/LG.png" alt="logo_LG">
 							</a>
 						</div>
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/brands/img_42.png" alt="image_not_found">
+								<img src="images/logos/motorola.png" alt="logo_motorola">
 							</a>
 						</div>
 					</div>
