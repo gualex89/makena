@@ -644,7 +644,7 @@
 							<h4 class="item_title">${productItem.querySelector('.item_title').textContent}</h4>
 							<span class="item_price">$${price.toFixed(2)}</span>
 						</div>
-						<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+						<button type="button" class="remove_btn"><i class="fal fa-trash-alt remove_btn"></i></button>
 					</li>
 				`;
 
