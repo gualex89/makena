@@ -87,7 +87,7 @@
 									<li>
 										<button type="button" class="cart_btn">
 											<i class="fal fa-shopping-cart"></i>
-											<span class="btn_badge">2</span>
+											<span class="btn_badge">0</span>
 										</button>
 									</li>
 									<li><button type="button" class="mobile_menu_btn"><i class="far fa-bars"></i></button></li>
@@ -122,7 +122,7 @@
 									</form>
 								</li>
 								<li>
-									<button type="button" class="cart_btn">CART <small class="btn_badge">0</small></button>
+									<button type="button" class="cart_btn">CARRITO <small class="btn_badge">0</small></button>
 								</li>
 								<li>
 									<button type="button" class="mobile_menu_btn bg_carparts_red">
@@ -164,60 +164,25 @@
 					<button type="button" class="close_btn"><i class="fal fa-times"></i></button>
 
 					<ul class="cart_items_list ul_li_block mb_30 clearfix">
-						<li>
-							<div class="item_image">
-								<img src="images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
-						<li>
-							<div class="item_image">
-								<img src="images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
-						<li>
-							<div class="item_image">
-								<img src="images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
+						
 					</ul>
 
 					<ul class="total_price ul_li_block mb_30 clearfix">
 						<li>
 							<span>Subtotal:</span>
-							<span>$90</span>
+							<span>$0</span>
 						</li>
-						<li>
-							<span>Vat 5%:</span>
-							<span>$4.5</span>
-						</li>
-						<li>
-							<span>Discount 20%:</span>
-							<span>- $18.9</span>
-						</li>
+						
+						
 						<li>
 							<span>Total:</span>
-							<span>$75.6</span>
+							<span>$0</span>
 						</li>
 					</ul>
 
 					<ul class="btns_group ul_li_block clearfix">
-						<li><a href="shop_cart.html">View Cart</a></li>
-						<li><a href="shop_checkout.html">Checkout</a></li>
+						<li><a href="shop_cart.html">Ir al carrito</a></li>
+						
 					</ul>
 				</div>
 
@@ -333,7 +298,7 @@
 									<h3 class="sb_widget_title">Más Vendidos</h3>
 									<div class="carparts_small_blog">
 										<a  href="blog_details.html">
-											<img src="images/masVendido.png" alt="image_not_found">
+											<img src="images/masVendido2.png" alt="image_not_found">
 										</a>
 										<div class="item_content">
 											<ul class="rating_star ul_li clearfix">
@@ -641,9 +606,96 @@
 			});
 
 		</script>
+		
 		<script>
-			
+			document.addEventListener("DOMContentLoaded", function() {
+			let cartItemCount = 0;
+			let subtotal = 0;
+			let total = 0;
+
+			function updateCartCounter() {
+				const badgeElements = document.querySelectorAll('.btn_badge');
+				badgeElements.forEach(function(element) {
+					element.textContent = cartItemCount;
+				});
+			}
+
+			function updatePrices() {
+				const subtotalElement = document.querySelector('.total_price li:nth-child(1) span:nth-child(2)');
+				const totalElement = document.querySelector('.total_price li:nth-child(2) span:nth-child(2)');
+
+				subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+				totalElement.textContent = `$${total.toFixed(2)}`;
+			}
+
+			function addToCart(productItem) {
+				const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
+
+				cartItemCount++;
+				subtotal += price;
+				total = subtotal;
+
+				const cartItemHTML = `
+					<li>
+						<div class="item_image">
+							<img src="${productItem.querySelector('img').getAttribute('src')}" alt="${productItem.querySelector('.item_title').textContent}">
+						</div>
+						<div class="item_content">
+							<h4 class="item_title">${productItem.querySelector('.item_title').textContent}</h4>
+							<span class="item_price">$${price.toFixed(2)}</span>
+						</div>
+						<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+					</li>
+				`;
+
+				const cartItemsList = document.querySelector('.cart_items_list');
+				cartItemsList.innerHTML += cartItemHTML;
+
+				updateCartCounter();
+				updatePrices();
+			}
+
+			function removeFromCart(item) {
+				const price = parseFloat(item.querySelector('.item_price').textContent.replace('$', ''));
+
+				item.remove();
+				cartItemCount--;
+				subtotal -= price;
+				total = subtotal;
+
+				updateCartCounter();
+				updatePrices();
+			}
+
+			document.querySelectorAll('.product_action_btns a').forEach(btn => {
+				btn.addEventListener('click', function(event) {
+					event.preventDefault();
+					const productItem = this.closest('.motorcycle_product_grid');
+					addToCart(productItem);
+				});
+			});
+
+			document.querySelector('.cart_items_list').addEventListener('click', function(event) {
+				if (event.target.classList.contains('remove_btn')) {
+					const item = event.target.closest('li');
+					removeFromCart(item);
+				}
+			});
+		});
+
+
+
+
+
 		</script>
+		
+		
+		
+		
+		
+
+			
+		
 
 		
 	</body>
