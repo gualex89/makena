@@ -79,11 +79,7 @@
 								</a>
 
 								<ul class="mh_action_btns ul_li clearfix">
-									<li>
-										<button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
-											<i class="fal fa-search"></i>
-										</button>
-									</li>
+									
 									<li>
 										<button type="button" class="cart_btn">
 											<i class="fal fa-shopping-cart"></i>
@@ -125,18 +121,7 @@
 				</div>
 			</div>
 
-			<div id="search_body_collapse" class="search_body_collapse collapse">
-				<div class="search_body">
-					<div class="container-fluid prl_90">
-						<form action="#">
-							<div class="form_item mb-0">
-								<input type="search" name="search" placeholder="Type here...">
-								<button type="submit"><i class="fal fa-search"></i></button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+			
 		</header>
 		<!-- header_section - end
 		================================================== -->

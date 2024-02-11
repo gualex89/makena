@@ -113,14 +113,7 @@
 
 						<div class="col-lg-4">
 							<ul class="action_items ul_li_right clearfix">
-								<li>
-									<form action="#">
-										<div class="form_item mb-0">
-											<input type="search" name="search" placeholder="search">
-											<button type="submit"><i class="fal fa-search"></i></button>
-										</div>
-									</form>
-								</li>
+								
 								<li>
 									<button type="button" class="cart_btn">CARRITO <small class="btn_badge">0</small></button>
 								</li>
@@ -135,18 +128,7 @@
 				</div>
 			</div>
 
-			<div id="search_body_collapse" class="search_body_collapse collapse">
-				<div class="search_body">
-					<div class="container-fluid prl_90">
-						<form action="#">
-							<div class="form_item mb-0">
-								<input type="search" name="search" placeholder="Type here...">
-								<button type="submit"><i class="fal fa-search"></i></button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+			
 		</header>
 		<!-- header_section - end
 		================================================== -->
