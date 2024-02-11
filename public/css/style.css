@@ -3589,12 +3589,22 @@ button {
 ================================================== */
 /* motorcycle header - start
 ================================================== */
+#cintillo_carrito{
+  min-height: auto;
+  background-color: #202020;
+  box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.15);
+}
 .motorcycle_header .header_content_wrap {
   min-height: 135px;
   padding: 15px 0px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .motorcycle_header.stuck .header_content_wrap {
+  min-height: auto;
+  background-color: #202020;
+  box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.15);
+}
+#cintillo_carrito{
   min-height: auto;
   background-color: #202020;
   box-shadow: 0px 0px 18px 1px rgba(0, 0, 0, 0.15);
@@ -4949,6 +4959,12 @@ button {
   position: relative;
   padding: 100px 0px;
   padding-bottom: 180px;
+}
+.breadcrumb_section_carrito {
+  z-index: 1;
+  min-height: 10px;
+  position: relative;
+  padding-bottom: 30px;
 }
 .breadcrumb_section .overlay {
   top: 0px;

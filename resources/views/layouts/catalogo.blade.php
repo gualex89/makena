@@ -609,84 +609,138 @@
 		
 		<script>
 			document.addEventListener("DOMContentLoaded", function() {
-			let cartItemCount = 0;
-			let subtotal = 0;
-			let total = 0;
-
-			function updateCartCounter() {
-				const badgeElements = document.querySelectorAll('.btn_badge');
-				badgeElements.forEach(function(element) {
-					element.textContent = cartItemCount;
-				});
-			}
-
-			function updatePrices() {
-				const subtotalElement = document.querySelector('.total_price li:nth-child(1) span:nth-child(2)');
-				const totalElement = document.querySelector('.total_price li:nth-child(2) span:nth-child(2)');
-
-				subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-				totalElement.textContent = `$${total.toFixed(2)}`;
-			}
-
-			function addToCart(productItem) {
-				const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
-
-				cartItemCount++;
-				subtotal += price;
-				total = subtotal;
-
-				const cartItemHTML = `
-					<li>
-						<div class="item_image">
-							<img src="${productItem.querySelector('img').getAttribute('src')}" alt="${productItem.querySelector('.item_title').textContent}">
-						</div>
-						<div class="item_content">
-							<h4 class="item_title">${productItem.querySelector('.item_title').textContent}</h4>
-							<span class="item_price">$${price.toFixed(2)}</span>
-						</div>
-						<button type="button" class="remove_btn"><i class="fal fa-trash-alt remove_btn"></i></button>
-					</li>
-				`;
-
-				const cartItemsList = document.querySelector('.cart_items_list');
-				cartItemsList.innerHTML += cartItemHTML;
-
-				updateCartCounter();
-				updatePrices();
-			}
-
-			function removeFromCart(item) {
-				const price = parseFloat(item.querySelector('.item_price').textContent.replace('$', ''));
-
-				item.remove();
-				cartItemCount--;
-				subtotal -= price;
-				total = subtotal;
-
-				updateCartCounter();
-				updatePrices();
-			}
-
-			document.querySelectorAll('.product_action_btns a').forEach(btn => {
-				btn.addEventListener('click', function(event) {
-					event.preventDefault();
-					const productItem = this.closest('.motorcycle_product_grid');
-					addToCart(productItem);
-				});
-			});
-
-			document.querySelector('.cart_items_list').addEventListener('click', function(event) {
-				if (event.target.classList.contains('remove_btn')) {
-					const item = event.target.closest('li');
-					removeFromCart(item);
+				let cartItemCount = 0;
+				let subtotal = 0;
+				let total = 0;
+				let cartItems = [];
+		
+				function updateCartCounter() {
+					const badgeElements = document.querySelectorAll('.btn_badge');
+					badgeElements.forEach(function(element) {
+						element.textContent = cartItemCount;
+					});
 				}
+		
+				function updatePrices() {
+					const subtotalElement = document.querySelector('.total_price li:nth-child(1) span:nth-child(2)');
+					const totalElement = document.querySelector('.total_price li:nth-child(2) span:nth-child(2)');
+		
+					subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+					totalElement.textContent = `$${total.toFixed(2)}`;
+				}
+		
+				function addToCart(productItem) {
+					const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
+					const itemName = productItem.querySelector('.item_title').textContent;
+					const imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
+		
+					cartItemCount++;
+					subtotal += price;
+					total = subtotal;
+		
+					const cartItem = {
+						name: itemName,
+						price: price,
+						image: imageUrl // Guardar la URL completa de la imagen en el objeto del carrito
+					};
+		
+					cartItems.push(cartItem);
+		
+					// Guardar el carrito en el almacenamiento local
+					localStorage.setItem('cartItems', JSON.stringify(cartItems));
+		
+					// Llamar a la función para mostrar los elementos del carrito
+					updateCartItems();
+					updatePrices();
+				}
+		
+				function updateCartItems() {
+					const cartItemsList = document.querySelector('.cart_items_list');
+					cartItemsList.innerHTML = ''; // Limpiar la lista de elementos del carrito
+		
+					cartItems.forEach(cartItem => {
+						const cartItemHTML = `
+							<li>
+								<div class="item_image">
+									<img src="${cartItem.image}" alt="${cartItem.name}"> <!-- Usar la URL de la imagen -->
+								</div>
+								<div class="item_content">
+									<h4 class="item_title">${cartItem.name}</h4>
+									<span class="item_price">$${cartItem.price.toFixed(2)}</span>
+								</div>
+								<button type="button" class="remove_btn"><i class="fal fa-trash-alt remove_btn"></i></button>
+							</li>
+						`;
+						cartItemsList.innerHTML += cartItemHTML;
+					});
+		
+					// Actualizar el contador del carrito
+					updateCartCounter();
+				}
+		
+				// Restaurar el carrito al cargar la página
+				function restoreCart() {
+					const storedCartItems = localStorage.getItem('cartItems');
+					if (storedCartItems) {
+						cartItems = JSON.parse(storedCartItems);
+						cartItemCount = cartItems.length;
+						cartItems.forEach(cartItem => {
+							subtotal += cartItem.price;
+						});
+						total = subtotal;
+		
+						updateCartItems();
+						updatePrices();
+					}
+				}
+				function removeFromCart(item) {
+					const itemName = item.querySelector('.item_title').textContent;
+					
+					// Encontrar el índice del elemento a eliminar en cartItems
+					const indexToRemove = cartItems.findIndex(cartItem => cartItem.name === itemName);
+					
+					if (indexToRemove !== -1) { // Verificar si se encontró el elemento
+						const price = cartItems[indexToRemove].price;
+						
+						// Actualizar subtotal y total
+						subtotal -= price;
+						total = subtotal;
+						
+						// Eliminar el elemento del carrito
+						cartItems.splice(indexToRemove, 1);
+						
+						// Actualizar el almacenamiento local
+						localStorage.setItem('cartItems', JSON.stringify(cartItems));
+						
+						// Actualizar el contador del carrito
+						cartItemCount--;
+						
+						// Actualizar la visualización del carrito
+						updateCartItems();
+						updatePrices();
+						updateCartCounter(); // Actualizar el contador del carrito
+					}
+				}
+					
+		
+				// Llamar a la función para restaurar el carrito al cargar la página
+				restoreCart();
+		
+				document.querySelectorAll('.product_action_btns a').forEach(btn => {
+					btn.addEventListener('click', function(event) {
+						event.preventDefault();
+						const productItem = this.closest('.motorcycle_product_grid');
+						addToCart(productItem);
+					});
+				});
+		
+				document.querySelector('.cart_items_list').addEventListener('click', function(event) {
+					if (event.target.classList.contains('remove_btn')) {
+						const item = event.target.closest('li');
+						removeFromCart(item);
+					}
+				});
 			});
-		});
-
-
-
-
-
 		</script>
 		
 		

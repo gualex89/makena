@@ -112,7 +112,7 @@
 									</form>
 								</li>
 								<li>
-									<button type="button" class="cart_btn">CART <small class="btn_badge">0</small></button>
+									<button type="button" class="cart_btn">CARRITO<small class="btn_badge">0</small></button>
 								</li>
 								<li>
 									<button type="button" class="mobile_menu_btn bg_carparts_red">
@@ -154,60 +154,25 @@
 					<button type="button" class="close_btn"><i class="fal fa-times"></i></button>
 
 					<ul class="cart_items_list ul_li_block mb_30 clearfix">
-						<li>
-							<div class="item_image">
-								<img src="images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
-						<li>
-							<div class="item_image">
-								<img src="images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
-						<li>
-							<div class="item_image">
-								<img src="images/cart/img_01.jpg" alt="image_not_found">
-							</div>
-							<div class="item_content">
-								<h4 class="item_title">Yellow Blouse</h4>
-								<span class="item_price">$30.00</span>
-							</div>
-							<button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-						</li>
+						
 					</ul>
 
 					<ul class="total_price ul_li_block mb_30 clearfix">
 						<li>
 							<span>Subtotal:</span>
-							<span>$90</span>
+							<span>$0</span>
 						</li>
-						<li>
-							<span>Vat 5%:</span>
-							<span>$4.5</span>
-						</li>
-						<li>
-							<span>Discount 20%:</span>
-							<span>- $18.9</span>
-						</li>
+						
+						
 						<li>
 							<span>Total:</span>
-							<span>$75.6</span>
+							<span>$0</span>
 						</li>
 					</ul>
 
 					<ul class="btns_group ul_li_block clearfix">
-						<li><a href="shop_cart.html">View Cart</a></li>
-						<li><a href="shop_checkout.html">Checkout</a></li>
+						<li><a href="shop_cart.html">Ir al carrito</a></li>
+						
 					</ul>
 				</div>
 
@@ -939,6 +904,143 @@
 			}
 		</script>
 		
+		
+		
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				let cartItemCount = 0;
+				let subtotal = 0;
+				let total = 0;
+				let cartItems = [];
+		
+				function updateCartCounter() {
+					const badgeElements = document.querySelectorAll('.btn_badge');
+					badgeElements.forEach(function(element) {
+						element.textContent = cartItemCount;
+					});
+				}
+		
+				function updatePrices() {
+					const subtotalElement = document.querySelector('.total_price li:nth-child(1) span:nth-child(2)');
+					const totalElement = document.querySelector('.total_price li:nth-child(2) span:nth-child(2)');
+		
+					subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+					totalElement.textContent = `$${total.toFixed(2)}`;
+				}
+		
+				function addToCart(productItem) {
+					const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
+					const itemName = productItem.querySelector('.item_title').textContent;
+					const imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
+		
+					cartItemCount++;
+					subtotal += price;
+					total = subtotal;
+		
+					const cartItem = {
+						name: itemName,
+						price: price,
+						image: imageUrl // Guardar la URL completa de la imagen en el objeto del carrito
+					};
+		
+					cartItems.push(cartItem);
+		
+					// Guardar el carrito en el almacenamiento local
+					localStorage.setItem('cartItems', JSON.stringify(cartItems));
+		
+					// Llamar a la función para mostrar los elementos del carrito
+					updateCartItems();
+					updatePrices();
+				}
+		
+				function updateCartItems() {
+					const cartItemsList = document.querySelector('.cart_items_list');
+					cartItemsList.innerHTML = ''; // Limpiar la lista de elementos del carrito
+		
+					cartItems.forEach(cartItem => {
+						const cartItemHTML = `
+							<li>
+								<div class="item_image">
+									<img src="${cartItem.image}" alt="${cartItem.name}"> <!-- Usar la URL de la imagen -->
+								</div>
+								<div class="item_content">
+									<h4 class="item_title">${cartItem.name}</h4>
+									<span class="item_price">$${cartItem.price.toFixed(2)}</span>
+								</div>
+								<button type="button" class="remove_btn"><i class="fal fa-trash-alt remove_btn"></i></button>
+							</li>
+						`;
+						cartItemsList.innerHTML += cartItemHTML;
+					});
+		
+					// Actualizar el contador del carrito
+					updateCartCounter();
+				}
+		
+				// Restaurar el carrito al cargar la página
+				function restoreCart() {
+					const storedCartItems = localStorage.getItem('cartItems');
+					if (storedCartItems) {
+						cartItems = JSON.parse(storedCartItems);
+						cartItemCount = cartItems.length;
+						cartItems.forEach(cartItem => {
+							subtotal += cartItem.price;
+						});
+						total = subtotal;
+		
+						updateCartItems();
+						updatePrices();
+					}
+				}
+				function removeFromCart(item) {
+					const itemName = item.querySelector('.item_title').textContent;
+					
+					// Encontrar el índice del elemento a eliminar en cartItems
+					const indexToRemove = cartItems.findIndex(cartItem => cartItem.name === itemName);
+					
+					if (indexToRemove !== -1) { // Verificar si se encontró el elemento
+						const price = cartItems[indexToRemove].price;
+						
+						// Actualizar subtotal y total
+						subtotal -= price;
+						total = subtotal;
+						
+						// Eliminar el elemento del carrito
+						cartItems.splice(indexToRemove, 1);
+						
+						// Actualizar el almacenamiento local
+						localStorage.setItem('cartItems', JSON.stringify(cartItems));
+						
+						// Actualizar el contador del carrito
+						cartItemCount--;
+						
+						// Actualizar la visualización del carrito
+						updateCartItems();
+						updatePrices();
+						updateCartCounter(); // Actualizar el contador del carrito
+					}
+				}
+					
+		
+				// Llamar a la función para restaurar el carrito al cargar la página
+				restoreCart();
+		
+				document.querySelectorAll('.product_action_btns a').forEach(btn => {
+					btn.addEventListener('click', function(event) {
+						event.preventDefault();
+						const productItem = this.closest('.motorcycle_product_grid');
+						addToCart(productItem);
+					});
+				});
+		
+				document.querySelector('.cart_items_list').addEventListener('click', function(event) {
+					if (event.target.classList.contains('remove_btn')) {
+						const item = event.target.closest('li');
+						removeFromCart(item);
+					}
+				});
+			});
+		</script>
 		
 
 		
