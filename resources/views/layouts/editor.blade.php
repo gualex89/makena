@@ -189,65 +189,7 @@
 							</thead>
 							<tbody>
 								
-								<tr>
-									<td>
-										<div class="cart_product">
-											<div class="item_image">
-												<img src="assets/images/cart/img_04.jpg" alt="image_not_found">
-											</div>
-											<div class="item_content">
-												<h4 class="item_title">Men's Polo T-shirt</h4>
-												<span class="item_type">Clothes</span>
-											</div>
-											<button type="button" class="remove_btn">
-												<i class="fal fa-times"></i>
-											</button>
-										</div>
-									</td>
-									
-									<td><span class="total_price">$23.00</span></td>
-									
-								</tr>
-
-								<tr>
-									<td>
-										<div class="cart_product">
-											<div class="item_image">
-												<img src="assets/images/cart/img_05.jpg" alt="image_not_found">
-											</div>
-											<div class="item_content">
-												<h4 class="item_title">Men's Polo T-shirt</h4>
-												<span class="item_type">Clothes</span>
-											</div>
-											<button type="button" class="remove_btn">
-												<i class="fal fa-times"></i>
-											</button>
-										</div>
-									</td>
-									
-									
-									<td><span class="total_price">$23.00</span></td>
-								</tr>
-
-								<tr>
-									<td>
-										<div class="cart_product">
-											<div class="item_image">
-												<img src="assets/images/cart/img_06.jpg" alt="image_not_found">
-											</div>
-											<div class="item_content">
-												<h4 class="item_title">Men's Polo T-shirt</h4>
-												<span class="item_type">Clothes</span>
-											</div>
-											<button type="button" class="remove_btn">
-												<i class="fal fa-times"></i>
-											</button>
-										</div>
-									</td>
-									
-									
-									<td><span class="total_price">$36.00</span></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -257,10 +199,10 @@
 						<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
 							<h3 class="table_title text-center" data-bg-color="#ededed">Total</h3>
 							<ul class="ul_li_block clearfix">
-								<li><span>Subtotal</span> <span>$197.99</span></li>
-								<li><span>Total</span> <span>$197.99</span></li>
+								<li><span>Subtotal</span> <span>$0</span></li>
+								<li><span>Total</span> <span>$0</span></li>
 							</ul>
-							<a href="shop_checkout.html" class="custom_btn bg_success">Proceed to Checkout</a>
+							<a href="shop_checkout.html" class="custom_btn bg_success">PAGAR</a>
 						</div>
 					</div>
 		
@@ -454,8 +396,100 @@
 
 		</script>
 		<script>
-			
+			document.addEventListener("DOMContentLoaded", function() {
+				function updateCartCounter() {
+					const badgeElements = document.querySelectorAll('.btn_badge');
+					badgeElements.forEach(function(element) {
+						element.textContent = cartItems.length;
+					});
+				}
+
+				function updatePrices(subtotal, total) {
+					// Actualizar subtotal y total en el resumen del carrito
+					document.querySelectorAll('.cart_pricing_table ul li span:nth-child(2)').forEach(function(element, index) {
+						if (index === 0) { // Primer span es el subtotal
+							element.textContent = `$${subtotal.toFixed(2)}`;
+						} else if (index === 1) { // Segundo span es el total
+							element.textContent = `$${total.toFixed(2)}`;
+						}
+					});
+				}
+
+				function updateCartItems(cartItems) {
+					const cartTableBody = document.querySelector('.cart_section table tbody');
+					cartTableBody.innerHTML = '';
+
+					let subtotal = 0; // Inicializamos el subtotal a 0
+					cartItems.forEach(function(cartItem, index) {
+						const itemPrice = cartItem.price; // Precio individual del producto
+						subtotal += itemPrice; // Sumamos el precio individual al subtotal total
+
+						const cartItemHTML = `
+							<tr>
+								<td>
+									<div class="cart_product">
+										<div class="item_image">
+											<img src="${cartItem.image}" alt="${cartItem.name}">
+										</div>
+										<div class="item_content">
+											<h4 class="item_title">${cartItem.name}</h4>
+											<span class="item_type">${cartItem.type}</span>
+										</div>
+										<button type="button" class="remove_btn">
+											<i class="fal fa-times"></i>
+										</button>
+									</div>
+								</td>
+								<td><span class="item_price" style="font-size: 30px; ">$${itemPrice.toFixed(2)}</span></td> 
+							</tr>
+						`;
+						cartTableBody.innerHTML += cartItemHTML;
+					});
+
+					// Calcular el total basado en el subtotal
+					const total = subtotal;
+
+					// Actualizar precios del carrito
+					updatePrices(subtotal, total);
+
+					// Reasignar eventos click a los botones de eliminar
+					document.querySelectorAll('.remove_btn').forEach(function(removeButton, index) {
+						removeButton.addEventListener('click', function() {
+							// Eliminar el elemento del carrito en el índice especificado
+							cartItems.splice(index, 1);
+							
+							// Actualizar localStorage
+							localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+							// Actualizar contador del carrito
+							updateCartCounter();
+
+							// Actualizar visualización del carrito
+							updateCartItems(cartItems);
+						});
+					});
+				}
+
+				// Obtener los elementos del carrito almacenados en el localStorage
+				let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+				// Actualizar visualización del carrito
+				updateCartItems(cartItems);
+				updateCartCounter();
+			});
+
+
+
+
 		</script>
+		
+		
+		
+		
+		
+		
+		
+		
 
 		
 	</body>
