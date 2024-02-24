@@ -5,6 +5,8 @@ use App\Http;
 use App\Http\Controllers\HomeImagesController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\TuFundaController;
+use App\Http\Controllers\CarritoController;
+
 
 Route::get('/', [HomeImagesController::class, 'index'])->name('welcome');
 
@@ -19,6 +21,7 @@ Route::get('/tufunda', [TuFundaController::class, 'tufunda'])->name('tufunda');
 
 Route::get('/obtener-marcas', [TuFundaController::class, 'obtenerMarcas']);
 
+Route::get('/carrito', [CarritoController::class, 'carrito'])->name('carrito');
 
 Route::get('/obtener-modelos/{marca}', [TuFundaController::class, 'obtenerModelos']);
 

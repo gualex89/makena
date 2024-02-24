@@ -148,7 +148,7 @@
 					</ul>
 
 					<ul class="btns_group ul_li_block clearfix">
-						<li><a href="shop_cart.html">Ir al carrito</a></li>
+						<li><a href="/carrito">Ir al carrito</a></li>
 						
 					</ul>
 				</div>

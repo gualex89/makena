@@ -163,7 +163,7 @@
 					</ul>
 
 					<ul class="btns_group ul_li_block clearfix">
-						<li><a href="shop_cart.html">Ir al carrito</a></li>
+						<li><a href="/carrito">Ir al carrito</a></li>
 						
 					</ul>
 				</div>
@@ -410,6 +410,39 @@
 			</div>
 			<!-- barnd_section - end
 			================================================== -->
+			<!-- Modal -->
+			<div class="modal fade" id="addToCartModal" tabindex="-1" role="dialog" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					<h3 class="modal-title" id="addToCartModalLabel">Selecciona tu modelo</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+					<div class="modal-body">
+						<div class="sb_widget sb_recent_post seleccionadores">
+							<div class="sb_widget sb_category">
+								
+								<div class="col-lg-12">
+									<select name="marcas" id="marcasDropdown">
+										<option value="">Seleccione</option>
+									</select>
+								</div>
+								<div class="col-lg-12">
+									<select name="modelos" id="modelosDropdown">
+										<option value="">Seleccione</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="addToCartModalOkButton" class="btn btn-secondary" data-dismiss="modal">OK</button>
+					</div>
+				</div>
+				</div>
+			</div>
 
 
 		</main>
@@ -615,47 +648,63 @@
 					const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
 					const itemName = productItem.querySelector('.item_title').textContent;
 					const imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
-		
-					cartItemCount++;
-					subtotal += price;
-					total = subtotal;
-		
-					const cartItem = {
-						name: itemName,
-						price: price,
-						image: imageUrl // Guardar la URL completa de la imagen en el objeto del carrito
-					};
-		
-					cartItems.push(cartItem);
-		
-					// Guardar el carrito en el almacenamiento local
-					localStorage.setItem('cartItems', JSON.stringify(cartItems));
-		
-					// Llamar a la función para mostrar los elementos del carrito
-					updateCartItems();
-					updatePrices();
+
+					// Mostrar la modal
+					$('#addToCartModal').modal('show');
+
+					// Agregar un manejador de eventos para el botón "OK" dentro de la modal
+					document.getElementById('addToCartModalOkButton').addEventListener('click', function() {
+						const selectedMarca = document.getElementById('marcasDropdown').value;
+						const selectedModelo = document.getElementById('modelosDropdown').value;
+
+						const pendingCartItem = {
+							name: itemName,
+							price: price,
+							image: imageUrl,
+							marca: selectedMarca,
+							modelo: selectedModelo
+						};
+
+						// Agregar el artículo al carrito
+						cartItemCount++;
+						subtotal += pendingCartItem.price;
+						total = subtotal;
+						cartItems.push(pendingCartItem);
+						localStorage.setItem('cartItems', JSON.stringify(cartItems));
+						updateCartItems();
+						updatePrices();
+
+						// Cerrar la modal
+						$('#addToCartModal').modal('hide');
+
+						// Eliminar el manejador de eventos para evitar que se acumulen
+						document.getElementById('addToCartModalOkButton').removeEventListener('click');
+					});
 				}
-		
 				function updateCartItems() {
 					const cartItemsList = document.querySelector('.cart_items_list');
 					cartItemsList.innerHTML = ''; // Limpiar la lista de elementos del carrito
-		
+
 					cartItems.forEach(cartItem => {
 						const cartItemHTML = `
 							<li>
 								<div class="item_image">
-									<img src="${cartItem.image}" alt="${cartItem.name}"> <!-- Usar la URL de la imagen -->
+									<img src="${cartItem.image}" alt="${cartItem.name}">
 								</div>
 								<div class="item_content">
 									<h4 class="item_title">${cartItem.name}</h4>
+									<p> ${cartItem.marca} ${cartItem.modelo}</p> 
+									
 									<span class="item_price">$${cartItem.price.toFixed(2)}</span>
 								</div>
-								<button type="button" class="remove_btn"><i class="fal fa-trash-alt remove_btn"></i></button>
+								<div>
+								<button type="button" class="remove_btn_carrito"><i class="fal fa-trash-alt remove_btn"></i></button>
+								</div>
 							</li>
 						`;
 						cartItemsList.innerHTML += cartItemHTML;
 					});
-		
+
 					// Actualizar el contador del carrito
 					updateCartCounter();
 				}
@@ -721,6 +770,36 @@
 						const item = event.target.closest('li');
 						removeFromCart(item);
 					}
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function() {
+				// Cargar marcas al cargar la página
+				$.get('/obtener-marcas', function(data) {
+					console.log(data);
+					
+					data.forEach(function(marca) {
+						$('#marcasDropdown').append('<option value="' + marca + '">' + marca + '</option>');
+						$('#marcasDropdown').niceSelect('update');
+					});
+				});
+		
+				// Manejar cambio en el dropdown de marcas
+				$('#marcasDropdown').change(function() {
+					var marcaSeleccionada = $(this).val();
+		
+					// Hacer una solicitud AJAX para obtener modelos según la marca seleccionada
+					$.get('/obtener-modelos/' + marcaSeleccionada, function(data) {
+						// Limpiar modelos existentes
+						$('#modelosDropdown').empty();
+		
+						// Llenar modelos
+						data.forEach(function(modelo) {
+							$('#modelosDropdown').append('<option value="' + modelo + '">' + modelo + '</option>');
+							$('#modelosDropdown').niceSelect('update');
+						});
+					});
 				});
 			});
 		</script>

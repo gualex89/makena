@@ -4900,6 +4900,9 @@ button {
   display: block;
   line-height: 1;
 }
+.remove_btn_carrito {
+  margin-top: 10px; /* Agrega un espacio vertical al botón */
+}
 
 /* gadget footer - end
 ================================================== */

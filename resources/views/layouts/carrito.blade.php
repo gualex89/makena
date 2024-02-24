@@ -433,7 +433,7 @@
 										</div>
 										<div class="item_content">
 											<h4 class="item_title">${cartItem.name}</h4>
-											<span class="item_type">${cartItem.type}</span>
+											<span class="item_type">${cartItem.marca} ${cartItem.modelo}</span>
 										</div>
 										<button type="button" class="remove_btn">
 											<i class="fal fa-times"></i>
