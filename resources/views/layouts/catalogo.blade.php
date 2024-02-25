@@ -74,7 +74,7 @@
 					<div class="row align-items-center">
 						<div class="col-lg-2">
 							<div class="brand_logo">
-								<a class="brand_link" href="index.html">
+								<a class="brand_link" href="/">
 									<img src="images/logo/logoMakena.png" srcset="images/logo/logoMakena.png 2x" alt="logo_not_found">
 								</a>
 
@@ -172,7 +172,7 @@
 					<button type="button" class="close_btn"><i class="fal fa-times"></i></button>
 
 					<div class="msb_widget brand_logo text-center">
-						<a href="index.html">
+						<a href="/">
 							<img src="images/logo/logo_25_1x.png" srcset="images/logo/logo_black.png" alt="logo_not_found">
 						</a>
 					</div>
@@ -227,7 +227,7 @@
 													</ul>
 												</div>
 												<div class="item_content">
-													<span class="item_price">$9900</span>
+													<span class="item_price">{{$precioFundas}}</span>
 													<h3  class="item_title" id="codigo_producto">
 														<a href="#!">{{$image->file_name}}</a>
 													</h3>
@@ -295,7 +295,7 @@
 													DB-11
 												</a>
 											</h3>
-											<div class="item_price"><strong data-text-color="#39b54a">$9.900</strong> <del>$11.000</del></div>
+											<div class="item_price"><strong data-text-color="#39b54a">{{$precioFundas}}</strong> </div>
 										</div>
 									</div>
 
@@ -316,7 +316,7 @@
 													DB-33
 												</a>
 											</h3>
-											<div class="item_price"><strong data-text-color="#39b54a">$9.900</strong> <del>$11.000</del></div>
+											<div class="item_price"><strong data-text-color="#39b54a">{{$precioFundas}}</strong></div>
 										</div>
 									</div>
 								</div>
@@ -640,15 +640,15 @@
 					const subtotalElement = document.querySelector('.total_price li:nth-child(1) span:nth-child(2)');
 					const totalElement = document.querySelector('.total_price li:nth-child(2) span:nth-child(2)');
 		
-					subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-					totalElement.textContent = `$${total.toFixed(2)}`;
+					subtotalElement.textContent = `$${subtotal}`;
+					totalElement.textContent = `$${total}`;
 				}
 		
 				function addToCart(productItem) {
 					const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
 					const itemName = productItem.querySelector('.item_title').textContent;
 					const imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
-
+					
 					// Mostrar la modal
 					$('#addToCartModal').modal('show');
 
@@ -664,6 +664,9 @@
 							marca: selectedMarca,
 							modelo: selectedModelo
 						};
+						console.log("aqui")
+						console.log(price)
+						console.log("hasta aqui")
 
 						// Agregar el artículo al carrito
 						cartItemCount++;
@@ -695,7 +698,7 @@
 									<h4 class="item_title">${cartItem.name}</h4>
 									<p> ${cartItem.marca} ${cartItem.modelo}</p> 
 									
-									<span class="item_price">$${cartItem.price.toFixed(2)}</span>
+									<span class="item_price">$${cartItem.price}</span>
 								</div>
 								<div>
 								<button type="button" class="remove_btn_carrito"><i class="fal fa-trash-alt remove_btn"></i></button>

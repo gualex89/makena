@@ -162,7 +162,7 @@
 					<button type="button" class="close_btn"><i class="fal fa-times"></i></button>
 
 					<div class="msb_widget brand_logo text-center">
-						<a href="index.html">
+						<a href="/">
 							<img src="images/logo/logo_25_1x.png" srcset="images/logo/logo_black.png" alt="logo_not_found">
 						</a>
 					</div>

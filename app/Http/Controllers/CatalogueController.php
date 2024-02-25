@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Catalogue;
 use App\Models\Cover;
+use App\Models\Product;
 
 
 
@@ -17,8 +18,19 @@ class CatalogueController extends Controller
         $imagesCatalogo= Catalogue::all();
         $totalImagesCatalogo = $imagesCatalogo->count();
 
+        //Obetenemos los productos para asi obtener precios
+        $misProductos = Product::all();
+        $precioFundas = null;
 
-        return view('layouts.catalogo', compact('imagesCatalogo', 'totalImagesCatalogo'));
+        foreach ($misProductos as $producto) {
+            if ($producto->name === 'Fundas') {
+                $precioFundas = $producto->price;
+                break; // Terminamos el bucle una vez que encontramos el producto "fundas"
+            }
+        }
+
+
+        return view('layouts.catalogo', compact('imagesCatalogo', 'totalImagesCatalogo', 'precioFundas'));
     }
     public function obtenerMarcas(){
         $marcas = Cover::distinct()->pluck('marca');
