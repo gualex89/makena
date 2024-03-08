@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeImagesController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\TuFundaController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\CheckoutController;
 
 
 Route::get('/', [HomeImagesController::class, 'index'])->name('welcome');
@@ -21,11 +22,17 @@ Route::get('/tufunda', [TuFundaController::class, 'tufunda'])->name('tufunda');
 
 Route::get('/obtener-marcas', [TuFundaController::class, 'obtenerMarcas']);
 
-Route::get('/carrito', [CarritoController::class, 'carrito'])->name('carrito');
 
 Route::get('/obtener-modelos/{marca}', [TuFundaController::class, 'obtenerModelos']);
 
 Route::get('/obtener-imagen/{modelo}', [TuFundaController::class, 'obtenerImagen']);
+
+//Carrito y checkout
+
+
+Route::get('/carrito', [CarritoController::class, 'carrito'])->name('carrito');
+
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

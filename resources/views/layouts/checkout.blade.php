@@ -26,6 +26,11 @@
 		);
 	@endphp	
 
+	<style>
+		#mensajeEntrega {
+			font-size: 28px;
+		}
+	</style>
 
 	<head>
 
@@ -202,10 +207,10 @@
 			
 				<!-- cart_section - start
 			================================================== -->
-			<section class="cart_section sec_ptb_140 clearfix">
-				<div class="container d-flex align-items-start">
+			<section class="cart_section sec_ptb_20 clearfix">
+				
 		
-					<div class="cart_table mb_50 col-lg-8">
+					<div style="display: none" class="cart_table mb_50 col-lg-8">
 						<table class="table">
 							<thead class="text-uppercase">
 								<tr>
@@ -219,21 +224,82 @@
 							</tbody>
 						</table>
 					</div>
-		
-					<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-						<!-- Contenido de este div -->
-						<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
-							<h3 class="table_title text-center" data-bg-color="#ededed">Total</h3>
-							<ul class="ul_li_block clearfix">
-								<li><span>Subtotal</span> <span>$0</span></li>
-								<li><span>Total</span> <span>$0</span></li>
-							</ul>
-							<a href="/checkout" class="custom_btn bg_success">Realizar Pago</a>
-							<div id="wallet_container"></div>
+					<section class="checkout_section sec_ptb_140 clearfix">
+						<div class="container">
+							<div class="accordion" id="accordionExample">
+								<!-- Primer cuerpo del acordeón -->
+								<div class="card">
+									<div class="card-header" id="headingOne">
+										<h4 class="mb-0">
+											<button type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+												Datos Personales
+											</button>
+										</h4>
+									</div>
+					
+									<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+										<div class="card-body">
+											<div class="form_wrap">
+												<div class="row">
+													<div class="col-lg-6">
+														<div class="form_item">
+															<span class="input_title">Nombre<sup>*</sup></span>
+															<input type="text" name="nombre" class="form-control">
+														</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="form_item">
+															<span class="input_title">Apellido<sup>*</sup></span>
+															<input type="text" name="apellido" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form_item">
+													<span class="input_title">Email<sup>*</sup></span>
+													<input type="email" name="email" class="form-control">
+												</div>
+												<button id="continuarButton" class="btn btn-primary mt-3">Continuar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+					
+								<!-- Segundo cuerpo del acordeón -->
+								<div class="card">
+									<div class="card-header" id="headingTwo">
+										<h4 class="mb-0">
+											<button class="collapsed" type="button" aria-expanded="false" aria-controls="collapseTwo" id="segundoAcordeon" disabled>
+												Tipo de entrega
+											</button>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+										<div class="card-body">
+											<div class="form_wrap">
+												<div class="row">
+													<div class="col-lg-6">
+														<div class="pl-2">
+															<input type="radio" id="radioRetiro" name="tipoEntrega" value="retiro" class="form-check-input">
+															<label for="retiro">Retiro</label>
+														</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="pl-2">
+															<input type="radio" id="radioEnvio" name="tipoEntrega" value="envio" class="form-check-input">
+															<label for="envio">Envío a Domicilio</label>
+														</div>
+													</div>
+												</div>
+												<div id="mensajeEntrega" class="mt-3"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-		
-				</div>
+					</section>
+					
+					
 			</section>
 			<!-- cart_section - end
 			================================================== -->
@@ -529,6 +595,32 @@
 				});
 
 		</script>
+		<script>
+			// JavaScript para controlar el botón "Continuar" y habilitar el segundo acordeón
+			$('#continuarButton').on('click', function() {
+				// Verificar si se han completado los campos del primer formulario (datos personales)
+				var nombre = $('input[name=nombre]').val().trim();
+				var apellido = $('input[name=apellido]').val().trim();
+				var email = $('input[name=email]').val().trim();
+		
+				if (nombre !== '' && apellido !== '' && email !== '') {
+					// Habilitar y expandir el segundo acordeón
+					$('#segundoAcordeon').removeAttr('disabled');
+					$('#collapseTwo').collapse('show');
+				} else {
+					alert("Por favor, complete todos los campos del formulario de datos personales.");
+				}
+			});
+			$('input[name=tipoEntrega]').on('change', function() {
+				var selectedValue = $('input[name=tipoEntrega]:checked').val();
+				if (selectedValue === 'retiro') {
+					$('#mensajeEntrega').text('Retirá tu funda en "Juan Verdaguer 1960, Algarrobo"');
+				} else {
+					$('#mensajeEntrega').text('');
+				}
+			});
+		</script>
+		
 		
 		
 		
