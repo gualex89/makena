@@ -258,7 +258,7 @@
 													<span class="input_title">Email<sup>*</sup></span>
 													<input type="email" name="email" class="form-control">
 												</div>
-												<button id="continuarButton" class="btn btn-primary mt-3">Continuar</button>
+												<button id="continuarButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
 											</div>
 										</div>
 									</div>
