@@ -244,7 +244,8 @@
 													<div class="col-lg-6">
 														<div class="form_item">
 															<span class="input_title">Nombre<sup>*</sup></span>
-															<input type="text" name="nombre" class="form-control">
+															<input type="text" name="nombre" 
+															class="form-control">
 														</div>
 													</div>
 													<div class="col-lg-6">
@@ -290,7 +291,13 @@
 														</div>
 													</div>
 												</div>
-												<div id="mensajeEntrega" class="mt-3"></div>
+												
+												<div id="mensajeEntrega" style="display: inline-block" class="mt-3"></div><small class="pl-5" id="soloNumeros" style="display: none;">Solo Números</small>
+												<div class="form_item" id="codigoPostalContainer" style="display: none;">
+													<span class="input_title">Código Postal<sup>*</sup></span>
+													<input type="text" name="codigoPostal" class="form-control">
+													<a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank"><small>No se mi Código Postal</small></a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -615,9 +622,12 @@
 				var selectedValue = $('input[name=tipoEntrega]:checked').val();
 				if (selectedValue === 'retiro') {
 					$('#mensajeEntrega').text('Retirá tu funda en "Juan Verdaguer 1960, Algarrobo"');
-				} else {
-					$('#mensajeEntrega').text('');
-				}
+					$('#codigoPostalContainer').hide();
+					$('#soloNumeros').hide();
+				} else if (selectedValue === 'envio'){
+					$('#mensajeEntrega').text('Ingresa tu código postal para el envío');
+					$('#codigoPostalContainer').show();
+					$('#soloNumeros').show();					}
 			});
 		</script>
 		
