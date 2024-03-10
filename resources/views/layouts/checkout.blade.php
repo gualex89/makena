@@ -259,8 +259,9 @@
 													<span class="input_title">Email<sup>*</sup></span>
 													<input type="email" name="email" class="form-control">
 												</div>
-												<button id="continuarButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
+												<button  id="continuarButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
 											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -297,8 +298,13 @@
 													<span class="input_title">Código Postal<sup>*</sup></span>
 													<input type="text" name="codigoPostal" class="form-control">
 													<a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank"><small>No se mi Código Postal</small></a>
+													<div>
+														<button onclick="testZippin()" id="continuarTipoEntregaButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
+													</div>
 												</div>
+												
 											</div>
+											<div id="radioFields"></div>
 										</div>
 									</div>
 								</div>
@@ -621,14 +627,81 @@
 			$('input[name=tipoEntrega]').on('change', function() {
 				var selectedValue = $('input[name=tipoEntrega]:checked').val();
 				if (selectedValue === 'retiro') {
-					$('#mensajeEntrega').text('Retirá tu funda en "Juan Verdaguer 1960, Algarrobo"');
+					$('#mensajeEntrega').text('Retirá tu funda en "Manuel Castro 5563 Lanús Oeste, Buenos Aires"');
 					$('#codigoPostalContainer').hide();
 					$('#soloNumeros').hide();
+					$('#radioFields').hide();
 				} else if (selectedValue === 'envio'){
 					$('#mensajeEntrega').text('Ingresa tu código postal para el envío');
 					$('#codigoPostalContainer').show();
-					$('#soloNumeros').show();					}
+					$('#soloNumeros').show();
+					$('#radioFields').show();
+										}
 			});
+		</script>
+		<script>
+			function testZippin() {
+				// Realizar solicitud a la ruta que apunta al controlador
+				fetch('/test-zippin')
+					.then(response => response.json())
+					.then(data => {
+						// Manejar la respuesta aquí
+						console.log(data);
+						// Mostrar la propiedad 'results' dentro de 'data' en el div
+						if (data.all_results && Array.isArray(data.all_results)) {
+							/* document.getElementById('response').innerHTML = JSON.stringify(data); */
+							// Crear campos de selección radio para cada resultado
+							createRadioFields(data.all_results);
+						} else {
+							document.getElementById('response').innerHTML = 'No se encontraron resultados.';
+							document.getElementById('radioFields').innerHTML = '';
+						}
+					})
+					.catch(error => {
+						// Manejar errores aquí
+						console.error(error);
+						// Mostrar el error en el div si lo deseas
+						document.getElementById('response').innerHTML = 'Error: ' + error.message;
+						document.getElementById('radioFields').innerHTML = '';
+					});
+			}
+	
+			function createRadioFields(results) {
+				const radioFieldsDiv = document.getElementById('radioFields');
+				radioFieldsDiv.innerHTML = ''; // Limpiar cualquier contenido anterior
+	
+				// Iterar sobre cada resultado y crear un campo de selección radio para cada uno
+				results.forEach((result, index) => {
+					
+					const price = result.amounts.price_incl_tax;
+					const service_type = result.service_type.name;
+					const carrierName = result.carrier.name;
+					const radioField = document.createElement('input');
+					radioField.type = 'radio';
+					radioField.name = 'carrier';
+					radioField.value = carrierName;
+					radioField.id = 'carrier_' + index; 
+					
+					
+					const label = document.createElement('label');
+					const label2 = document.createElement('label');
+					const label3 = document.createElement('label');
+					
+					label.setAttribute('for', 'carrier_' + index);
+					label.textContent = carrierName;
+					label2.setAttribute('for', 'carrier_' + index);
+					label2.textContent = service_type;
+					label3.setAttribute('for', 'carrier_' + index);
+					label3.textContent = price + '$';
+					
+					// Añadir el campo de selección radio y su etiqueta al div
+					radioFieldsDiv.appendChild(radioField);
+					radioFieldsDiv.appendChild(label);
+					radioFieldsDiv.appendChild(label2);
+					radioFieldsDiv.appendChild(label3);
+					radioFieldsDiv.appendChild(document.createElement('br')); // Añadir un salto de línea
+				});
+			}
 		</script>
 		
 		

@@ -7,6 +7,7 @@ use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\TuFundaController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ZippinController;
 
 
 Route::get('/', [HomeImagesController::class, 'index'])->name('welcome');
@@ -37,3 +38,5 @@ Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/test-zippin', [ZippinController::class, 'testZippinRequest']);
