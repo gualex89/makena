@@ -304,7 +304,95 @@
 												</div>
 												
 											</div>
+											
 											<div id="radioFields"></div>
+
+											<div id="radioFieldsPuntoDeEntrega">
+												<div id="mensajePuntoDeEntrega"></div>
+											</div>
+											<div id="formAddress" class="card-body" style="display: none" >
+												<div class="form_wrap">
+													<div class="row">
+														<div class="col-lg-6">
+															<div class="form_item">
+																<div>
+																	<label for="provincia">
+																		<b>PROVINCIA*</b>
+																	</label>
+																</div>
+																<select name="provincia" class="form-control" style="max-height: 50px; overflow-y: scroll;">
+																	<option value>Seleccionar...</option>
+																	<option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aire</option>
+																	<option value="Buenos Aires">Buenos Aires</option>
+																	<option value="Catamarca">Catamarca</option>
+																	<option value="Chaco">Chaco</option>
+																	<option value="Chubut">Chubut</option>
+																	<option value="Córdoba">Córdoba</option>
+																	<option value="Corrientes">Corrientes</option>
+																	<option value="Entre Ríos">Entre Ríos</option>
+																	<option value="Formosa">Formosa</option>
+																	<option value="Jujuy">Jujuy</option>
+																	<option value="La Pampa">La Pampa</option>
+																	<option value="La Rioja">La Rioja</option>
+																	<option value="Mendoza">Mendoza</option>
+																	<option value="Misiones">Misiones</option>
+																	<option value="Neuquén">Neuquén</option>
+																	<option value="Río Negro">Río Negro</option>
+																	<option value="Salta">Salta</option>
+																	<option value="San Juan">San Juan</option>
+																	<option value="San Luis">San Luis</option>
+																	<option value="Santa Cruz">Santa Cruz</option>
+																	<option value="Santa Fe">Santa Fe</option>
+																	<option value="Santiago del Estero">Santiago del Estero</option>
+																	<option value="Tierra del Fuego">Tierra del Fuego</option>
+																	<option value="Tucumán">Tucumán</option>
+																</select>
+															</div>
+														</div>
+														<div class="col-lg-6">
+															<div class="form_item">
+																<div>
+																	<label for="localidad">
+																		<b>LOCALIDAD*</b>
+																	</label>
+																</div>
+																<input type="text" name="localidad" class="form-control">
+															</div>
+														</div>
+														<div class="col-lg-4">
+															<div class="form_item">
+																<div>
+																	<label for="calle">
+																		<b>CALLE*</b>
+																	</label>
+																</div>
+																<input type="text" name="calle" class="form-control">
+															</div>
+														</div>
+														<div class="col-lg-4">
+															<div class="form_item">
+																<div>
+																	<label for="altura">
+																		<b>ALTURA*</b>
+																	</label>
+																</div>
+																<input type="text" name="altura" class="form-control">
+															</div>
+														</div>
+														<div class="col-lg-4">
+															<div class="form_item">
+																<div>
+																	<label for="comentarios">
+																		<b>COMENTARIOS</b>
+																	</label>
+																</div>
+																<input type="text" name="comentarios" class="form-control">
+															</div>
+														</div>
+														<button  id="continuarButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
+												</div>
+												
+											</div>
 										</div>
 									</div>
 								</div>
@@ -641,6 +729,7 @@
 		</script>
 		<script>
 			function testZippin() {
+				hidePickupPoints();
 				// Realizar solicitud a la ruta que apunta al controlador
 				fetch('/test-zippin')
 					.then(response => response.json())
@@ -669,10 +758,10 @@
 			function createRadioFields(results) {
 				const radioFieldsDiv = document.getElementById('radioFields');
 				radioFieldsDiv.innerHTML = ''; // Limpiar cualquier contenido anterior
-	
+
 				// Iterar sobre cada resultado y crear un campo de selección radio para cada uno
 				results.forEach((result, index) => {
-					
+
 					const price = result.amounts.price_incl_tax;
 					const service_type = result.service_type.name;
 					const carrierName = result.carrier.name;
@@ -680,28 +769,97 @@
 					radioField.type = 'radio';
 					radioField.name = 'carrier';
 					radioField.value = carrierName;
-					radioField.id = 'carrier_' + index; 
-					
-					
+					radioField.id = 'carrier_' + index;
+
+
 					const label = document.createElement('label');
 					const label2 = document.createElement('label');
 					const label3 = document.createElement('label');
-					
+
 					label.setAttribute('for', 'carrier_' + index);
 					label.textContent = carrierName;
 					label2.setAttribute('for', 'carrier_' + index);
 					label2.textContent = service_type;
 					label3.setAttribute('for', 'carrier_' + index);
 					label3.textContent = price + '$';
-					
+
 					// Añadir el campo de selección radio y su etiqueta al div
 					radioFieldsDiv.appendChild(radioField);
 					radioFieldsDiv.appendChild(label);
 					radioFieldsDiv.appendChild(label2);
 					radioFieldsDiv.appendChild(label3);
-					radioFieldsDiv.appendChild(document.createElement('br')); // Añadir un salto de línea
+					radioFieldsDiv.appendChild(document.createElement('br'));
+
+					radioField.addEventListener('change', function() {
+						if (service_type == "Entrega en punto de entrega" && radioField.checked) {
+							showPickupPoints(result);
+							hideFormAddress();
+						} else if (service_type === "Entrega a domicilio" && radioField.checked) {
+
+							hidePickupPoints();
+							showFormAddress();
+						} else {
+							hidePickupPoints();
+							showFormAddress();
+						}
+
+
+					});
 				});
 			}
+
+			function showFormAddress() {
+				const formAddress = document.getElementById('formAddress');
+				if (formAddress) {
+					formAddress.style.display = 'block';
+				}
+			}
+			function hideFormAddress() {
+				const formAddress = document.getElementById('formAddress');
+				if (formAddress) {
+					formAddress.style.display = 'none';
+				}
+			}
+
+			function showPickupPoints(result) {
+				const radioFieldsPuntoDeEntregaDiv = document.getElementById('radioFieldsPuntoDeEntrega');
+				radioFieldsPuntoDeEntregaDiv.innerHTML = ''; // Limpiar cualquier contenido anterior
+
+				// Agregar un encabezado h3 antes de los puntos de entrega
+				const h3 = document.createElement('h3');
+				h3.textContent = 'Elige tu punto de entrega';
+				radioFieldsPuntoDeEntregaDiv.appendChild(h3);
+
+				const puntosDeEntrega = result.pickup_points;
+				puntosDeEntrega.forEach((puntoDeEntrega, index) => {
+					const point_id = puntoDeEntrega.point_id
+					const nombrePunto = puntoDeEntrega.description;
+					const DireccionPunto = puntoDeEntrega.location.street + " " + puntoDeEntrega.location.street_number + " - " + puntoDeEntrega.location.city + ", " + puntoDeEntrega.location.state;
+					const radioFieldPuntoDeEntrega = document.createElement('input');
+
+					radioFieldPuntoDeEntrega.type = 'radio';
+					radioFieldPuntoDeEntrega.name = 'punto';
+					radioFieldPuntoDeEntrega.value = point_id;
+					radioFieldPuntoDeEntrega.id = 'punto_' + index;
+
+					const labelPunto = document.createElement('label');
+
+					labelPunto.setAttribute('for', 'punto_' + index);
+					labelPunto.textContent = " " + nombrePunto + " -> " + DireccionPunto;
+
+					radioFieldsPuntoDeEntregaDiv.appendChild(radioFieldPuntoDeEntrega);
+					radioFieldsPuntoDeEntregaDiv.appendChild(labelPunto);
+					radioFieldsPuntoDeEntregaDiv.appendChild(document.createElement('br'));
+
+					console.log(DireccionPunto);
+					console.log(point_id);
+				});
+			}
+
+			function hidePickupPoints() {
+				document.getElementById('radioFieldsPuntoDeEntrega').innerHTML = ''; // Limpiar cualquier contenido
+			}
+
 		</script>
 		
 		

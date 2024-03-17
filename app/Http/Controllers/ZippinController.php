@@ -37,7 +37,7 @@ class ZippinController extends Controller
             "destination" => [
                 "city" => "cualquiera",
                 "state" => "cualquiera",
-                "zipcode" => "1704"
+                "zipcode" => "5000"
             ]
         ];
 

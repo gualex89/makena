@@ -1031,6 +1031,11 @@ hr {
   margin-right: 10px;
   margin-left: 8px; /* Agregar margen derecho de 5px */
 }
+#radioFieldsPuntoDeEntrega label {
+  margin-right: 10px;
+  margin-left: 8px; /* Agregar margen derecho de 5px */
+}
+
 
 /*
 &:hover {
@@ -19632,6 +19637,10 @@ blockquote .blockquote_title {
 }
 .reg_form_wrap .create_account_btn:hover {
   color: #ce0b2b;
+}
+.list {
+  max-height: 100px; 
+  overflow-y: scroll !important;
 }
 
 /* contact page - end
