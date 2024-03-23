@@ -296,7 +296,7 @@
 												<div id="mensajeEntrega" style="display: inline-block" class="mt-3"></div><small class="pl-5" id="soloNumeros" style="display: none;">Solo Números</small>
 												<div class="form_item" id="codigoPostalContainer" style="display: none;">
 													<span class="input_title">Código Postal<sup>*</sup></span>
-													<input type="text" name="codigoPostal" class="form-control">
+													<input id="numeroCP" type="text" name="codigoPostal" class="form-control">
 													<a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank"><small>No se mi Código Postal</small></a>
 													<div>
 														<button onclick="testZippin()" id="continuarTipoEntregaButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
@@ -719,6 +719,8 @@
 					$('#codigoPostalContainer').hide();
 					$('#soloNumeros').hide();
 					$('#radioFields').hide();
+					hidePickupPoints();
+					hideFormAddress();
 				} else if (selectedValue === 'envio'){
 					$('#mensajeEntrega').text('Ingresa tu código postal para el envío');
 					$('#codigoPostalContainer').show();
@@ -730,8 +732,9 @@
 		<script>
 			function testZippin() {
 				hidePickupPoints();
+				var codigoPostal = document.getElementById('numeroCP').value;
 				// Realizar solicitud a la ruta que apunta al controlador
-				fetch('/test-zippin')
+				fetch('/test-zippin/' + codigoPostal) 
 					.then(response => response.json())
 					.then(data => {
 						// Manejar la respuesta aquí

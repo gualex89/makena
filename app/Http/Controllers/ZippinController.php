@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 
 class ZippinController extends Controller
 {
-    public function testZippinRequest()
+    public function testZippinRequest($codigoPostal)
     {
         $url = "https://api.zippin.com.ar/v2/shipments/quote";
         $apiToken = "23587f92-3f54-44cf-a1d8-aea20b104914";
@@ -18,6 +18,8 @@ class ZippinController extends Controller
             'Authorization' => 'Basic ' . base64_encode($apiToken . ':' . $apiSecret),
             'Content-Type' => 'application/json',
         ];
+
+        $numeroPostal= "1702";
 
         $payload = [
             "account_id" => "11950",
@@ -37,7 +39,7 @@ class ZippinController extends Controller
             "destination" => [
                 "city" => "cualquiera",
                 "state" => "cualquiera",
-                "zipcode" => "5000"
+                "zipcode" => $codigoPostal,
             ]
         ];
 

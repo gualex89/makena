@@ -39,4 +39,4 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/test-zippin', [ZippinController::class, 'testZippinRequest']);
+Route::get('/test-zippin/{codigoPostal}', [ZippinController::class, 'testZippinRequest']);
