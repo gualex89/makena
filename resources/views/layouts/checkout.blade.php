@@ -306,37 +306,11 @@
 														<div class="col-lg-6">
 															<div class="form_item">
 																<div>
-																	<label for="provincia">
+																	<label for="localidad">
 																		<b>PROVINCIA*</b>
 																	</label>
 																</div>
-																<select name="provincia" class="form-control" style="max-height: 50px; overflow-y: scroll;">
-																	<option value>Seleccionar...</option>
-																	<option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aire</option>
-																	<option value="Buenos Aires">Buenos Aires</option>
-																	<option value="Catamarca">Catamarca</option>
-																	<option value="Chaco">Chaco</option>
-																	<option value="Chubut">Chubut</option>
-																	<option value="Córdoba">Córdoba</option>
-																	<option value="Corrientes">Corrientes</option>
-																	<option value="Entre Ríos">Entre Ríos</option>
-																	<option value="Formosa">Formosa</option>
-																	<option value="Jujuy">Jujuy</option>
-																	<option value="La Pampa">La Pampa</option>
-																	<option value="La Rioja">La Rioja</option>
-																	<option value="Mendoza">Mendoza</option>
-																	<option value="Misiones">Misiones</option>
-																	<option value="Neuquén">Neuquén</option>
-																	<option value="Río Negro">Río Negro</option>
-																	<option value="Salta">Salta</option>
-																	<option value="San Juan">San Juan</option>
-																	<option value="San Luis">San Luis</option>
-																	<option value="Santa Cruz">Santa Cruz</option>
-																	<option value="Santa Fe">Santa Fe</option>
-																	<option value="Santiago del Estero">Santiago del Estero</option>
-																	<option value="Tierra del Fuego">Tierra del Fuego</option>
-																	<option value="Tucumán">Tucumán</option>
-																</select>
+																<input type="text" name="provincia" class="form-control" readonly>
 															</div>
 														</div>
 														<div class="col-lg-6">
@@ -346,7 +320,7 @@
 																		<b>LOCALIDAD*</b>
 																	</label>
 																</div>
-																<input type="text" name="localidad" class="form-control">
+																<input type="text" name="localidad" class="form-control" readonly>
 															</div>
 														</div>
 														<div class="col-lg-6">
@@ -721,13 +695,13 @@
 				var email = $('input[name=email]').val().trim();
 				var telefono = $('input[name=telefono]').val().trim();
 		
-				if (nombre !== '' && apellido !== '' && email !== '' && telefono !=='') {
+				/* if (nombre !== '' && apellido !== '' && email !== '' && telefono !=='') { */
 					// Habilitar y expandir el segundo acordeón
 					$('#segundoAcordeon').removeAttr('disabled');
 					$('#collapseTwo').collapse('show');
-				} else {
+				/* } else {
 					alert("Por favor, complete todos los campos del formulario de datos personales.");
-				}
+				} */
 			});
 			$('input[name=tipoEntrega]').on('change', function() {
 				var selectedValue = $('input[name=tipoEntrega]:checked').val();
@@ -757,13 +731,13 @@
 		<script>
 			// JavaScript para controlar el botón "Continuar" y habilitar el tercer acordeón
 			$('#continuarButtonRetiro').on('click', function() {
-				if ($('input[name=tipoEntrega]:checked').val() === 'retiro') {
+				/* if ($('input[name=tipoEntrega]:checked').val() === 'retiro') { */
 				// Habilitar y expandir el tercer acordeón
 				$('#tercerAcordeon').removeAttr('disabled');
 				$('#collapseThree').collapse('show');
-				} else {
+				/* } else {
 					alert("Por favor, seleccione una opción de entrega.");
-				}
+				} */
 			});
 			$('#continuarButton2').on('click', function() {
 				// Verificar si se han completado los campos del segundo formulario (dirección de envío)
@@ -772,20 +746,22 @@
 				var calle = $('input[name=calle]').val().trim();
 				var altura = $('input[name=altura]').val().trim();
 		
-				if (provincia !== '' && localidad !== '' && calle !== '' && altura !== '') {
+				/* if (provincia !== '' && localidad !== '' && calle !== '' && altura !== '') { */
 					// Habilitar y expandir el tercer acordeón
 					$('#tercerAcordeon').removeAttr('disabled');
 					$('#collapseThree').collapse('show');
-				} else {
+				/* } else {
 					alert("Por favor, complete todos los campos del formulario de dirección de envío.");
-				}
+				} */
 			});
 		</script>
 		<script>
 		
 			function testZippin() {
 				hidePickupPoints();
+				hideFormAddress();
 				var codigoPostal = document.getElementById('numeroCP').value;
+				
 				// Realizar solicitud a la ruta que apunta al controlador
 				fetch('/test-zippin/' + codigoPostal) 
 					.then(response => response.json())
@@ -796,7 +772,7 @@
 						if (data.all_results && Array.isArray(data.all_results)) {
 							/* document.getElementById('response').innerHTML = JSON.stringify(data); */
 							// Crear campos de selección radio para cada resultado
-							createRadioFields(data.all_results);
+							createRadioFields(data.all_results, data);
 						} else {
 							document.getElementById('response').innerHTML = 'No se encontraron resultados.';
 							document.getElementById('radioFields').innerHTML = '';
@@ -811,7 +787,7 @@
 					});
 			}
 	
-			function createRadioFields(results) {
+			function createRadioFields(results, data) {
 				const radioFieldsDiv = document.getElementById('radioFields');
 				radioFieldsDiv.innerHTML = ''; // Limpiar cualquier contenido anterior
 
@@ -855,6 +831,9 @@
 					radioFieldsDiv.appendChild(document.createElement('br'));
 
 					radioField.addEventListener('change', function() {
+						const provincia = data.destination.state;
+						const localidad = data.destination.city;
+						
 						if (service_type == "Retiro en Sucursal" && radioField.checked) {
 							showPickupPoints(result);
 							hideFormAddress();
@@ -862,6 +841,8 @@
 
 							hidePickupPoints();
 							showFormAddress();
+							document.querySelector('input[name="provincia"]').value = provincia;
+							document.querySelector('input[name="localidad"]').value = localidad;
 						} else {
 							hidePickupPoints();
 							showFormAddress();
