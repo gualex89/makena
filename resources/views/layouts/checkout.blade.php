@@ -255,9 +255,15 @@
 														</div>
 													</div>
 												</div>
-												<div class="form_item">
-													<span class="input_title">Email<sup>*</sup></span>
-													<input type="email" name="email" class="form-control">
+												<div class="row">
+													<div class="col-lg-6 form_item">
+														<span class="input_title">Email<sup>*</sup></span>
+														<input type="email" name="email" class="form-control">
+													</div>
+													<div class="col-lg-6 form_item">
+														<span class="input_title">Telefono<sup>*</sup></span>
+														<input type="tel" name="telefono" class="form-control" id="telefonoInput" pattern="\d*" title="Ingrese solo números">
+													</div>
 												</div>
 												<button  id="continuarButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
 											</div>
@@ -853,7 +859,7 @@
 					radioFieldsPuntoDeEntregaDiv.appendChild(radioFieldPuntoDeEntrega);
 					radioFieldsPuntoDeEntregaDiv.appendChild(labelPunto);
 					radioFieldsPuntoDeEntregaDiv.appendChild(document.createElement('br'));
-
+					
 					console.log(DireccionPunto);
 					console.log(point_id);
 				});
