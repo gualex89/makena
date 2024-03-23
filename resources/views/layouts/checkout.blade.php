@@ -278,7 +278,7 @@
 													<div class="col-lg-6">
 														<div class="pl-2">
 															<input type="radio" id="radioEnvio" name="tipoEntrega" value="envio" class="form-check-input">
-															<label for="envio">Envío a Domicilio</label>
+															<label for="envio">Envío</label>
 														</div>
 													</div>
 												</div>
@@ -349,7 +349,7 @@
 																<input type="text" name="localidad" class="form-control">
 															</div>
 														</div>
-														<div class="col-lg-4">
+														<div class="col-lg-6">
 															<div class="form_item">
 																<div>
 																	<label for="calle">
@@ -359,7 +359,7 @@
 																<input type="text" name="calle" class="form-control">
 															</div>
 														</div>
-														<div class="col-lg-4">
+														<div class="col-lg-6">
 															<div class="form_item">
 																<div>
 																	<label for="altura">
@@ -369,11 +369,11 @@
 																<input type="text" name="altura" class="form-control">
 															</div>
 														</div>
-														<div class="col-lg-4">
+														<div class="col-lg-12">
 															<div class="form_item">
 																<div>
 																	<label for="comentarios">
-																		<b>COMENTARIOS</b>
+																		<b>OBSERVACIONES PARA LA ENTREGA</b>
 																	</label>
 																</div>
 																<input type="text" name="comentarios" class="form-control">
@@ -396,123 +396,19 @@
 										</h4>
 									</div>
 									<div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-										<div class="card-body">
-											<div class="form_wrap">
-												<div class="row">
-													<div class="col-lg-6">
-														<div class="pl-2">
-															<input type="radio" id="radioRetiro" name="tipoEntrega" value="retiro" class="form-check-input">
-															<label for="retiro">Retiro</label>
-														</div>
-													</div>
-													<div class="col-lg-6">
-														<div class="pl-2">
-															<input type="radio" id="radioEnvio" name="tipoEntrega" value="envio" class="form-check-input">
-															<label for="envio">Envío a Domicilio</label>
-														</div>
-													</div>
-												</div>
-												
-												<div id="mensajeEntrega" style="display: inline-block" class="mt-3"></div><small class="pl-5" id="soloNumeros" style="display: none;">Solo Números</small>
-												<div class="form_item" id="codigoPostalContainer" style="display: none;">
-													<span class="input_title">Código Postal<sup>*</sup></span>
-													<input id="numeroCP" type="text" name="codigoPostal" class="form-control">
-													<a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank"><small>No se mi Código Postal</small></a>
-													<div>
-														<button onclick="testZippin()" id="continuarTipoEntregaButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
-													</div>
-												</div>
-												
-											</div>
-											
-											<div id="radioFields"></div>
-
-											<div id="radioFieldsPuntoDeEntrega">
-												<div id="mensajePuntoDeEntrega"></div>
-											</div>
-											<div id="formAddress" class="card-body" style="display: none" >
-												<div class="form_wrap">
-													<div class="row">
-														<div class="col-lg-6">
-															<div class="form_item">
-																<div>
-																	<label for="provincia">
-																		<b>PROVINCIA*</b>
-																	</label>
-																</div>
-																<select name="provincia" class="form-control" style="max-height: 50px; overflow-y: scroll;">
-																	<option value>Seleccionar...</option>
-																	<option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aire</option>
-																	<option value="Buenos Aires">Buenos Aires</option>
-																	<option value="Catamarca">Catamarca</option>
-																	<option value="Chaco">Chaco</option>
-																	<option value="Chubut">Chubut</option>
-																	<option value="Córdoba">Córdoba</option>
-																	<option value="Corrientes">Corrientes</option>
-																	<option value="Entre Ríos">Entre Ríos</option>
-																	<option value="Formosa">Formosa</option>
-																	<option value="Jujuy">Jujuy</option>
-																	<option value="La Pampa">La Pampa</option>
-																	<option value="La Rioja">La Rioja</option>
-																	<option value="Mendoza">Mendoza</option>
-																	<option value="Misiones">Misiones</option>
-																	<option value="Neuquén">Neuquén</option>
-																	<option value="Río Negro">Río Negro</option>
-																	<option value="Salta">Salta</option>
-																	<option value="San Juan">San Juan</option>
-																	<option value="San Luis">San Luis</option>
-																	<option value="Santa Cruz">Santa Cruz</option>
-																	<option value="Santa Fe">Santa Fe</option>
-																	<option value="Santiago del Estero">Santiago del Estero</option>
-																	<option value="Tierra del Fuego">Tierra del Fuego</option>
-																	<option value="Tucumán">Tucumán</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-lg-6">
-															<div class="form_item">
-																<div>
-																	<label for="localidad">
-																		<b>LOCALIDAD*</b>
-																	</label>
-																</div>
-																<input type="text" name="localidad" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-4">
-															<div class="form_item">
-																<div>
-																	<label for="calle">
-																		<b>CALLE*</b>
-																	</label>
-																</div>
-																<input type="text" name="calle" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-4">
-															<div class="form_item">
-																<div>
-																	<label for="altura">
-																		<b>ALTURA*</b>
-																	</label>
-																</div>
-																<input type="text" name="altura" class="form-control">
-															</div>
-														</div>
-														<div class="col-lg-4">
-															<div class="form_item">
-																<div>
-																	<label for="comentarios">
-																		<b>COMENTARIOS</b>
-																	</label>
-																</div>
-																<input type="text" name="comentarios" class="form-control">
-															</div>
-														</div>
-														<button  id="continuarButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
-												</div>
-												
-											</div>
+										<div class="cart_table mb_50 col-lg-8">
+											<table class="table">
+												<thead class="text-uppercase">
+													<tr>
+														<th>Producto</th>
+														<th>Precio</th>
+													</tr>
+												</thead>
+												<tbody>
+													
+													
+												</tbody>
+											</table>
 										</div>
 									</div>
 								</div>
@@ -860,6 +756,15 @@
 		</script>
 		<script>
 			// JavaScript para controlar el botón "Continuar" y habilitar el tercer acordeón
+			$('#continuarButtonRetiro').on('click', function() {
+				if ($('input[name=tipoEntrega]:checked').val() === 'retiro') {
+				// Habilitar y expandir el tercer acordeón
+				$('#tercerAcordeon').removeAttr('disabled');
+				$('#collapseThree').collapse('show');
+				} else {
+					alert("Por favor, seleccione una opción de entrega.");
+				}
+			});
 			$('#continuarButton2').on('click', function() {
 				// Verificar si se han completado los campos del segundo formulario (dirección de envío)
 				var provincia = $('select[name=provincia]').val();
@@ -914,8 +819,16 @@
 				results.forEach((result, index) => {
 
 					const price = result.amounts.price_incl_tax;
-					const service_type = result.service_type.name;
-					const carrierName = result.carrier.name;
+					var service_type = result.service_type.name;
+					if (service_type === "Entrega en punto de entrega") {
+						service_type = "Retiro en Sucursal";
+					}
+					var carrierName = result.carrier.name;
+					if (carrierName === "Flete Propio") {
+						carrierName = "Motomensajería Makena";
+						
+					}
+
 					const radioField = document.createElement('input');
 					radioField.type = 'radio';
 					radioField.name = 'carrier';
@@ -942,7 +855,7 @@
 					radioFieldsDiv.appendChild(document.createElement('br'));
 
 					radioField.addEventListener('change', function() {
-						if (service_type == "Entrega en punto de entrega" && radioField.checked) {
+						if (service_type == "Retiro en Sucursal" && radioField.checked) {
 							showPickupPoints(result);
 							hideFormAddress();
 						} else if (service_type === "Entrega a domicilio" && radioField.checked) {
@@ -983,6 +896,7 @@
 
 				const puntosDeEntrega = result.pickup_points;
 				puntosDeEntrega.forEach((puntoDeEntrega, index) => {
+
 					const point_id = puntoDeEntrega.point_id
 					const nombrePunto = puntoDeEntrega.description;
 					const DireccionPunto = puntoDeEntrega.location.street + " " + puntoDeEntrega.location.street_number + " - " + puntoDeEntrega.location.city + ", " + puntoDeEntrega.location.state;
