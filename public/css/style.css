@@ -19642,6 +19642,9 @@ blockquote .blockquote_title {
   max-height: 100px; 
   overflow-y: scroll !important;
 }
+#collapseThree {
+  padding-top: 10px;
+}
 
 /* contact page - end
 ==================================================================================================== */

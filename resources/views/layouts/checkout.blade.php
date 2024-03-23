@@ -370,20 +370,39 @@
 										</h4>
 									</div>
 									<div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-										<div class="cart_table mb_50 col-lg-8">
-											<table class="table">
-												<thead class="text-uppercase">
-													<tr>
-														<th>Producto</th>
-														<th>Precio</th>
-													</tr>
-												</thead>
-												<tbody>
-													
-													
-												</tbody>
-											</table>
-										</div>
+										<section class="cart_section sec_ptb_10 clearfix">
+											<div class="container d-flex align-items-start">
+									
+												<div class="cart_table mb_50 col-lg-8">
+													<table class="table">
+														<thead class="text-uppercase">
+															<tr>
+																<th>Producto</th>
+																<th>Precio</th>
+															</tr>
+														</thead>
+														<tbody>
+															
+															
+														</tbody>
+													</table>
+												</div>
+									
+												<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+													<!-- Contenido de este div -->
+													<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
+														<h3 class="table_title text-center" data-bg-color="#ededed">Total</h3>
+														<ul class="ul_li_block clearfix">
+															<li><span>Subtotal</span> <span>$0</span></li>
+															<li><span>Total</span> <span>$0</span></li>
+														</ul>
+														
+														<div id="wallet_container"></div>
+													</div>
+												</div>
+									
+											</div>
+										</section>
 									</div>
 								</div>
 							</div>
@@ -619,9 +638,7 @@
 											<h4 class="item_title">${cartItem.name}</h4>
 											<span class="item_type">${cartItem.marca} ${cartItem.modelo}</span>
 										</div>
-										<button type="button" class="remove_btn">
-											<i class="fal fa-times"></i>
-										</button>
+										
 									</div>
 								</td>
 								<td><span class="item_price" style="font-size: 30px; ">$${itemPrice.toFixed(2)}</span></td> 
