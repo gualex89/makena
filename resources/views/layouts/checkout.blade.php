@@ -394,6 +394,7 @@
 														<h3 class="table_title text-center" data-bg-color="#ededed">Total</h3>
 														<ul class="ul_li_block clearfix">
 															<li><span>Subtotal</span> <span>$0</span></li>
+															<li><span>Envío</span> <span>$0</span></li>
 															<li><span>Total</span> <span>$0</span></li>
 														</ul>
 														
@@ -598,91 +599,7 @@
 			});
 
 		</script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function() {
-				function updateCartCounter() {
-					const badgeElements = document.querySelectorAll('.btn_badge');
-					badgeElements.forEach(function(element) {
-						element.textContent = cartItems.length;
-					});
-				}
-
-				function updatePrices(subtotal, total) {
-					// Actualizar subtotal y total en el resumen del carrito
-					document.querySelectorAll('.cart_pricing_table ul li span:nth-child(2)').forEach(function(element, index) {
-						if (index === 0) { // Primer span es el subtotal
-							element.textContent = `$${subtotal.toFixed(2)}`;
-						} else if (index === 1) { // Segundo span es el total
-							element.textContent = `$${total.toFixed(2)}`;
-						}
-					});
-				}
-
-				function updateCartItems(cartItems) {
-					const cartTableBody = document.querySelector('.cart_section table tbody');
-					cartTableBody.innerHTML = '';
-
-					let subtotal = 0; // Inicializamos el subtotal a 0
-					cartItems.forEach(function(cartItem, index) {
-						const itemPrice = cartItem.price; // Precio individual del producto
-						subtotal += itemPrice; // Sumamos el precio individual al subtotal total
-
-						const cartItemHTML = `
-							<tr>
-								<td>
-									<div class="cart_product">
-										<div class="item_image">
-											<img src="${cartItem.image}" alt="${cartItem.name}">
-										</div>
-										<div class="item_content">
-											<h4 class="item_title">${cartItem.name}</h4>
-											<span class="item_type">${cartItem.marca} ${cartItem.modelo}</span>
-										</div>
-										
-									</div>
-								</td>
-								<td><span class="item_price" style="font-size: 30px; ">$${itemPrice.toFixed(2)}</span></td> 
-							</tr>
-						`;
-						cartTableBody.innerHTML += cartItemHTML;
-					});
-
-					// Calcular el total basado en el subtotal
-					const total = subtotal;
-
-					// Actualizar precios del carrito
-					updatePrices(subtotal, total);
-
-					// Reasignar eventos click a los botones de eliminar
-					document.querySelectorAll('.remove_btn').forEach(function(removeButton, index) {
-						removeButton.addEventListener('click', function() {
-							// Eliminar el elemento del carrito en el índice especificado
-							cartItems.splice(index, 1);
-							
-							// Actualizar localStorage
-							localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-							// Actualizar contador del carrito
-							updateCartCounter();
-
-							// Actualizar visualización del carrito
-							updateCartItems(cartItems);
-						});
-					});
-				}
-
-				// Obtener los elementos del carrito almacenados en el localStorage
-				let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-				// Actualizar visualización del carrito
-				updateCartItems(cartItems);
-				updateCartCounter();
-			});
-
-
-
-
-		</script>
+		
 		<script src="https://sdk.mercadopago.com/js/v2"></script>
 		<script>
 			
@@ -746,30 +663,112 @@
 			});
 		</script>
 		<script>
-			// JavaScript para controlar el botón "Continuar" y habilitar el tercer acordeón
-			$('#continuarButtonRetiro').on('click', function() {
-				/* if ($('input[name=tipoEntrega]:checked').val() === 'retiro') { */
-				// Habilitar y expandir el tercer acordeón
-				$('#tercerAcordeon').removeAttr('disabled');
-				$('#collapseThree').collapse('show');
-				/* } else {
-					alert("Por favor, seleccione una opción de entrega.");
-				} */
-			});
-			$('#continuarButton2').on('click', function() {
-				// Verificar si se han completado los campos del segundo formulario (dirección de envío)
-				var provincia = $('select[name=provincia]').val();
-				var localidad = $('input[name=localidad]').val().trim();
-				var calle = $('input[name=calle]').val().trim();
-				var altura = $('input[name=altura]').val().trim();
+			$(document).ready(function() {
+				function updateCartCounter() {
+					const badgeElements = $('.btn_badge');
+					badgeElements.each(function(index, element) {
+						element.textContent = cartItems.length;
+					});
+				}
 		
-				/* if (provincia !== '' && localidad !== '' && calle !== '' && altura !== '') { */
+				function updatePrices(subtotal, shippingCost, total) {
+					// Actualizar subtotal, envío y total en el resumen del carrito
+					console.log(shippingCost);
+		
+					$('.cart_pricing_table ul li span:nth-child(2)').each(function(index, element) {
+						if (index === 0) { // Primer span es el subtotal
+							$(element).text(`$${subtotal.toFixed(2)}`);
+						} else if (index === 1) { // Segundo span es el envío
+							$(element).text(`$${shippingCost.toFixed(2)}`);
+						} else if (index === 2) { // Tercer span es el total
+							$(element).text(`$${total.toFixed(2)}`);
+						}
+					});
+				}
+		
+				function updateCartItems(cartItems) {
+					const cartTableBody = $('.cart_section table tbody');
+					cartTableBody.html('');
+		
+					let subtotal = 0; // Inicializamos el subtotal a 0
+					cartItems.forEach(function(cartItem, index) {
+						const itemPrice = cartItem.price; // Precio individual del producto
+						subtotal += itemPrice; // Sumamos el precio individual al subtotal total
+		
+						const cartItemHTML = `
+							<tr>
+								<td>
+									<div class="cart_product">
+										<div class="item_image">
+											<img src="${cartItem.image}" alt="${cartItem.name}">
+										</div>
+										<div class="item_content">
+											<h4 class="item_title">${cartItem.name}</h4>
+											<span class="item_type">${cartItem.marca} ${cartItem.modelo}</span>
+										</div>
+									</div>
+								</td>
+								<td><span class="item_price" style="font-size: 30px; ">$${itemPrice.toFixed(2)}</span></td> 
+							</tr>
+						`;
+						cartTableBody.append(cartItemHTML);
+					});
+		
+					// Calcular el total basado en el subtotal
+					const shippingCost = parseFloat($('input[name="carrier"]:checked').val());
+					console.log(shippingCost);
+		
+					const total = subtotal + shippingCost;
+		
+					// Actualizar precios del carrito
+					updatePrices(subtotal, shippingCost, total);
+		
+					// Reasignar eventos click a los botones de eliminar
+					$('.remove_btn').each(function(index, removeButton) {
+						$(removeButton).on('click', function() {
+							// Eliminar el elemento del carrito en el índice especificado
+							cartItems.splice(index, 1);
+		
+							// Actualizar localStorage
+							localStorage.setItem('cartItems', JSON.stringify(cartItems));
+		
+							// Actualizar contador del carrito
+							updateCartCounter();
+		
+							// Actualizar visualización del carrito
+							updateCartItems(cartItems);
+						});
+					});
+				}
+		
+				// Obtener los elementos del carrito almacenados en el localStorage
+				let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+		
+				// Actualizar visualización del carrito
+				updateCartCounter();
+		
+				// JavaScript para controlar el botón "Continuar" y habilitar el tercer acordeón
+				$('#continuarButtonRetiro').on('click', function() {
 					// Habilitar y expandir el tercer acordeón
 					$('#tercerAcordeon').removeAttr('disabled');
 					$('#collapseThree').collapse('show');
-				/* } else {
-					alert("Por favor, complete todos los campos del formulario de dirección de envío.");
-				} */
+				});
+		
+				$('#continuarButton2').on('click', function() {
+					// Verificar si se han completado los campos del segundo formulario (dirección de envío)
+					var provincia = $('select[name=provincia]').val();
+					var localidad = $('input[name=localidad]').val().trim();
+					var calle = $('input[name=calle]').val().trim();
+					var altura = $('input[name=altura]').val().trim();
+		
+					// Habilitar y expandir el tercer acordeón
+					$('#tercerAcordeon').removeAttr('disabled');
+					$('#collapseThree').collapse('show');
+					let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+					updateCartItems(cartItems);
+					console.log(logistic_type);
+					
+				});
 			});
 		</script>
 		<script>
@@ -803,6 +802,11 @@
 						document.getElementById('radioFields').innerHTML = '';
 					});
 			}
+			var logistic_type;
+			var service_type_code;
+			var carrier_id;
+			var point_id_selected;
+			
 	
 			function createRadioFields(results, data) {
 				const radioFieldsDiv = document.getElementById('radioFields');
@@ -825,7 +829,7 @@
 					const radioField = document.createElement('input');
 					radioField.type = 'radio';
 					radioField.name = 'carrier';
-					radioField.value = carrierName;
+					radioField.value = price;
 					radioField.id = 'carrier_' + index;
 
 
@@ -848,6 +852,16 @@
 					radioFieldsDiv.appendChild(document.createElement('br'));
 
 					radioField.addEventListener('change', function() {
+						//Rescatando valores necesarios para crer el Envio en zippin
+						logistic_type = result.logistic_type;
+						service_type_code = result.service_type.code;
+						carrier_id = result.carrier.id;
+						
+						console.log(result);
+						
+
+
+
 						const provincia = data.destination.state;
 						const localidad = data.destination.city;
 						
@@ -864,7 +878,7 @@
 							hidePickupPoints();
 							showFormAddress();
 						}
-
+							
 
 					});
 				});
@@ -916,6 +930,13 @@
 					
 					console.log(DireccionPunto);
 					console.log(point_id);
+					radioFieldPuntoDeEntrega.addEventListener('change', function() {
+						//Rescatando valores necesarios para crer el Envio en zippin
+						point_id_selected = puntoDeEntrega.point_id;
+						console.log(point_id_selected);
+					});
+					console.log(point_id_selected);
+					
 				});
 			}
 
