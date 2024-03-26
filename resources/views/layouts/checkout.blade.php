@@ -673,7 +673,7 @@
 		
 				function updatePrices(subtotal, shippingCost, total) {
 					// Actualizar subtotal, envío y total en el resumen del carrito
-					console.log(shippingCost);
+					
 		
 					$('.cart_pricing_table ul li span:nth-child(2)').each(function(index, element) {
 						if (index === 0) { // Primer span es el subtotal
@@ -715,11 +715,21 @@
 					});
 		
 					// Calcular el total basado en el subtotal
-					const shippingCost = parseFloat($('input[name="carrier"]:checked').val());
+							// Calcular el total basado en el subtotal
+					let shippingCost = parseFloat($('input[name="carrier"]:checked').val());
+
+					// Obtener el valor del radio button tipo de entrega
+					const tipoEntrega = $('input[name="tipoEntrega"]:checked').val();
+
+					// Verificar si el tipo de entrega es "retiro" y asignar el costo de envío correspondiente
+					if (tipoEntrega === "retiro") {
+					shippingCost = 0;
+					}
+
 					console.log(shippingCost);
-		
+
 					const total = subtotal + shippingCost;
-		
+
 					// Actualizar precios del carrito
 					updatePrices(subtotal, shippingCost, total);
 		
@@ -752,6 +762,9 @@
 					// Habilitar y expandir el tercer acordeón
 					$('#tercerAcordeon').removeAttr('disabled');
 					$('#collapseThree').collapse('show');
+
+					let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+					updateCartItems(cartItems);
 				});
 		
 				$('#continuarButton2').on('click', function() {
@@ -770,6 +783,9 @@
 					
 				});
 			});
+
+
+					
 		</script>
 		<script>
 		
