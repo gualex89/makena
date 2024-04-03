@@ -32,7 +32,7 @@ class ZippinController extends Controller
                     "height" => 10,
                     "width" => 5,
                     "length" => 10,
-                    "description" => "Capsulas The Coffee Store comp. Nespresso Mix",
+                    "description" => "Fundas de celulares",
                     "classification_id" => 1
                 ],
             ],

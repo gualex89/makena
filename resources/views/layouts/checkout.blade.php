@@ -24,6 +24,9 @@
 			"failure" => "http://www.tu-sitio/failure",
 			"pending" => "http://www.tu-sitio/pending"
 		);
+		
+		
+
 	@endphp	
 
 	<style>
@@ -225,17 +228,23 @@
 										<div class="card-body">
 											<div class="form_wrap">
 												<div class="row">
-													<div class="col-lg-6">
+													<div class="col-lg-4">
 														<div class="form_item">
 															<span class="input_title">Nombre<sup>*</sup></span>
 															<input type="text" name="nombre" 
 															class="form-control">
 														</div>
 													</div>
-													<div class="col-lg-6">
+													<div class="col-lg-4">
 														<div class="form_item">
 															<span class="input_title">Apellido<sup>*</sup></span>
 															<input type="text" name="apellido" class="form-control">
+														</div>
+													</div>
+													<div class="col-lg-4">
+														<div class="form_item">
+															<span class="input_title">DNI<sup>*</sup></span>
+															<input type="text" name="dni" class="form-control" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
 														</div>
 													</div>
 												</div>
@@ -982,13 +991,21 @@
 				var emailInput = document.querySelector('input[name="email"]');
 				var email = emailInput.value;
 				var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-				
+				var telefonoInput = document.querySelector('input[name="telefono"]');
+				var telefono = telefonoInput.value;
+    			var telefonoPattern = /^\d{10}$/;
+
 				//Validadacion de formato de correo
 				if (!email.match(emailPattern)) {
 					alert('Por favor, introduce un correo electrónico válido.');
 					event.preventDefault();
 				}
-			});
+				
+				if (!telefono.match(telefonoPattern)) {
+					alert('Por favor, introduce un número de teléfono válido');
+					event.preventDefault();
+				}
+					});
 		</script>
 		
 		
