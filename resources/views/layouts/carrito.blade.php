@@ -229,7 +229,6 @@
 								<li><span>Total</span> <span>$0</span></li>
 							</ul>
 							<a href="/checkout" class="custom_btn bg_success">Realizar Pago</a>
-							<div id="wallet_container"></div>
 						</div>
 					</div>
 		

@@ -242,7 +242,7 @@
 												<div class="row">
 													<div class="col-lg-6 form_item">
 														<span class="input_title">Email<sup>*</sup></span>
-														<input type="email" name="email" class="form-control">
+														<input type="email" name="email" class="form-control" required>
 													</div>
 													<div class="col-lg-6 form_item">
 														<span class="input_title">Telefono<sup>*</sup></span>
@@ -290,7 +290,7 @@
 													<input id="numeroCP" type="text" name="codigoPostal" class="form-control">
 													<a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank"><small>No se mi Código Postal</small></a>
 													<div>
-														<button onclick="testZippin()" id="continuarTipoEntregaButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Continuar</button>
+														<button onclick="testZippin()" id="continuarTipoEntregaButton" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px;">Buscar</button>
 													</div>
 												</div>
 											</div>
@@ -299,7 +299,11 @@
 
 											<div id="radioFieldsPuntoDeEntrega">
 												<div id="mensajePuntoDeEntrega"></div>
+												
+
 											</div>
+											<button  id="continuarButtonRetiroSucursal" class="custom_btn bg_carparts_red text-uppercase special_button"  style=" max-width: 200px; display:none">Continuar</button>
+
 											<div id="formAddress" class="card-body" style="display: none" >
 												<div class="form_wrap">
 													<div class="row">
@@ -646,6 +650,8 @@
 					$('#radioFields').hide();
 					hidePickupPoints();
 					hideFormAddress();
+					hideRadioTipoEntrega();
+					$('#continuarButtonRetiroSucursal').hide();
 					$('#continuarButtonRetiro').show();
 				} else if (selectedValue === 'envio'){
 					$('#mensajeEntrega').text('Ingresa tu código postal para el envío');
@@ -888,6 +894,7 @@
 
 							hidePickupPoints();
 							showFormAddress();
+							$('#continuarButtonRetiroSucursal').hide();
 							document.querySelector('input[name="provincia"]').value = provincia;
 							document.querySelector('input[name="localidad"]').value = localidad;
 						} else {
@@ -950,16 +957,38 @@
 						//Rescatando valores necesarios para crer el Envio en zippin
 						point_id_selected = puntoDeEntrega.point_id;
 						console.log(point_id_selected);
+						$('#continuarButtonRetiroSucursal').show();
+						
 					});
-					console.log(point_id_selected);
+					//console.log(point_id_selected);
 					
 				});
+				
 			}
 
 			function hidePickupPoints() {
 				document.getElementById('radioFieldsPuntoDeEntrega').innerHTML = ''; // Limpiar cualquier contenido
 			}
+			function hideRadioTipoEntrega() {
+				document.getElementById('radioFields').innerHTML = ''; // Limpiar cualquier contenido
+			}
 
+		</script>
+		<script>
+			// Validaciones de campos varios
+
+			
+			document.getElementById('continuarButton1').addEventListener('click', function(event) {
+				var emailInput = document.querySelector('input[name="email"]');
+				var email = emailInput.value;
+				var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+				
+				//Validadacion de formato de correo
+				if (!email.match(emailPattern)) {
+					alert('Por favor, introduce un correo electrónico válido.');
+					event.preventDefault();
+				}
+			});
 		</script>
 		
 		
