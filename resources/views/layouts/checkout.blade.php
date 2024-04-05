@@ -616,19 +616,22 @@
 		<script src="https://sdk.mercadopago.com/js/v2"></script>
 		<script>
 			
-			const mp = new MercadoPago("{{config('services.mercadopago.key')}}");
+			const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+				locale: 'es-AR'
+			});
 			const bricksBuilder = mp.bricks();
 
 
 			mp.bricks().create("wallet", "wallet_container", {
 				initialization: {
+					redirectMode: "blank",
 					preferenceId: '{{$preference->id}}',
 				},
 				customization: {
-				texts: {
-					
-					valueProp: 'smart_option',
-				},
+					texts: {
+						
+						valueProp: 'smart_option',
+					},
 				},
 				});
 
@@ -676,8 +679,9 @@
 			$('#segundoAcordeon').on('click', function() {
 				$('#tercerAcordeon').attr('disabled', 'disabled');
 			});
-		</script>
-		<script>
+			
+			let total = 0;
+			let subtotal = 0;
 			$(document).ready(function() {
 				function updateCartCounter() {
 					const badgeElements = $('.btn_badge');
@@ -705,7 +709,7 @@
 					const cartTableBody = $('.cart_section table tbody');
 					cartTableBody.html('');
 		
-					let subtotal = 0; // Inicializamos el subtotal a 0
+					 // Inicializamos el subtotal a 0
 					cartItems.forEach(function(cartItem, index) {
 						const itemPrice = cartItem.price; // Precio individual del producto
 						subtotal += itemPrice; // Sumamos el precio individual al subtotal total
@@ -743,7 +747,7 @@
 
 					console.log(shippingCost);
 
-					const total = subtotal + shippingCost;
+					total = subtotal + shippingCost;
 
 					// Actualizar precios del carrito
 					updatePrices(subtotal, shippingCost, total);
@@ -801,8 +805,7 @@
 
 
 					
-		</script>
-		<script>
+		
 		
 			function testZippin() {
 				hidePickupPoints();
@@ -982,8 +985,7 @@
 				document.getElementById('radioFields').innerHTML = ''; // Limpiar cualquier contenido
 			}
 
-		</script>
-		<script>
+		
 			// Validaciones de campos varios
 
 			
@@ -1006,6 +1008,96 @@
 					event.preventDefault();
 				}
 					});
+			
+			var point_id_selected='';
+			var codigo_postal='';	
+			var provincia='';	
+			var localidad='';	
+			var calle='';
+			var altura='';
+			var direccion='';
+			var comentarios='';
+			var valor_envio='';
+			var logistic_type='';
+			var service_type_code='';
+			var carrier_id='';00
+
+			
+
+			document.getElementById("wallet_container").addEventListener("click", function(event) {
+				var nombre = document.querySelector('input[name="nombre"]').value;
+				var apellido = document.querySelector('input[name="apellido"]').value;
+				var documento = document.querySelector('input[name="dni"]').value;
+				var email = document.querySelector('input[name="email"]').value;
+				var telefono = document.querySelector('input[name="telefono"]').value;
+				var tipo_entrega = document.querySelector('input[name="tipoEntrega"]:checked').value;
+				if (tipo_entrega === "envio") {
+					codigo_postal = document.querySelector('input[name="codigoPostal"]').value;
+					provincia = document.querySelector('input[name="provincia"]').value;	
+					localidad = document.querySelector('input[name="localidad"]').value;
+					calle = document.querySelector('input[name="calle"]').value;
+					altura = document.querySelector('input[name="altura"]').value;
+					direccion = calle + " " + altura;
+					comentarios = document.querySelector('input[name="comentarios"]').value;
+					valor_envio = parseInt(document.querySelector('input[name="carrier"]:checked').value);
+				}
+				var cantidad_items = document.querySelectorAll('.cart_product').length;
+				var valor_subtotal = subtotal;
+				var valor_total = total;
+
+
+
+				console.log(email, nombre, apellido, documento, tipo_entrega,cantidad_items, valor_subtotal );
+				console.log(codigo_postal, provincia, localidad, direccion, comentarios, valor_envio);
+				console.log(logistic_type, service_type_code, carrier_id, point_id_selected);
+				console.log('{{$preference->id}}', valor_total);
+				
+				fetch('/guardar-orden', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-CSRF-TOKEN': '{{ csrf_token() }}' // Agrega el token CSRF de Laravel
+					},
+					body: JSON.stringify({
+						nombre: nombre,
+						apellido: apellido,
+						documento: documento,
+						email: email,
+						telefono: telefono,
+						tipo_entrega: tipo_entrega,
+						codigo_postal: codigo_postal,
+						provincia: provincia,
+						localidad: localidad,
+						direccion: direccion,
+						observacion_entrega: comentarios,
+						valor_envio: valor_envio,
+						cantidad_items: cantidad_items,
+						valor_subtotal: valor_subtotal,
+						valor_total: valor_total,
+						logistic_type: logistic_type,
+						service_type_code: service_type_code,
+						carrier_id: carrier_id,
+						point_id_selected: point_id_selected,
+						preference_id: '{{$preference->id}}',				
+
+					})
+				})
+				.then(response => {
+					if (response.ok) {
+						return response.json();
+					}
+					throw new Error('Error en la respuesta del servidor.');
+				})
+				.then(data => {
+					console.log(data); // Puedes manejar la respuesta del servidor aquí
+				})
+				.catch(error => {
+					console.error('Error al enviar los datos:', error);
+				});
+			})
+			
+
+			
 		</script>
 		
 		
