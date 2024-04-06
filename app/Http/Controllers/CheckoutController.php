@@ -38,7 +38,8 @@ class CheckoutController extends Controller
         $order->preference_id = $data['preference_id'];
         $order->save();
         
-        /* return redirect()->route('welcome'); */
+        return response()->json(['message' => 'Orden guardada exitosamente']);
+        
     }
 
     

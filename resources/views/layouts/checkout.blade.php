@@ -40,6 +40,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+		
 
 		<title>Makena</title>
 		<link rel="shortcut icon" href="images/logo/makenaMiniIcon.png">
@@ -675,9 +677,15 @@
 			$('#primerAcordeon').on('click', function() {
 				$('#segundoAcordeon').attr('disabled', 'disabled');
 				$('#tercerAcordeon').attr('disabled', 'disabled');
+				total = 0;
+				subtotal = 0;
+				
 			});
 			$('#segundoAcordeon').on('click', function() {
 				$('#tercerAcordeon').attr('disabled', 'disabled');
+				subtotal = 0;
+				total = 0;
+				
 			});
 			
 			let total = 0;
@@ -801,6 +809,14 @@
 					console.log(logistic_type);
 					
 				});
+				$('#continuarButtonRetiroSucursal').on('click', function() {
+					// Habilitar y expandir el tercer acordeón
+					$('#tercerAcordeon').removeAttr('disabled');
+					$('#collapseThree').collapse('show');
+					let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+					updateCartItems(cartItems);
+				});
+				
 			});
 
 
@@ -1052,6 +1068,8 @@
 				console.log(logistic_type, service_type_code, carrier_id, point_id_selected);
 				console.log('{{$preference->id}}', valor_total);
 				
+				const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 				fetch('/guardar-orden', {
 					method: 'POST',
 					headers: {
@@ -1078,7 +1096,7 @@
 						service_type_code: service_type_code,
 						carrier_id: carrier_id,
 						point_id_selected: point_id_selected,
-						preference_id: '{{$preference->id}}',				
+						preference_id: '{{$preference->id}}'				
 
 					})
 				})
@@ -1089,7 +1107,7 @@
 					throw new Error('Error en la respuesta del servidor.');
 				})
 				.then(data => {
-					console.log(data); // Puedes manejar la respuesta del servidor aquí
+					 // Puedes manejar la respuesta del servidor aquí
 				})
 				.catch(error => {
 					console.error('Error al enviar los datos:', error);
