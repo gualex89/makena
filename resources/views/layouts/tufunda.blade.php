@@ -273,6 +273,7 @@
 															</div>
 														</div>
 														
+														<button id="agregarAlCarritoBtn" class="css-button css-button-sliding-to-bottom css-button-sliding-to-bottom--rose buttons-editor"> Agregar al carrito</button>
 														
 														
 														
@@ -839,6 +840,7 @@
 					canvas.requestRenderAll();
 				 }
 			}
+			
 			function cambiarRotacionTexto(angulo) {
 				if (canvas.getActiveObject() && canvas.getActiveObject().isType('textbox')) {
 					var obj = canvas.getActiveObject();
@@ -909,31 +911,64 @@
 					subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
 					totalElement.textContent = `$${total.toFixed(2)}`;
 				}
-		
-				function addToCart(productItem) {
-					const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
-					const itemName = productItem.querySelector('.item_title').textContent;
-					const imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
-		
-					cartItemCount++;
-					subtotal += price;
-					total = subtotal;
-		
+				const agregarAlCarritoBtn = document.getElementById('agregarAlCarritoBtn');
+
+				// Agregar evento click al botón "Agregar al Carrito"
+				agregarAlCarritoBtn.addEventListener('click', function() {
+					const selectedMarca = document.getElementById('marcasDropdown').value;
+					const selectedModelo = document.getElementById('modelosDropdown').value;
+					const dataURL = canvas.toDataURL("image/png");
+					
+					// Agregar la URL de la imagen al cartItems
 					const cartItem = {
-						name: itemName,
-						price: price,
-						image: imageUrl // Guardar la URL completa de la imagen en el objeto del carrito
+						name: "Diseño personalizado", // Puedes darle un nombre apropiado al diseño
+						price: 9550, // Puedes establecer un precio para el diseño si es necesario
+						image: dataURL,
+						marca: selectedMarca,
+						modelo: selectedModelo // Guardar la URL de la imagen generada por el canvas
 					};
-		
+					cartItemCount++;
+					subtotal += cartItem.price;
+					total = subtotal;
+
+					// Agregar el elemento al arreglo cartItems
 					cartItems.push(cartItem);
-		
-					// Guardar el carrito en el almacenamiento local
+
+					// Guardar el carrito en el almacenamiento local (si es necesario)
 					localStorage.setItem('cartItems', JSON.stringify(cartItems));
-		
-					// Llamar a la función para mostrar los elementos del carrito
-					updateCartItems();
+					updateCartCounter();
 					updatePrices();
-				}
+					updateCartItems();
+					// Actualizar el contador del carrito y la visualización del carrito
+					
+					// Verificar si hay un diseño en el canvas
+					
+				});
+			
+					function addToCart(productItem) {
+						const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
+						const itemName = productItem.querySelector('.item_title').textContent;
+						const imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
+			
+						cartItemCount++;
+						subtotal += price;
+						total = subtotal;
+			
+						const cartItem = {
+							name: itemName,
+							price: price,
+							image: imageUrl // Guardar la URL completa de la imagen en el objeto del carrito
+						};
+			
+						cartItems.push(cartItem);
+			
+						// Guardar el carrito en el almacenamiento local
+						localStorage.setItem('cartItems', JSON.stringify(cartItems));
+			
+						// Llamar a la función para mostrar los elementos del carrito
+						updateCartItems();
+						updatePrices();
+					}
 		
 				function updateCartItems() {
 					const cartItemsList = document.querySelector('.cart_items_list');
