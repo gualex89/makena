@@ -453,7 +453,7 @@
 		<!-- footer_section - start
 		================================================== -->
 		<footer class="footer_section motorcycle_footer clearfix">
-			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/bg_18.jpg">
+			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/makenaFooterBackground.jpg">
 				<div class="container">
 					<div class="row justify-content-lg-between">
 
@@ -461,7 +461,7 @@
 							<div class="footer_widget footer_about">
 								<div class="brand_logo mb_30">
 									<a href="#!">
-										<img src="images/logo/logo_22_1x.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
+										<img src="images/logo/logoMakena.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
 									</a>
 								</div>
 
@@ -644,46 +644,49 @@
 					totalElement.textContent = `$${total}`;
 				}
 		
+				let price, itemName, imageUrl; // Definir las variables fuera de la función addToCart
+
 				function addToCart(productItem) {
-					const price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
-					const itemName = productItem.querySelector('.item_title').textContent;
-					const imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
+					price = parseFloat(productItem.querySelector('.item_price').textContent.replace('$', ''));
+					itemName = productItem.querySelector('.item_title').textContent;
+					imageUrl = productItem.querySelector('img').getAttribute('src'); // Obtener la URL de la imagen completa
 					
 					// Mostrar la modal
 					$('#addToCartModal').modal('show');
-
-					// Agregar un manejador de eventos para el botón "OK" dentro de la modal
-					document.getElementById('addToCartModalOkButton').addEventListener('click', function() {
-						const selectedMarca = document.getElementById('marcasDropdown').value;
-						const selectedModelo = document.getElementById('modelosDropdown').value;
-
-						const pendingCartItem = {
-							name: itemName,
-							price: price,
-							image: imageUrl,
-							marca: selectedMarca,
-							modelo: selectedModelo
-						};
-						console.log("aqui")
-						console.log(price)
-						console.log("hasta aqui")
-
-						// Agregar el artículo al carrito
-						cartItemCount++;
-						subtotal += pendingCartItem.price;
-						total = subtotal;
-						cartItems.push(pendingCartItem);
-						localStorage.setItem('cartItems', JSON.stringify(cartItems));
-						updateCartItems();
-						updatePrices();
-
-						// Cerrar la modal
-						$('#addToCartModal').modal('hide');
-
-						// Eliminar el manejador de eventos para evitar que se acumulen
-						document.getElementById('addToCartModalOkButton').removeEventListener('click');
-					});
 				}
+
+				// Agregar un manejador de eventos para el botón "OK" dentro de la modal
+				document.getElementById('addToCartModalOkButton').addEventListener('click', function() {
+					const selectedMarca = document.getElementById('marcasDropdown').value;
+					const selectedModelo = document.getElementById('modelosDropdown').value;
+
+					const pendingCartItem = {
+						name: itemName,
+						price: price,
+						image: imageUrl,
+						marca: selectedMarca,
+						modelo: selectedModelo
+					};
+					console.log("aqui")
+					console.log(price)
+					console.log("hasta aqui")
+
+					// Agregar el artículo al carrito
+					cartItemCount++;
+					subtotal += pendingCartItem.price;
+					total = subtotal;
+					cartItems.push(pendingCartItem);
+					localStorage.setItem('cartItems', JSON.stringify(cartItems));
+					updateCartItems();
+					updatePrices();
+
+					// Cerrar la modal
+					$('#addToCartModal').modal('hide');
+
+					// Eliminar el manejador de eventos para evitar que se acumulen
+					document.getElementById('addToCartModalOkButton').removeEventListener('click');
+				});
+
 				function updateCartItems() {
 					const cartItemsList = document.querySelector('.cart_items_list');
 					cartItemsList.innerHTML = ''; // Limpiar la lista de elementos del carrito

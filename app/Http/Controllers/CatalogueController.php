@@ -21,16 +21,25 @@ class CatalogueController extends Controller
         //Obetenemos los productos para asi obtener precios
         $misProductos = Product::all();
         $precioFundas = null;
+        $precioPopSockets = null;
+        $precioFundasDobles = null;
 
         foreach ($misProductos as $producto) {
             if ($producto->name === 'Fundas') {
                 $precioFundas = $producto->price;
-                break; // Terminamos el bucle una vez que encontramos el producto "fundas"
+                
+            }     
+            if ($producto->name === 'Popsockets') {
+                $precioPopSockets = $producto->price;
+                 // Terminamos el bucle una vez que encontramos el producto "fundas"
+            }
+            if ($producto->name === 'Fundas para Parejas') {
+                $precioFundasDobles = $producto->price;
             }
         }
 
 
-        return view('layouts.catalogo', compact('imagesCatalogo', 'totalImagesCatalogo', 'precioFundas'));
+        return view('layouts.catalogo', compact('imagesCatalogo', 'totalImagesCatalogo', 'precioFundas', 'precioPopSockets', 'precioFundasDobles'));
     }
     public function obtenerMarcas(){
         $marcas = Cover::distinct()->pluck('marca');

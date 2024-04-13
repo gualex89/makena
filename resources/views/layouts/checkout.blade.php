@@ -446,7 +446,7 @@
 		<!-- footer_section - start
 		================================================== -->
 		<footer class="footer_section motorcycle_footer clearfix">
-			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/bg_18.jpg">
+			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/makenaFooterBackground.jpg">
 				<div class="container">
 					<div class="row justify-content-lg-between">
 
@@ -454,7 +454,7 @@
 							<div class="footer_widget footer_about">
 								<div class="brand_logo mb_30">
 									<a href="#!">
-										<img src="images/logo/logo_22_1x.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
+										<img src="images/logo/logoMakena.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
 									</a>
 								</div>
 
@@ -740,7 +740,7 @@
 						`;
 						cartTableBody.append(cartItemHTML);
 					});
-		
+				
 					// Calcular el total basado en el subtotal
 							// Calcular el total basado en el subtotal
 					let shippingCost = parseFloat($('input[name="carrier"]:checked').val());
@@ -1061,7 +1061,25 @@
 				var valor_subtotal = subtotal;
 				var valor_total = total;
 
+				const modelo = document.querySelectorAll('.item_type');
 
+				// Obtener todos los elementos con la clase 'item_title'
+				const diseno = document.querySelectorAll('.item_title');
+
+				// Crear un array para almacenar los modelos de los elementos del carrito junto con sus títulos
+				const itemsCart = [];
+
+				// Recorrer todos los elementos y extraer los modelos junto con sus títulos
+				modelo.forEach((item, index) => {
+					// Obtener el texto dentro del elemento 'item_type' y 'item_title'
+					const tipo = item.textContent.trim();
+					let titulo = diseno[index].textContent.trim();
+					if (titulo === "Diseño personalizado") {
+						titulo = "Diseno personalizado";
+					}
+					// Agregar el modelo junto con su título al array de modelos
+					itemsCart.push({ modelo: tipo, diseno: titulo });
+				});
 
 				console.log(email, nombre, apellido, documento, tipo_entrega,cantidad_items, valor_subtotal );
 				console.log(codigo_postal, provincia, localidad, direccion, comentarios, valor_envio);
@@ -1096,7 +1114,8 @@
 						service_type_code: service_type_code,
 						carrier_id: carrier_id,
 						point_id_selected: point_id_selected,
-						preference_id: '{{$preference->id}}'				
+						preference_id: '{{$preference->id}}',
+						items_cart: itemsCart	
 
 					})
 				})

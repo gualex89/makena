@@ -13,7 +13,7 @@ class CheckoutController extends Controller
     }
     public function SaveOrder(Request $request){
         $data = $request->all();
-        /* dd($data); */
+        
         $order = new Order();
         $order->status = 'Pendiente';
         $order->documento = $data['documento'];
@@ -36,6 +36,7 @@ class CheckoutController extends Controller
         $order->carrier_id = $data['carrier_id'];
         $order->point_id = $data['point_id_selected'];
         $order->preference_id = $data['preference_id'];
+        $order->items_cart = json_encode($data['items_cart']);
         $order->save();
         
         return response()->json(['message' => 'Orden guardada exitosamente']);

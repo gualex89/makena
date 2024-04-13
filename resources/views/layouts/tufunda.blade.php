@@ -415,7 +415,7 @@
 		<!-- footer_section - start
 		================================================== -->
 		<footer class="footer_section motorcycle_footer clearfix">
-			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/bg_18.jpg">
+			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/makenaFooterBackground.jpg">
 				<div class="container">
 					<div class="row justify-content-lg-between">
 
@@ -423,7 +423,7 @@
 							<div class="footer_widget footer_about">
 								<div class="brand_logo mb_30">
 									<a href="#!">
-										<img src="images/logo/logo_22_1x.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
+										<img src="images/logo/logoMakena.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
 									</a>
 								</div>
 
