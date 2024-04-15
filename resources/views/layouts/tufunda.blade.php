@@ -419,8 +419,8 @@
 				<div class="container">
 					<div class="row justify-content-lg-between">
 
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 order-last">
-							<div class="footer_widget footer_about">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+							<div class="footer_widget footer_about text-center">
 								<div class="brand_logo mb_30">
 									<a href="#!">
 										<img src="images/logo/logoMakena.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
@@ -428,62 +428,23 @@
 								</div>
 
 								<ul class="footer_contact_info ul_li_block mb_30 clearfix">
-									<li><span>Email:</span> jthemes@gmail.com</li>
-									<li><span>Phone:</span> 212-962-0125 or 212-962-8217</li>
+									<li><span>Email:</span> contacto@makenafundas.com.ar</li>
+									<li><span>Teléfono:</span> 11 2244 4188</li>
 								</ul>
 
-								<ul class="circle_social_links ul_li clearfix">
-									<li><a href="#!"><i class="fab fa-vimeo-v"></i></a></li>
-									<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-							<div class="footer_widget footer_useful_links clearfix">
-								<h3 class="footer_widget_title text-uppercase">About our company</h3>
-								<ul class="ul_li_block">
-									<li><a href="#!">About us</a></li>
-									<li><a href="#!">Our History</a></li>
-									<li><a href="#!">Press</a></li>
-									<li><a href="#!">Media</a></li>
-									<li><a href="#!">Careers</a></li>
-									<li><a href="#!">Video Library</a></li>
-									<li><a href="#!">Affiliate Program</a></li>
+								<ul class="circle_social_links ul_li clearfix justify-content-center d-flex">
+									<li><a href="https://www.instagram.com/makenafundas/"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="http://wa.me/541122444188"><i class="fab fa-whatsapp"></i></a></li>
+									<li><a href="https://www.facebook.com/makenafundas"><i class="fab fa-facebook-f"></i></a></li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-							<div class="footer_widget footer_useful_links clearfix">
-								<h3 class="footer_widget_title text-uppercase">Resources</h3>
-								<ul class="ul_li_block">
-									<li><a href="#!">Partnets</a></li>
-									<li><a href="#!">Customer Service</a></li>
-									<li><a href="#!">Video tutorials</a></li>
-									<li><a href="#!">Codex</a></li>
-									<li><a href="#!">Blog</a></li>
-									<li><a href="#!">Privacy policy</a></li>
-									<li><a href="#!">Terms & conditions</a></li>
-								</ul>
-							</div>
-						</div>
+						
 
-						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-							<div class="footer_widget footer_twitter_feed clearfix">
-								<h3 class="footer_widget_title text-uppercase">Twitter Feed</h3>
-								<div class="twitter_feed">
-									<h4 class="admin_name"><a href="#!">Jthemes Development</a></h4>
-									<span class="admin_title">@jthemes</span>
-									<p>
-										Awesome news! Neoncart theme is already available on themeforest! Click the link to see by yourself www.jthemes.com
-									</p>
-									<span class="post_time"><i class="fal fa-clock mr-1"></i> 27 Novenber 2020</span>
-								</div>
-							</div>
-						</div>
+						
+
+						
 
 					</div>
 				</div>
