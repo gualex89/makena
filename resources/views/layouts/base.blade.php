@@ -297,7 +297,7 @@
 					<div class="row no-gutters">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 							<div class="feature_fullimage text-center">
-								<img src="images/ventajastpu.png" alt="image_not_found">
+								<img src="images/ventajastpu.webp" alt="image_not_found">
 								<div class="item_content">
 									<h3 class="item_title text-white mb_30">BORDES</h3>
 									<h3 class="item_title text-white mb_30">ANTIDESLIZANTES</h3>
@@ -307,7 +307,7 @@
 
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 							<div class="feature_fullimage text-center fondo-ventajas" >
-								<img src="images/ventajastpu2.png" alt="image_not_found">
+								<img src="images/ventajastpu2.webp" alt="image_not_found">
 								<div class="item_content">
 									<h3 class="item_title text-white mb_30">LÁMINA DE</h3>
 									<h3 class="item_title text-white mb_30">ALUMINIO</h3>
@@ -317,7 +317,7 @@
 
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 							<div class="feature_fullimage text-center">
-								<img src="images/ventajastpu3.png" alt="image_not_found">
+								<img src="images/ventajastpu3.webp" alt="image_not_found">
 								<div class="item_content">
 									<h3 class="item_title text-white mb_30">CUBIERTA</h3>
 									<h3 class="item_title text-white mb_30">TPU</h3>
@@ -327,7 +327,7 @@
 
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 							<div class="feature_fullimage text-center">
-								<img src="images/ventajastpu4.png" alt="image_not_found">
+								<img src="images/ventajastpu4.webp" alt="image_not_found">
 								<div class="item_content">
 									<h3 class="item_title text-white mb_30">BORDES</h3>
 									<h3 class="item_title text-white mb_30">ANTI-GOLPES</h3>
@@ -354,83 +354,22 @@
 							<div class="item">
 								<div class="motorcycle_testimonial_item bg_white">
 									<div class="item_image">
-										<img src="images/meta/img_02.jpg" alt="image_not_found">
+										<img src="images/seComplico.webp" alt="image_not_found">
 									</div>
 									<div class="item_content">
-										<h4 class="sub_title">TESTIMONIALS</h4>
+										<h4 class="sub_title">¿Se complicó?</h4>
 										<h3 class="title_text">
-											<span>BOSTON'S</span> MOTORCYCLE CLUB
+											NUESTRA ATENCIÓN TAMBIÉN ES <span>PERSONALIZADA</span>
 										</h3>
-										<span class="quote_icon">
-											<i class="fas fa-quote-left"></i>
-										</span>
-										<ul class="admin_image ul_li mb_30 clearfix">
-											<li><img src="images/meta/img_03.jpg" alt="image_not_found"></li>
-											<li><img src="images/meta/img_04.jpg" alt="image_not_found"></li>
-										</ul>
-										<h5 class="admin_name">JOHN DOE</h5>
-										<p class="mb-0">
-											If you are looking to find a group of well-established and safe to ride with, you’ve found us. We were founded as a formal motorcycle club in Boston in 1985, and are still going strong. We focus on safe riding and we also ride for with any questions you may have.
-										</p>
+										<h4 class="mb-0">
+										A veces "Crea tu Funda" no es suficiente para lograr la funda perfecta. Nuestro diseñador esta On fire para ayudarte. Escribinos a nuestro whatsapp para cotizar!
+										</h4>
 									</div>
 								</div>
 							</div>
 
-							<div class="item">
-								<div class="motorcycle_testimonial_item bg_white">
-									<div class="item_image">
-										<img src="images/meta/img_02.jpg" alt="image_not_found">
-									</div>
-									<div class="item_content">
-										<h4 class="sub_title">TESTIMONIALS</h4>
-										<h3 class="title_text">
-											<span>BOSTON'S</span> MOTORCYCLE CLUB
-										</h3>
-										<span class="quote_icon">
-											<i class="fas fa-quote-left"></i>
-										</span>
-										<ul class="admin_image ul_li mb_30 clearfix">
-											<li><img src="images/meta/img_03.jpg" alt="image_not_found"></li>
-											<li><img src="images/meta/img_04.jpg" alt="image_not_found"></li>
-										</ul>
-										<h5 class="admin_name">JOHN DOE</h5>
-										<p class="mb-0">
-											If you are looking to find a group of well-established and safe to ride with, you’ve found us. We were founded as a formal motorcycle club in Boston in 1985, and are still going strong. We focus on safe riding and we also ride for with any questions you may have.
-										</p>
-									</div>
-								</div>
-							</div>
-
-							<div class="item">
-								<div class="motorcycle_testimonial_item bg_white">
-									<div class="item_image">
-										<img src="images/meta/img_02.jpg" alt="image_not_found">
-									</div>
-									<div class="item_content">
-										<h4 class="sub_title">TESTIMONIALS</h4>
-										<h3 class="title_text">
-											<span>BOSTON'S</span> MOTORCYCLE CLUB
-										</h3>
-										<span class="quote_icon">
-											<i class="fas fa-quote-left"></i>
-										</span>
-										<ul class="admin_image ul_li mb_30 clearfix">
-											<li><img src="images/meta/img_03.jpg" alt="image_not_found"></li>
-											<li><img src="images/meta/img_04.jpg" alt="image_not_found"></li>
-										</ul>
-										<h5 class="admin_name">JOHN DOE</h5>
-										<p class="mb-0">
-											If you are looking to find a group of well-established and safe to ride with, you’ve found us. We were founded as a formal motorcycle club in Boston in 1985, and are still going strong. We focus on safe riding and we also ride for with any questions you may have.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="carousel_nav">
-							<button type="button" class="mt_left_arrow"><i class="fal fa-angle-left"></i></button>
-							<button type="button" class="mt_right_arrow"><i class="fal fa-angle-right"></i></button>
-						</div>
+							
+						
 					</div>
 				</div>
 			</section>
@@ -532,7 +471,7 @@
 		<!-- footer_section - start
 		================================================== -->
 		<footer class="footer_section motorcycle_footer clearfix">
-			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/makenaFooterBackground.jpg">
+			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/makenaFooterBackground.webp">
 				<div class="container">
 					<div class="row justify-content-lg-between">
 
@@ -545,16 +484,14 @@
 								</div>
 
 								<ul class="footer_contact_info ul_li_block mb_30 clearfix">
-									<li><span>Email:</span> jthemes@gmail.com</li>
-									<li><span>Phone:</span> 212-962-0125 or 212-962-8217</li>
+									<li><span>Email:</span> contacto@makenafundas.com.ar</li>
+									<li><span>Teléfono:</span> 11 2244 4188</li>
 								</ul>
 
 								<ul class="circle_social_links ul_li clearfix justify-content-center d-flex">
-									<li><a href="#!"><i class="fab fa-vimeo-v"></i></a></li>
-									<li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-									<li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
+									<li><a href="https://www.instagram.com/makenafundas/"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="http://wa.me/541122444188"><i class="fab fa-whatsapp"></i></a></li>
+									<li><a href="https://www.facebook.com/makenafundas"><i class="fab fa-facebook-f"></i></a></li>
 								</ul>
 							</div>
 						</div>

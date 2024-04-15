@@ -253,7 +253,7 @@
 		<!-- footer_section - start
 		================================================== -->
 		<footer class="footer_section motorcycle_footer clearfix">
-			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/makenaFooterBackground.jpg">
+			<div class="footer_widget_area sec_ptb_100 clearfix" data-background="images/backgrounds/makenaFooterBackground.webp">
 				<div class="container">
 					<div class="row justify-content-lg-between">
 
