@@ -1,3 +1,15 @@
 /vendor
 node_modules
 .env
+.editorconfig
+/test
+/database
+composer.lock
+composer.json
+artisan
+package.json
+package-lock.json
+phpunit.xml
+README.md
+webpack.mix.js
+vite.config.js

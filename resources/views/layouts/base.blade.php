@@ -8,7 +8,7 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 		<title>Makena</title>
-		<link rel="shortcut icon" href="images/logo/makenaMiniIcon.png">
+		<link rel="shortcut icon" href="images/logo/makenaminiIcon.png">
 
 		<!-- fraimwork - css include -->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -64,7 +64,7 @@
 						<div class="col-lg-2">
 							<div class="brand_logo">
 								<a class="brand_link" href="index.html">
-									<img src="images/logo/logoMakena.png" srcset="images/logo/logoMakena.png 2x" alt="logo_not_found">
+									<img src="images/logo/logomakena.png" srcset="images/logo/logomakena.png 2x" alt="logo_not_found">
 								</a>
 
 								<ul class="mh_action_btns ul_li clearfix">
@@ -447,7 +447,7 @@
 
 						<div class="item">
 							<a class="brand_item" href="#!">
-								<img src="images/logos/LG.png" alt="logo_LG">
+								<img src="images/logos/lg.png" alt="logo_LG">
 							</a>
 						</div>
 
@@ -479,7 +479,7 @@
 							<div class="footer_widget footer_about text-center">
 								<div class="brand_logo mb_30">
 									<a href="#!">
-										<img src="images/logo/logoMakena.png" srcset="images/logo/logo_22_2x.png 2x" alt="logo_not_found">
+										<img src="images/logo/logomakena.png" alt="logo_not_found">
 									</a>
 								</div>
 
